@@ -1,0 +1,16 @@
+Uncompressed (Old tracker style):
+^(cmd:)?[A-Z]{1,2}\d[A-Z]{2,3}(-\d)?>(APT311|APRS),((([A-Z]{1,2}\d[A-Z]{2,3}(-\d)?)|(WIDE\S{1,3})|(q[A-Z]{2}))\*?,?)+:((\/|@)\d{6}(h|z|\/)|(!|=))\d{4}\.\d\d(N|S)\/\d{5}\.\d\d(W|E).(\d{3}\/\d{3})?.*(\/A=\d{6})?$
+
+Compressed (HABDuino style):
+^(cmd:)?[A-Z]{1,2}\d[A-Z]{2,3}(-\d)?>(APT311|APRS),((([A-Z]{1,2}\d[A-Z]{2,3}(-\d)?)|(WIDE\S{1,3})|(q[A-Z]{2}))\*?,?)+:((\/|@)\d{6}(h|z|\/)|(!|=))(\/|\\)[\x21-\x7E]{9}( |\u00A0|[\x21-\x7A]){3}.*(\/A=.{6})?
+
+Test Cases:
+cmd:W3EAX-9>APT311,WIDE2-2:/203651h3859.58N/07656.35WO051/000/A=000111/W3EAX
+W3EAX-9>APT311,N3KTX-6*,WIDE2-1,qAR,W3AD-1:/153525h3949.60N/07716.31WO081/029/A=063762/W3EAX
+KB3ZZI-1>APRS,WIDE1-1,WIDE2-1:!/:h?/;%EsO   /A=000249|!8|  /KB3ZZI,125,8,27'C,http://habduino.org
+W3EAX-9>APT311,WIDE2-2:/203716h3859.58N/07656.35WO051/000/A=000111/W3EAX
+W3EAX-9>APT311,WIDE2-2:/203741h3859.58N/07656.35WO051/000/A=000121/W3EAX
+KB3ZZI-1>APRS,WIDE1-1,WIDE2-1:!/:h>t;%EsO   /A=000246|!9|  /KB3ZZI,130,8,27'C,http://habduino.org
+KB3ZZI-9>APRS,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:!/:Ig\:iOfO   /A=000606|!!|  /KB3ZZI,7,8,27'C,http://goo.gl/dGbpev
+KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,K3PDK-1:!/:Ir/:id[O   /A=002785|!Q|  /KB3ZZI,261,8,39'C,http://goo.gl/dGbpe
+KB3ZZI-9>APRS,KK4NBP-1*,KD4PBS-3*,WIDE2,qAR,N4JJS-2:!/:M;H:pV:O   /A=046593|!o|  /KB3ZZI,415,0,38'C,http://goo.gl/dGbpe

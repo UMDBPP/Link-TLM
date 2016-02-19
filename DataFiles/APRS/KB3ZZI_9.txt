@@ -1,0 +1,2176 @@
+2015-06-13 07:17:44 EDT: KB3ZZI-9>APRS,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:!/:Ig\:iOfO   /A=000606|!!|  /KB3ZZI,7,8,27'C,http://goo.gl/dGbpev
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.65703574972567 °
+   longitude: -77.93418144206487 °
+   altitude: 184.7088 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!!|  /KB3ZZI,7,8,27'C,http://goo.gl/dGbpev
+
+2015-06-13 07:20:12 EDT: KB3ZZI-9>APRS,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:!/:IgZ:iOjO   /A=000570|!#|  /KB3ZZI,18,8,29'C,http://goo.gl/dGbpev
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.65704100008926 °
+   longitude: -77.93416044061051 °
+   altitude: 173.736 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!#|  /KB3ZZI,18,8,29'C,http://goo.gl/dGbpev
+
+2015-06-13 07:22:40 EDT: KB3ZZI-9>APRS,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:!/:Ig\:iOnO   /A=000597|!%|  /KB3ZZI,29,8,30'C,http://goo.gl/dGbpev
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.65703574972567 °
+   longitude: -77.93413943915616 °
+   altitude: 181.9656 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!%|  /KB3ZZI,29,8,30'C,http://goo.gl/dGbpev
+
+2015-06-13 07:24:58 EDT: KB3ZZI-9>APRS,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:!/:Igh:iOjO   /A=000580|!'|  /KB3ZZI,39,8,31'C,http://goo.gl/dGbpev
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.65700424754414 °
+   longitude: -77.93416044061051 °
+   altitude: 176.784 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!'|  /KB3ZZI,39,8,31'C,http://goo.gl/dGbpev
+
+2015-06-13 07:26:12 EDT: KB3ZZI-9>APRS,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:!/:Ig\:iOfO   /A=000597|!(|  /KB3ZZI,44,8,31'C,http://goo.gl/dGbpev
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.65703574972567 °
+   longitude: -77.93418144206487 °
+   altitude: 181.9656 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!(|  /KB3ZZI,44,8,31'C,http://goo.gl/dGbpev
+
+2015-06-13 07:32:13 EDT: KB3ZZI-9>APRS,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:!/:IgP:iOjO   /A=000587|!-|  /KB3ZZI,71,8,33'C,http://goo.gl/dGbpev
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.65706725190719 °
+   longitude: -77.93416044061051 °
+   altitude: 178.9176 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!-|  /KB3ZZI,71,8,33'C,http://goo.gl/dGbpev
+
+2015-06-13 07:34:40 EDT: KB3ZZI-9>APRS,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:!/:IgZ:iOnO   /A=000606|!/|  /KB3ZZI,81,8,34'C,http://goo.gl/dGbpev
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.65704100008926 °
+   longitude: -77.93413943915616 °
+   altitude: 184.7088 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!/|  /KB3ZZI,81,8,34'C,http://goo.gl/dGbpev
+
+2015-06-13 07:35:54 EDT: KB3ZZI-9>APRS,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:!/:IgX:iOpO   /A=000620|!0|  /KB3ZZI,87,8,34'C,http://goo.gl/dGbpev
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.65704625045284 °
+   longitude: -77.93412893842898 °
+   altitude: 188.976 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!0|  /KB3ZZI,87,8,34'C,http://goo.gl/dGbpev
+
+2015-06-13 07:37:08 EDT: KB3ZZI-9>APRS,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:!/:IgV:iOpO   /A=000606|!1|  /KB3ZZI,92,8,34'C,http://goo.gl/dGbpev
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.65705150081643 °
+   longitude: -77.93412893842898 °
+   altitude: 184.7088 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!1|  /KB3ZZI,92,8,34'C,http://goo.gl/dGbpev
+
+2015-06-13 07:38:22 EDT: KB3ZZI-9>APRS,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:!/:Ig`:iOjO   /A=000606|!2|  /KB3ZZI,97,8,35'C,http://goo.gl/dGbpev
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.65702524899849 °
+   longitude: -77.93416044061051 °
+   altitude: 184.7088 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!2|  /KB3ZZI,97,8,35'C,http://goo.gl/dGbpev
+
+2015-06-13 07:39:36 EDT: KB3ZZI-9>APRS,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:!/:Ig\:iOjO   /A=000600|!3|  /KB3ZZI,103,8,35'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.65703574972567 °
+   longitude: -77.93416044061051 °
+   altitude: 182.88 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!3|  /KB3ZZI,103,8,35'C,http://goo.gl/dGbpe
+
+2015-06-13 07:40:50 EDT: KB3ZZI-9>APRS,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:!/:IgX:iOlO   /A=000610|!4|  /KB3ZZI,108,8,35'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.65704625045284 °
+   longitude: -77.93414993988334 °
+   altitude: 185.928 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!4|  /KB3ZZI,108,8,35'C,http://goo.gl/dGbpe
+
+2015-06-13 07:42:04 EDT: KB3ZZI-9>APRS,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:!/:IgP:iOfO   /A=000616|!5|  /KB3ZZI,113,8,35'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.65706725190719 °
+   longitude: -77.93418144206487 °
+   altitude: 187.7568 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!5|  /KB3ZZI,113,8,35'C,http://goo.gl/dGbpe
+
+2015-06-13 07:44:32 EDT: KB3ZZI-9>APRS,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:!/:Igb:iOlO   /A=000600|!7|  /KB3ZZI,124,8,36'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.65701999863491 °
+   longitude: -77.93414993988334 °
+   altitude: 182.88 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!7|  /KB3ZZI,124,8,36'C,http://goo.gl/dGbpe
+
+2015-06-13 07:45:46 EDT: KB3ZZI-9>APRS,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:!/:Ig\:iOnO   /A=000587|!8|  /KB3ZZI,129,8,36'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.65703574972567 °
+   longitude: -77.93413943915616 °
+   altitude: 178.9176 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!8|  /KB3ZZI,129,8,36'C,http://goo.gl/dGbpe
+
+2015-06-13 07:49:28 EDT: KB3ZZI-9>APRS,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:!/:Igh:iOnO   /A=000593|!;|  /KB3ZZI,145,8,36'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.65700424754414 °
+   longitude: -77.93413943915616 °
+   altitude: 180.7464 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!;|  /KB3ZZI,145,8,36'C,http://goo.gl/dGbpe
+
+2015-06-13 07:50:42 EDT: KB3ZZI-9>APRS,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:!/:Ig`:iO`O   /A=000639|!<|  /KB3ZZI,150,8,37'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.65702524899849 °
+   longitude: -77.93421294424638 °
+   altitude: 194.7672 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!<|  /KB3ZZI,150,8,37'C,http://goo.gl/dGbpe
+
+2015-06-13 07:55:38 EDT: KB3ZZI-9>APRS,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:!/:Ig^:iOjO   /A=000570|!@|  /KB3ZZI,171,8,37'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.65703049936208 °
+   longitude: -77.93416044061051 °
+   altitude: 173.736 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!@|  /KB3ZZI,171,8,37'C,http://goo.gl/dGbpe
+
+2015-06-13 07:56:53 EDT: KB3ZZI-9>APRS,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:!/:Ig^:iOnO   /A=000583|!A|  /KB3ZZI,177,8,37'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.65703049936208 °
+   longitude: -77.93413943915616 °
+   altitude: 177.6984 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!A|  /KB3ZZI,177,8,37'C,http://goo.gl/dGbpe
+
+2015-06-13 07:58:06 EDT: KB3ZZI-9>APRS,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:!/:Ig`:iOhO   /A=000580|!B|  /KB3ZZI,182,8,38'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.65702524899849 °
+   longitude: -77.93417094133768 °
+   altitude: 176.784 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!B|  /KB3ZZI,182,8,38'C,http://goo.gl/dGbpe
+
+2015-06-13 07:59:20 EDT: KB3ZZI-9>APRS,N3KTX-4,WIDE1*,WIDE2-1,qAR,KD8AZC:!/:IgV:iOvO   /A=000574|!C|  /KB3ZZI,187,8,38'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.65705150081643 °
+   longitude: -77.93409743624746 °
+   altitude: 174.9552 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!C|  /KB3ZZI,187,8,38'C,http://goo.gl/dGbpe
+
+2015-06-13 08:00:34 EDT: KB3ZZI-9>APRS,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:!/:Ig`:iOpO   /A=000597|!D|  /KB3ZZI,192,8,38'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.65702524899849 °
+   longitude: -77.93412893842898 °
+   altitude: 181.9656 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!D|  /KB3ZZI,192,8,38'C,http://goo.gl/dGbpe
+
+2015-06-13 08:01:43 EDT: KB3ZZI-9>APRS,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:!/:Ig`:iOpO   /A=000577|!E|  /KB3ZZI,197,8,38'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.65702524899849 °
+   longitude: -77.93412893842898 °
+   altitude: 175.8696 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!E|  /KB3ZZI,197,8,38'C,http://goo.gl/dGbpe
+
+2015-06-13 08:02:58 EDT: KB3ZZI-9>APRS,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:!/:IgT:iOtO   /A=000597|!F|  /KB3ZZI,203,8,38'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.65705675118002 °
+   longitude: -77.93410793697464 °
+   altitude: 181.9656 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!F|  /KB3ZZI,203,8,38'C,http://goo.gl/dGbpe
+
+2015-06-13 08:06:39 EDT: KB3ZZI-9>APRS,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:!/:IgH:iOjO   /A=000583|!I|  /KB3ZZI,218,8,38'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.65708825336154 °
+   longitude: -77.93416044061051 °
+   altitude: 177.6984 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!I|  /KB3ZZI,218,8,38'C,http://goo.gl/dGbpe
+
+2015-06-13 08:07:54 EDT: KB3ZZI-9>APRS,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:!/:IgJ:iOjO   /A=000580|!J|  /KB3ZZI,224,8,39'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.65708300299796 °
+   longitude: -77.93416044061051 °
+   altitude: 176.784 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!J|  /KB3ZZI,224,8,39'C,http://goo.gl/dGbpe
+
+2015-06-13 08:09:07 EDT: KB3ZZI-9>APRS,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:!/:IgV:iOpO   /A=000597|!K|  /KB3ZZI,229,8,39'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.65705150081643 °
+   longitude: -77.93412893842898 °
+   altitude: 181.9656 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!K|  /KB3ZZI,229,8,39'C,http://goo.gl/dGbpe
+
+2015-06-13 08:10:21 EDT: KB3ZZI-9>APRS,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:!/:IgP:iOrO   /A=000583|!L|  /KB3ZZI,234,8,39'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.65706725190719 °
+   longitude: -77.93411843770181 °
+   altitude: 177.6984 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!L|  /KB3ZZI,234,8,39'C,http://goo.gl/dGbpe
+
+2015-06-13 08:12:49 EDT: KB3ZZI-9>APRS,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:!/:IgN:iOnO   /A=000590|!N|  /KB3ZZI,245,8,39'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.65707250227078 °
+   longitude: -77.93413943915616 °
+   altitude: 179.832 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!N|  /KB3ZZI,245,8,39'C,http://goo.gl/dGbpe
+
+2015-06-13 08:14:03 EDT: KB3ZZI-9>APRS,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:!/:IgT:iOrO   /A=000606|!O|  /KB3ZZI,250,8,39'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.65705675118002 °
+   longitude: -77.93411843770181 °
+   altitude: 184.7088 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!O|  /KB3ZZI,250,8,39'C,http://goo.gl/dGbpe
+
+2015-06-13 08:15:17 EDT: KB3ZZI-9>APRS,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:!/:Ij-:iSvO   /A=001243|!P|  /KB3ZZI,255,8,39'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.65644245864026 °
+   longitude: -77.93218630390155 °
+   altitude: 378.8664 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!P|  /KB3ZZI,255,8,39'C,http://goo.gl/dGbpe
+
+2015-06-13 08:16:30 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,K3PDK-1:!/:Ir/:id[O   /A=002785|!Q|  /KB3ZZI,261,8,39'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.65452607593076 °
+   longitude: -77.92420575124828 °
+   altitude: 848.8680000000001 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!Q|  /KB3ZZI,261,8,39'C,http://goo.gl/dGbpe
+
+2015-06-13 08:17:44 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,K3PDK-1:!/:J+c:iwTO   /A=004219|!R|  /KB3ZZI,266,0,39'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.64961173561269 °
+   longitude: -77.9151646251503 °
+   altitude: 1285.9512 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!R|  /KB3ZZI,266,0,39'C,http://goo.gl/dGbpe
+
+2015-06-13 08:18:58 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,K3PDK-1:!/:JD@:j5AO   /A=005603|!S|  /KB3ZZI,271,0,39'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.64373132839449 °
+   longitude: -77.90331980489648 °
+   altitude: 1707.7944 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!S|  /KB3ZZI,271,0,39'C,http://goo.gl/dGbpe
+
+2015-06-13 08:18:59 EDT: KB3ZZI-9>APRS,KV3B-1,WIDE1,WIDE2,qAR,KG6DNI:!/:J+c:iwTO   /A=004219|!R|  /KB3ZZI,266,0,39'C,http://goo.gl/dGbpe [Rate limited (< 5 sec)]
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.64961173561269 °
+   longitude: -77.9151646251503 °
+   altitude: 1285.9512 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!R|  /KB3ZZI,266,0,39'C,http://goo.gl/dGbpe
+
+2015-06-13 08:20:12 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,K3PDK-1:!/:J`r:jNFO   /A=006761|!T|  /KB3ZZI,276,0,39'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.6369111060941 °
+   longitude: -77.89134897591659 °
+   altitude: 2060.7528 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!T|  /KB3ZZI,276,0,39'C,http://goo.gl/dGbpe
+
+2015-06-13 08:21:26 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,K3PDK-1:!/:J{S:je;O   /A=007821|!U|  /KB3ZZI,282,0,39'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.63054241506224 °
+   longitude: -77.88041771892703 °
+   altitude: 2383.8408 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!U|  /KB3ZZI,282,0,39'C,http://goo.gl/dGbpe
+
+2015-06-13 08:22:40 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,K3PDK-1:!/:K6':jz^O   /A=008953|!V|  /KB3ZZI,287,0,40'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.62540230910991 °
+   longitude: -77.87020051138542 °
+   altitude: 2728.8744 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!V|  /KB3ZZI,287,0,40'C,http://goo.gl/dGbpe
+
+2015-06-13 08:23:54 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,K3PDK-1:!/:KAt:k8oO   /A=010245|!W|  /KB3ZZI,292,0,40'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.62257236313615 °
+   longitude: -77.85816667804245 °
+   altitude: 3122.676 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!W|  /KB3ZZI,292,0,40'C,http://goo.gl/dGbpe
+
+2015-06-13 08:25:09 EDT: KB3ZZI-9>APRS,KV3B-1*,WIDE1*,WIDE2-1,qAR,K5DAT-10:!/:KLE:kN5O   /A=011705|!X|  /KB3ZZI,297,0,40'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.62006793970482 °
+   longitude: -77.84795997122801 °
+   altitude: 3567.684 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!X|  /KB3ZZI,297,0,40'C,http://goo.gl/dGbpe
+
+2015-06-13 08:26:22 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,K3PDK-1:!/:KOR:kczO   /A=013211|!Y|  /KB3ZZI,302,0,40'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.61931713771179 °
+   longitude: -77.83756425132441 °
+   altitude: 4026.7128 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!Y|  /KB3ZZI,302,0,40'C,http://goo.gl/dGbpe
+
+2015-06-13 08:27:36 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,K3PDK-1:!/:KQJ:kzyO   /A=014819|!Z|  /KB3ZZI,308,0,40'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.61886035607966 °
+   longitude: -77.82658049069899 °
+   altitude: 4516.831200000001 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!Z|  /KB3ZZI,308,0,40'C,http://goo.gl/dGbpe
+
+2015-06-13 08:28:51 EDT: KB3ZZI-9>APRS,N3KTX-6*,WIDE1,WIDE2-1,qAR,W3AD-1:!/:KS.:l9[O   /A=016358|![|  /KB3ZZI,313,0,40'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.6184560780834 °
+   longitude: -77.81431564135816 °
+   altitude: 4985.9184 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |![|  /KB3ZZI,313,0,40'C,http://goo.gl/dGbpe
+
+2015-06-13 08:30:04 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,K3PDK-1:!/:KX]:lR8O   /A=017768|!\|  /KB3ZZI,318,0,40'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.6171382368229 °
+   longitude: -77.80255482692176 °
+   altitude: 5415.686400000001 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!\|  /KB3ZZI,318,0,40'C,http://goo.gl/dGbpe
+
+2015-06-13 08:31:18 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,K3PDK-1:!/:Kb!:lh&O   /A=019133|!]|  /KB3ZZI,323,0,40'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.61490683229814 °
+   longitude: -77.79213810556381 °
+   altitude: 5831.7384 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!]|  /KB3ZZI,323,0,40'C,http://goo.gl/dGbpe
+
+2015-06-13 08:32:32 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,K3PDK-1:!/:Kj-:m"KO   /A=020482|!^|  /KB3ZZI,328,0,40'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.61296419777069 °
+   longitude: -77.78191039729501 °
+   altitude: 6242.9136 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!^|  /KB3ZZI,328,0,40'C,http://goo.gl/dGbpe
+
+2015-06-13 08:33:46 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,N4TVC:!/:KtS:m8gO   /A=021833|!_|  /KB3ZZI,334,0,39'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.61047552543014 °
+   longitude: -77.77125215921203 °
+   altitude: 6654.6984 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!_|  /KB3ZZI,334,0,39'C,http://goo.gl/dGbpe
+
+2015-06-13 08:35:00 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,K3PDK-1:!/:L$2:mMRO   /A=023244|!`|  /KB3ZZI,339,0,39'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.6079343494537 °
+   longitude: -77.76132897203131 °
+   altitude: 7084.7712 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!`|  /KB3ZZI,339,0,39'C,http://goo.gl/dGbpe
+
+2015-06-13 08:35:47 EDT: KB3ZZI-9>APRS,BARNGT*,WIDE1*,WA2FPB-5*,qAR,WB2ZEX-10:!/:L$2:mMRO   /A=023244|!`|  /KB3ZZI,339,0,39'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.6079343494537 °
+   longitude: -77.76132897203131 °
+   altitude: 7084.7712 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!`|  /KB3ZZI,339,0,39'C,http://goo.gl/dGbpe
+
+2015-06-13 08:36:14 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,K3PDK-1:!/:L-':mbcO   /A=024701|!a|  /KB3ZZI,344,0,39'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.60581320256428 °
+   longitude: -77.75120627103426 °
+   altitude: 7528.8648 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!a|  /KB3ZZI,344,0,39'C,http://goo.gl/dGbpe
+
+2015-06-13 08:37:28 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,K3PDK-1:!/:L2D:mrgO   /A=026170|!b|  /KB3ZZI,349,0,39'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.60454261457606 °
+   longitude: -77.74354074019625 °
+   altitude: 7976.616 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!b|  /KB3ZZI,349,0,39'C,http://goo.gl/dGbpe
+
+2015-06-13 08:38:42 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,K3PDK-1:!/:L9C:n'uO   /A=027604|!c|  /KB3ZZI,354,0,39'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.60287299895518 °
+   longitude: -77.73582270572237 °
+   altitude: 8413.699200000001 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!c|  /KB3ZZI,354,0,39'C,http://goo.gl/dGbpe
+
+2015-06-13 08:39:55 EDT: KB3ZZI-9>APRS,AD3O-2,WIDE1,KD2AYD-3,WIDE2*,qAR,K2MST-2:!/:L9C:n'uO   /A=027604|!c|  /KB3ZZI,354,0,39'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.60287299895518 °
+   longitude: -77.73582270572237 °
+   altitude: 8413.699200000001 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!c|  /KB3ZZI,354,0,39'C,http://goo.gl/dGbpe
+
+2015-06-13 08:39:56 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,K3PDK-1:!/:LE9:n7oO   /A=029113|!d|  /KB3ZZI,359,0,39'C,http://goo.gl/dGbpe [Rate limited (< 5 sec)]
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.60003255225424 °
+   longitude: -77.72820967852024 °
+   altitude: 8873.642400000001 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!d|  /KB3ZZI,359,0,39'C,http://goo.gl/dGbpe
+
+2015-06-13 08:40:43 EDT: KB3ZZI-9>APRS,KV3B-1,WIDE1,WIDE2,qAR,KG6DNI:!/:LE9:n7oO   /A=029113|!d|  /KB3ZZI,359,0,39'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.60003255225424 °
+   longitude: -77.72820967852024 °
+   altitude: 8873.642400000001 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!d|  /KB3ZZI,359,0,39'C,http://goo.gl/dGbpe
+
+2015-06-13 08:41:10 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,K3PDK-1:!/:LSg:nG{O   /A=030593|!e|  /KB3ZZI,364,0,39'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.59656731228637 °
+   longitude: -77.72050214477352 °
+   altitude: 9324.7464 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!e|  /KB3ZZI,364,0,39'C,http://goo.gl/dGbpe
+
+2015-06-13 08:42:24 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,N4TVC:!/:L`$:nW[O   /A=032073|!f|  /KB3ZZI,370,0,39'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.59363760940445 °
+   longitude: -77.71302562702468 °
+   altitude: 9775.850400000001 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!f|  /KB3ZZI,370,0,39'C,http://goo.gl/dGbpe
+
+2015-06-13 08:43:38 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,K3PDK-1:!/:Lh`:niSO   /A=033677|!g|  /KB3ZZI,375,0,39'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.59156896615091 °
+   longitude: -77.70446753437676 °
+   altitude: 10264.7496 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!g|  /KB3ZZI,375,0,39'C,http://goo.gl/dGbpe
+
+2015-06-13 08:44:52 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,K3PDK-1:!/:Ljl:n{3O   /A=035327|!h|  /KB3ZZI,380,0,39'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.5910596808829 °
+   longitude: -77.69603545045494 °
+   altitude: 10767.6696 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!h|  /KB3ZZI,380,0,39'C,http://goo.gl/dGbpe
+
+2015-06-13 08:46:06 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,KJ5HY-1:!/:Lm7:o4iO   /A=036938|!i|  /KB3ZZI,385,0,39'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.59048214088826 °
+   longitude: -77.68619626909164 °
+   altitude: 11258.7024 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!i|  /KB3ZZI,385,0,39'C,http://goo.gl/dGbpe
+
+2015-06-13 08:47:20 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,K3PDK-1:!/:LlB:oMrO   /A=038516|!j|  /KB3ZZI,390,0,38'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.59069215543176 °
+   longitude: -77.67420443865738 °
+   altitude: 11739.6768 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!j|  /KB3ZZI,390,0,38'C,http://goo.gl/dGbpe
+
+2015-06-13 08:48:34 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,K3PDK-1:!/:LkS:od1O   /A=040097|!k|  /KB3ZZI,395,0,38'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.59088641888451 °
+   longitude: -77.66355670130156 °
+   altitude: 12221.5656 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!k|  /KB3ZZI,395,0,38'C,http://goo.gl/dGbpe
+
+2015-06-13 08:49:48 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,K3PDK-1:!/:Lrn:o{<O   /A=041630|!l|  /KB3ZZI,400,0,38'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.5891432981734 °
+   longitude: -77.65250993631309 °
+   altitude: 12688.824 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!l|  /KB3ZZI,400,0,38'C,http://goo.gl/dGbpe
+
+2015-06-13 08:51:02 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,K3PDK-1:!/:M&e:p31O   /A=043158|!m|  /KB3ZZI,405,0,38'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.58558355166095 °
+   longitude: -77.64348981166945 °
+   altitude: 13154.5584 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!m|  /KB3ZZI,405,0,38'C,http://goo.gl/dGbpe
+
+2015-06-13 08:52:16 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,N3QAM:!/:M0?:pDXO   /A=044766|!n|  /KB3ZZI,410,0,38'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.58329439313673 °
+   longitude: -77.63516273501941 °
+   altitude: 13644.6768 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!n|  /KB3ZZI,410,0,38'C,http://goo.gl/dGbpe
+
+2015-06-13 08:53:30 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,K3PDK-1:!/:M;H:pV:O   /A=046593|!o|  /KB3ZZI,415,0,38'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.58064295952494 °
+   longitude: -77.62672015037042 °
+   altitude: 14201.5464 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!o|  /KB3ZZI,415,0,38'C,http://goo.gl/dGbpe
+
+2015-06-13 08:54:12 EDT: KB3ZZI-9>APRS,KK4NBP-1*,KD4PBS-3*,WIDE2,qAR,N4JJS-2:!/:M;H:pV:O   /A=046593|!o|  /KB3ZZI,415,0,38'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.58064295952494 °
+   longitude: -77.62672015037042 °
+   altitude: 14201.5464 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!o|  /KB3ZZI,415,0,38'C,http://goo.gl/dGbpe
+
+2015-06-13 08:54:44 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,N3QAM:!/:MS,:phRO   /A=047902|!p|  /KB3ZZI,420,0,37'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.57498306757743 °
+   longitude: -77.61799404608769 °
+   altitude: 14600.5296 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!p|  /KB3ZZI,420,0,37'C,http://goo.gl/dGbpe
+
+2015-06-13 08:55:58 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,N3QAM:!/:Mr):psSO   /A=049294|!q|  /KB3ZZI,426,0,37'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.56758530528239 °
+   longitude: -77.61273318177284 °
+   altitude: 15024.8112 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!q|  /KB3ZZI,426,0,37'C,http://goo.gl/dGbpe
+
+2015-06-13 08:56:00 EDT: KB3ZZI-9>APRS,K8UI-1,WIDE1,N3ETV-2,WIDE2,qAR,KB3YMZ-10:!/:Mr):psSO   /A=049294|!q|  /KB3ZZI,426,0,37'C,http://goo.gl/dGbper 800 - 
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.56758530528239 °
+   longitude: -77.61273318177284 °
+   altitude: 15024.8112 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!q|  /KB3ZZI,426,0,37'C,http://goo.gl/dGbper 800 -
+
+2015-06-13 08:57:12 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,K3PDK-1:!/:N'Q:q'zO   /A=050724|!r|  /KB3ZZI,431,0,37'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.56365803331881 °
+   longitude: -77.60536167129574 °
+   altitude: 15460.6752 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!r|  /KB3ZZI,431,0,37'C,http://goo.gl/dGbpe
+
+2015-06-13 08:58:26 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,N3QAM:!/:NDd:q3$O   /A=051603|!s|  /KB3ZZI,436,0,37'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.55668030011078 °
+   longitude: -77.60007980552653 °
+   altitude: 15728.5944 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!s|  /KB3ZZI,436,0,37'C,http://goo.gl/dGbpe
+
+2015-06-13 08:59:15 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,N4YXW-10:!/:NDd:q3$O   /A=051603|!s|  /KB3ZZI,436,0,37'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.55668030011078 °
+   longitude: -77.60007980552653 °
+   altitude: 15728.5944 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!s|  /KB3ZZI,436,0,37'C,http://goo.gl/dGbpe
+
+2015-06-13 08:59:40 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,K3PDK-1:!/:NIY:q41O   /A=053034|!t|  /KB3ZZI,441,0,37'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.55551471939432 °
+   longitude: -77.59953376771341 °
+   altitude: 16164.7632 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!t|  /KB3ZZI,441,0,37'C,http://goo.gl/dGbpe
+
+2015-06-13 09:00:54 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,N3QAM:!/:NBr:q;*O   /A=054116|!u|  /KB3ZZI,446,0,37'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.55712133065214 °
+   longitude: -77.59622603865317 °
+   altitude: 16494.5568 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!u|  /KB3ZZI,446,0,37'C,http://goo.gl/dGbpe
+
+2015-06-13 09:02:08 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,K3WOW-1:!/:NK':qG@O   /A=055471|!v|  /KB3ZZI,451,0,36'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.55516819539753 °
+   longitude: -77.5903771336165 °
+   altitude: 16907.5608 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!v|  /KB3ZZI,451,0,36'C,http://goo.gl/dGbpe
+
+2015-06-13 09:02:08 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,K3PDK-1:!/:NK':qG@O   /A=055471|!v|  /KB3ZZI,451,0,36'C,http://goo.gl/dGbpeD
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.55516819539753 °
+   longitude: -77.5903771336165 °
+   altitude: 16907.5608 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!v|  /KB3ZZI,451,0,36'C,http://goo.gl/dGbpeD
+
+2015-06-13 09:03:22 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,WJ3K-10:!/:Nff:qP_O   /A=056278|!w|  /KB3ZZI,456,0,36'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.54855273727706 °
+   longitude: -77.58591432456697 °
+   altitude: 17153.5344 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!w|  /KB3ZZI,456,0,36'C,http://goo.gl/dGbpe
+
+2015-06-13 09:04:36 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,W4LAN:!/:O,):qWzO   /A=057108|!x|  /KB3ZZI,461,0,36'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.54082945243958 °
+   longitude: -77.58242808314476 °
+   altitude: 17406.5184 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!x|  /KB3ZZI,461,0,36'C,http://goo.gl/dGbpe
+
+2015-06-13 09:05:50 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,K3PDK-1:!/:OLy:qW&O   /A=058381|!y|  /KB3ZZI,466,0,36'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.53297490851241 °
+   longitude: -77.58286911368613 °
+   altitude: 17794.5288 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!y|  /KB3ZZI,466,0,36'C,http://goo.gl/dGbpe
+
+2015-06-13 09:06:26 EDT: KB3ZZI-9>APRS,K8UI-1*,WIDE1*,VA3SWO-1*,WIDE2*,qAR,KD8QWT:!/:OLy:qW&O   /A=058381|!y|  /KB3ZZI,466,0,36'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.53297490851241 °
+   longitude: -77.58286911368613 °
+   altitude: 17794.5288 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!y|  /KB3ZZI,466,0,36'C,http://goo.gl/dGbpe
+
+2015-06-13 09:08:18 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,K3PDK-1:!/:OlG:q@wO   /A=060885|!{|  /KB3ZZI,477,0,35'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.52546163821845 °
+   longitude: -77.59343284522453 °
+   altitude: 18557.748 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!{|  /KB3ZZI,477,0,35'C,http://goo.gl/dGbpe
+
+2015-06-13 09:09:32 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,N3QAM:!/:Or/:q=\O   /A=061964|"!|  /KB3ZZI,482,0,35'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.52409129332207 °
+   longitude: -77.59500795430084 °
+   altitude: 18886.6272 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |"!|  /KB3ZZI,482,0,35'C,http://goo.gl/dGbpe
+
+2015-06-13 09:10:46 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,WJ3K-10:!/:P)7:q9(O   /A=062971|""|  /KB3ZZI,487,0,35'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.5197702440894 °
+   longitude: -77.5971921055533 °
+   altitude: 19193.5608 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |""|  /KB3ZZI,487,0,35'C,http://goo.gl/dGbpe
+
+2015-06-13 09:12:00 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,N3QAM:!/:P5m:q4aO   /A=063903|"#|  /KB3ZZI,492,0,34'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.51676178575367 °
+   longitude: -77.59928175026121 °
+   altitude: 19477.6344 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |"#|  /KB3ZZI,492,0,34'C,http://goo.gl/dGbpe
+
+2015-06-13 09:12:49 EDT: KB3ZZI-9>APRS,EKONCT*,W1MHL*,WIDE2,qAR,WA1PLE-5:!/:P5m:q4aO   /A=063903|"#|  /KB3ZZI,492,0,34'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.51676178575367 °
+   longitude: -77.59928175026121 °
+   altitude: 19477.6344 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |"#|  /KB3ZZI,492,0,34'C,http://goo.gl/dGbpe
+
+2015-06-13 09:13:14 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,N3QAM:!/:PGs:q*+O   /A=064884|"$|  /KB3ZZI,497,0,34'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.51244598688459 °
+   longitude: -77.60434310075972 °
+   altitude: 19776.6432 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |"$|  /KB3ZZI,497,0,34'C,http://goo.gl/dGbpe
+
+2015-06-13 09:14:28 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,K3PDK-1:!/:PRt:pvzO   /A=065901|"%|  /KB3ZZI,502,0,34'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.50981555472716 °
+   longitude: -77.61109506833348 °
+   altitude: 20086.6248 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |"%|  /KB3ZZI,502,0,34'C,http://goo.gl/dGbpe
+
+2015-06-13 09:15:42 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,K3PDK-1:!/:PW[:pqKO   /A=066921|"&|  /KB3ZZI,507,0,34'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.50868672655582 °
+   longitude: -77.6137307508545 °
+   altitude: 20397.5208 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |"&|  /KB3ZZI,507,0,34'C,http://goo.gl/dGbpe
+
+2015-06-13 09:16:56 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,N3QAM:!/:P]]:pkQO   /A=067915|"'|  /KB3ZZI,512,0,34'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.50724812693279 °
+   longitude: -77.61656594719184 °
+   altitude: 20700.492 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |"'|  /KB3ZZI,512,0,34'C,http://goo.gl/dGbpe
+
+2015-06-13 09:17:59 EDT: KB3ZZI-9>APRS,EKONCT*,WA1PLE-15*,WIDE2*,qAR,WA1PLE-5:!/:P]]:pkQO   /A=067915|"'|  /KB3ZZI,512,0,34'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.50724812693279 °
+   longitude: -77.61656594719184 °
+   altitude: 20700.492 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |"'|  /KB3ZZI,512,0,34'C,http://goo.gl/dGbpe
+
+2015-06-13 09:18:10 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,N3QAM:!/:P_[:pZtO   /A=068946|"(|  /KB3ZZI,518,0,33'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.5067755942099 °
+   longitude: -77.62450449693641 °
+   altitude: 21014.7408 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |"(|  /KB3ZZI,518,0,33'C,http://goo.gl/dGbpe
+
+2015-06-13 09:19:24 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,K5DAT-10:!/:P_e:pR.O   /A=069976|")|  /KB3ZZI,523,0,33'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.50674934239196 °
+   longitude: -77.62869428707938 °
+   altitude: 21328.6848 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |")|  /KB3ZZI,523,0,33'C,http://goo.gl/dGbpe
+
+2015-06-13 09:19:56 EDT: KB3ZZI-9>APRS,K4EME-3*,WIDE2,qAR,AE4ML-2:!/:P_e:pR.O   /A=069976|")|  /KB3ZZI,523,0,33'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.50674934239196 °
+   longitude: -77.62869428707938 °
+   altitude: 21328.6848 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |")|  /KB3ZZI,523,0,33'C,http://goo.gl/dGbpe
+
+2015-06-13 09:20:06 EDT: KB3ZZI-9>APRS,KF4HJW-12,WIDE1,KB4ZIN-5,WIDE2*,qAo,KB4YFK:!/:NK':qG@O   /A=05547<0xb0>@<0xea>v|  /KB3ZZI,451,0,36'C,http://goo.gl/dGbpe [Location changes too fast (adaptive limit)]
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.55516819539753 °
+   longitude: -77.5903771336165 °
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: A=05547<0xb0>@<0xea>v|  /KB3ZZI,451,0,36'C,http://goo.gl/dGbpe
+
+2015-06-13 09:20:38 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,K3PDK-1:!/:PkK:pK/O   /A=070947|"*|  /KB3ZZI,528,0,33'C,http://goo.gl/dGbpe [Location changes too fast (adaptive limit)]
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.50395089859973 °
+   longitude: -77.63203351832114 °
+   altitude: 21624.6456 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |"*|  /KB3ZZI,528,0,33'C,http://goo.gl/dGbpe
+
+2015-06-13 09:21:11 EDT: KB3ZZI-9>APRS,W2OFQ-3,WIDE1,KD2AYD-3,WIDE2*,qAR,K2MST-2:!/:PkK:pK/O   /A=070947|"*|  /KB3ZZI,528,0,33'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.50395089859973 °
+   longitude: -77.63203351832114 °
+   altitude: 21624.6456 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |"*|  /KB3ZZI,528,0,33'C,http://goo.gl/dGbpe
+
+2015-06-13 09:21:52 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,N3QAM:!/:P{):p?wO   /A=071987|"+|  /KB3ZZI,533,0,33'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.50021789008889 °
+   longitude: -77.63738888918057 °
+   altitude: 21941.6376 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |"+|  /KB3ZZI,533,0,33'C,http://goo.gl/dGbpe
+
+2015-06-13 09:23:06 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,NR3I:!/:Q-@:p/wO   /A=073063|",|  /KB3ZZI,538,0,33'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.49705192084552 °
+   longitude: -77.64503341856424 °
+   altitude: 22269.6024 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |",|  /KB3ZZI,538,0,33'C,http://goo.gl/dGbpe
+
+2015-06-13 09:24:20 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,WJ3K-10:!/:Q;<:p!EO   /A=074178|"-|  /KB3ZZI,543,0,33'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.49371793996734 °
+   longitude: -77.65198489995433 °
+   altitude: 22609.4544 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |"-|  /KB3ZZI,543,0,33'C,http://goo.gl/dGbpe
+
+2015-06-13 09:25:34 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,KJ5HY-1:!/:QHk:oi`O   /A=075287|".|  /KB3ZZI,548,0,33'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.49048896636092 °
+   longitude: -77.66092101878056 °
+   altitude: 22947.4776 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |".|  /KB3ZZI,548,0,33'C,http://goo.gl/dGbpe
+
+2015-06-13 09:26:48 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,W4LAN:!/:QWl:oYJO   /A=076363|"/|  /KB3ZZI,553,0,32'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.48690296803053 °
+   longitude: -77.66868105616314 °
+   altitude: 23275.4424 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |"/|  /KB3ZZI,553,0,32'C,http://goo.gl/dGbpe
+
+2015-06-13 09:28:02 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,WJ3K-10:!/:Qgv:oFUO   /A=077469|"0|  /KB3ZZI,558,0,32'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.48305445152076 °
+   longitude: -77.67770118080676 °
+   altitude: 23612.5512 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |"0|  /KB3ZZI,558,0,32'C,http://goo.gl/dGbpe
+
+2015-06-13 09:28:38 EDT: KB3ZZI-9>APRS,EKONCT*,WA1PLE-15*,WIDE2*,qAR,WA1PLE-5:!/:Qgv:oFUO   /A=077469|"0|  /KB3ZZI,558,0,32'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.48305445152076 °
+   longitude: -77.67770118080676 °
+   altitude: 23612.5512 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |"0|  /KB3ZZI,558,0,32'C,http://goo.gl/dGbpe
+
+2015-06-13 09:29:16 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAo,KJ4SNT:!/:Qr1:o3$O   /A=078621|"1|  /KB3ZZI,563,0,32'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.48060778208891 °
+   longitude: -77.68703632726566 °
+   altitude: 23963.6808 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |"1|  /KB3ZZI,563,0,32'C,http://goo.gl/dGbpe
+
+2015-06-13 09:30:30 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,N3QAM:!/:Qv9:nzDO   /A=079684|"2|  /KB3ZZI,568,0,32'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.4796312144616 °
+   longitude: -77.69642397736044 °
+   altitude: 24287.6832 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |"2|  /KB3ZZI,568,0,32'C,http://goo.gl/dGbpe
+
+2015-06-13 09:31:39 EDT: KB3ZZI-9>APRS,WIDE1*,WIDE2-1,qAR,KB3YMZ-10:!/:R!u:ngGO   /A=080625|"3|  /KB3ZZI,573,0,32'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.47804035429454 °
+   longitude: -77.70548610491277 °
+   altitude: 24574.5 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |"3|  /KB3ZZI,573,0,32'C,http://goo.gl/dGbpe
+
+2015-06-13 09:32:53 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,N3QAM:!/:R&R:nSiO   /A=081711|"4|  /KB3ZZI,578,0,32'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.47693777794112 °
+   longitude: -77.71486325428036 °
+   altitude: 24905.5128 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |"4|  /KB3ZZI,578,0,32'C,http://goo.gl/dGbpe
+
+2015-06-13 09:33:28 EDT: KB3ZZI-9>APRS,W2OFQ-3,WIDE1,KD2AYD-3,WIDE2*,qAR,K2MST-2:!/:R&R:nSiO   /A=081711|"4|  /KB3ZZI,578,0,32'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.47693777794112 °
+   longitude: -77.71486325428036 °
+   altitude: 24905.5128 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |"4|  /KB3ZZI,578,0,32'C,http://goo.gl/dGbpe
+
+2015-06-13 09:34:07 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,K5DAT-10:!/:R%O:n<8O   /A=082833|"5|  /KB3ZZI,583,0,32'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.47718454502974 °
+   longitude: -77.72610953308516 °
+   altitude: 25247.4984 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |"5|  /KB3ZZI,583,0,32'C,http://goo.gl/dGbpe
+
+2015-06-13 09:35:21 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,K5DAT-10:!/:R%I:n&vO   /A=083909|"6|  /KB3ZZI,588,0,32'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.47720029612051 °
+   longitude: -77.73629523844527 °
+   altitude: 25575.4632 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |"6|  /KB3ZZI,588,0,32'C,http://goo.gl/dGbpe
+
+2015-06-13 09:36:35 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,N3QAM:!/:R#O:mpAO   /A=085025|"7|  /KB3ZZI,593,0,32'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.47766232811622 °
+   longitude: -77.74469582018554 °
+   altitude: 25915.62 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |"7|  /KB3ZZI,593,0,32'C,http://goo.gl/dGbpe
+
+2015-06-13 09:37:49 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAo,KJ4SNT:!/:R(0:m^5O   /A=086239|"8|  /KB3ZZI,598,0,32'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.47654925103564 °
+   longitude: -77.75335892010521 °
+   altitude: 26285.6472 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |"8|  /KB3ZZI,598,0,32'C,http://goo.gl/dGbpe
+
+2015-06-13 09:38:33 EDT: KB3ZZI-9>APRS,VE3DVQ,WIDE1,VE2PCQ-3*,qAR,VE2RIO-3:!/:R%I:n&vO   /A=083909|"6|  /KB3ZZI,588,0,32'C,http://goo.gl/dGbpe [Duplicate position packet]
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.47720029612051 °
+   longitude: -77.73629523844527 °
+   altitude: 25575.4632 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |"6|  /KB3ZZI,588,0,32'C,http://goo.gl/dGbpe
+
+2015-06-13 09:39:03 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAo,KJ4SNT:!/:R#y:mI:O   /A=087387|"9|  /KB3ZZI,603,0,32'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.47755207048088 °
+   longitude: -77.76336611310333 °
+   altitude: 26635.5576 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |"9|  /KB3ZZI,603,0,32'C,http://goo.gl/dGbpe
+
+2015-06-13 09:41:31 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,WB2LMV:!/:R/o:m$IO   /A=089608|";|  /KB3ZZI,614,0,32'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.47471162377995 °
+   longitude: -77.78096533184923 °
+   altitude: 27312.5184 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |";|  /KB3ZZI,614,0,32'C,http://goo.gl/dGbpe
+
+2015-06-13 09:42:45 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,N3QAM:!/:R<J:lkCO   /A=089011|"<|  /KB3ZZI,619,0,32'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.4717031654442 °
+   longitude: -77.79055249576034 °
+   altitude: 27130.5528 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |"<|  /KB3ZZI,619,0,32'C,http://goo.gl/dGbpe
+
+2015-06-13 09:43:43 EDT: KB3ZZI-9>APRS,KV3B-1,WIDE1,WIDE2,qAR,KG6DNI:!/:R<J:lkCO   /A=089011|"<|  /KB3ZZI,619,0,32'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.4717031654442 °
+   longitude: -77.79055249576034 °
+   altitude: 27130.5528 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |"<|  /KB3ZZI,619,0,32'C,http://goo.gl/dGbpe
+
+2015-06-13 09:43:59 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,N3QAM:!/:R<T:lXbO   /A=077574|"=|  /KB3ZZI,624,0,32'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.47167691362627 °
+   longitude: -77.79946761313221 °
+   altitude: 23644.5552 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |"=|  /KB3ZZI,624,0,32'C,http://goo.gl/dGbpe
+
+2015-06-13 09:43:59 EDT: KB3ZZI-9>APRS,qAR,K8KHW-7:3ZZI,624,0,32'C,http://goo.gl/dGbpe [Unsupported packet format]
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+
+2015-06-13 09:45:13 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,W3RGA-10:!/:RFH:lJ4O   /A=068696|">|  /KB3ZZI,629,0,32'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.4693195003754 °
+   longitude: -77.80639809306794 °
+   altitude: 20938.5408 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |">|  /KB3ZZI,629,0,32'C,http://goo.gl/dGbpe
+
+2015-06-13 09:46:27 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,KG4GIY:!/:ROm:lAUO   /A=061485|"?|  /KB3ZZI,634,0,32'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.46707234475988 °
+   longitude: -77.81052487884786 °
+   altitude: 18740.628 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |"?|  /KB3ZZI,634,0,32'C,http://goo.gl/dGbpe
+
+2015-06-13 09:47:41 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,N3QAM:!/:RgE:l?'O   /A=055393|"@|  /KB3ZZI,639,0,32'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.46144395499388 °
+   longitude: -77.81172196174585 °
+   altitude: 16883.7864 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |"@|  /KB3ZZI,639,0,32'C,http://goo.gl/dGbpe
+
+2015-06-13 09:48:55 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,KJ5HY-1:!/:RxL:lJ*O   /A=050176|"A|  /KB3ZZI,644,0,31'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.45736442248626 °
+   longitude: -77.80645059670383 °
+   altitude: 15293.6448 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |"A|  /KB3ZZI,644,0,31'C,http://goo.gl/dGbpe
+
+2015-06-13 09:49:48 EDT: KB3ZZI-9>APRS,KF4HJW-12,WIDE1,KB4ZIN-5,WIDE2*,qAo,KB4YFK:!/:RxL:lJ*O   /A=050176|"A|  /KB3ZZI,644,0,31'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.45736442248626 °
+   longitude: -77.80645059670383 °
+   altitude: 15293.6448 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |"A|  /KB3ZZI,644,0,31'C,http://goo.gl/dGbpe
+
+2015-06-13 09:50:09 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,K3PDK-1:!/:S,Q:lVLO   /A=045485|"B|  /KB3ZZI,649,0,31'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.4537679234287 °
+   longitude: -77.8005386873041 °
+   altitude: 13863.828 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |"B|  /KB3ZZI,649,0,31'C,http://goo.gl/dGbpe
+
+2015-06-13 09:51:23 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,N3QAM:!/:S<q:leMO   /A=041029|"C|  /KB3ZZI,654,0,31'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.44986165291947 °
+   longitude: -77.79336669064332 °
+   altitude: 12505.6392 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |"C|  /KB3ZZI,654,0,31'C,http://goo.gl/dGbpe
+
+2015-06-13 09:52:37 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,N3QAM:!/:S9X:ly%O   /A=037125|"D|  /KB3ZZI,659,0,31'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.45064395709403 °
+   longitude: -77.78402104345726 °
+   altitude: 11315.7 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |"D|  /KB3ZZI,659,0,31'C,http://goo.gl/dGbpe
+
+2015-06-13 09:53:52 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,KJ5HY-1:!/:SBE:m1(O   /A=033536|"E|  /KB3ZZI,664,0,31'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.44854381165896 °
+   longitude: -77.7749274137234 °
+   altitude: 10221.7728 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |"E|  /KB3ZZI,664,0,31'C,http://goo.gl/dGbpe
+
+2015-06-13 09:53:52 EDT: KB3ZZI-9>APRS,AD3O-2,WIDE1,KD2AYD-3,WIDE2*,qAR,K2MST-2:!/:S9X:ly%O   /A=037125|"D|  /KB3ZZI,659,0,31'C,http://goo.gl/dGbpe [Rate limited (< 5 sec)]
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.45064395709403 °
+   longitude: -77.78402104345726 °
+   altitude: 11315.7 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |"D|  /KB3ZZI,659,0,31'C,http://goo.gl/dGbpe
+
+2015-06-13 09:55:05 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,K5DAT-10:!/:SK&:m>%O   /A=030052|"F|  /KB3ZZI,669,0,31'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.44647516840541 °
+   longitude: -77.76873198468994 °
+   altitude: 9159.8496 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |"F|  /KB3ZZI,669,0,31'C,http://goo.gl/dGbpe
+
+2015-06-13 09:56:19 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,W3AD-1:!/:SX5:mMfO   /A=026643|"G|  /KB3ZZI,674,0,31'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.44333020061639 °
+   longitude: -77.76122396475957 °
+   altitude: 8120.7864 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |"G|  /KB3ZZI,674,0,31'C,http://goo.gl/dGbpe
+
+2015-06-13 09:56:52 EDT: KB3ZZI-9>APRS,AD3O-2,WIDE1,KD2AYD-3,WIDE2*,qAR,K2MST-2:!/:SX5:mMfO   /A=026643|"G|  /KB3ZZI,674,0,31'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.44333020061639 °
+   longitude: -77.76122396475957 °
+   altitude: 8120.7864 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |"G|  /KB3ZZI,674,0,31'C,http://goo.gl/dGbpe
+
+2015-06-13 09:57:33 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,K3PDK-1:!/:S`?:mchO   /A=023264|"H|  /KB3ZZI,679,0,31'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.44139281645254 °
+   longitude: -77.75070223612985 °
+   altitude: 7090.867200000001 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |"H|  /KB3ZZI,679,0,31'C,http://goo.gl/dGbpe
+
+2015-06-13 09:58:29 EDT: KB3ZZI-9>APRS,AD3O-2,WIDE1,KD2AYD-3,WIDE2*,qAR,K2MST-2:!/:S`?:mchO   /A=023264|"H|  /KB3ZZI,679,0,31'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.44139281645254 °
+   longitude: -77.75070223612985 °
+   altitude: 7090.867200000001 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |"H|  /KB3ZZI,679,0,31'C,http://goo.gl/dGbpe
+
+2015-06-13 09:58:47 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,N4TVC:!/:So\:m{JO   /A=020048|"I|  /KB3ZZI,685,0,31'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.43773331303193 °
+   longitude: -77.73939295296199 °
+   altitude: 6110.6304 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |"I|  /KB3ZZI,685,0,31'C,http://goo.gl/dGbpe
+
+2015-06-13 09:59:50 EDT: KB3ZZI-9>APRS,AD3O-2,WIDE1,VE3PGC,WIDE2*,qAR,VE2RIO-3:!/:SX5:mMfO   /A=026643|"G|  /KB3ZZI,674,0,31'C,http://goo.gl/dGbpe [Duplicate position packet]
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.44333020061639 °
+   longitude: -77.76122396475957 °
+   altitude: 8120.7864 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |"G|  /KB3ZZI,674,0,31'C,http://goo.gl/dGbpe
+
+2015-06-13 10:00:01 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,K3PDK-1:!/:Sz5:n7OO   /A=017063|"J|  /KB3ZZI,690,0,30'C,http://goo.gl/dGbpe [Location changes too fast (adaptive limit)]
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.43520788814625 °
+   longitude: -77.72837769015504 °
+   altitude: 5200.8024 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |"J|  /KB3ZZI,690,0,30'C,http://goo.gl/dGbpe
+
+2015-06-13 10:01:15 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,K3PDK-1:!/:T!a:nLtO   /A=014048|"K|  /KB3ZZI,695,0,30'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.43461459706084 °
+   longitude: -77.71814998188624 °
+   altitude: 4281.8304 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |"K|  /KB3ZZI,695,0,30'C,http://goo.gl/dGbpe
+
+2015-06-13 10:02:29 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,K3PDK-1:!/:S{X:n`>O   /A=011338|"L|  /KB3ZZI,700,0,30'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.43487711524023 °
+   longitude: -77.7088778397904 °
+   altitude: 3455.8224 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |"L|  /KB3ZZI,700,0,30'C,http://goo.gl/dGbpe
+
+2015-06-13 10:03:07 EDT: KB3ZZI-9>APRS,N3DXC-1*,WIDE1*,WIDE2*,qAR,N3ENM-10:!/:S{X:n`>O   /A=011338|"L|  /KB3ZZI,700,0,30'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.43487711524023 °
+   longitude: -77.7088778397904 °
+   altitude: 3455.8224 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |"L|  /KB3ZZI,700,0,30'C,http://goo.gl/dGbpe
+
+2015-06-13 10:03:43 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,K3PDK-1:!/:T,2:nvlO   /A=008828|"M|  /KB3ZZI,705,0,30'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.43211017362952 °
+   longitude: -77.69812509516284 °
+   altitude: 2690.7744 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |"M|  /KB3ZZI,705,0,30'C,http://goo.gl/dGbpe
+
+2015-06-13 10:04:57 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,K3PDK-1:!/:TFd:o1RO   /A=006610|"N|  /KB3ZZI,710,0,30'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.42576773441561 °
+   longitude: -77.68775037671358 °
+   altitude: 2014.728 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |"N|  /KB3ZZI,710,0,30'C,http://goo.gl/dGbpe
+
+2015-06-13 10:06:11 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,K3PDK-1:!/:TkM:o@5O   /A=004579|"O|  /KB3ZZI,715,0,29'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.41698912649701 °
+   longitude: -77.68073589096045 °
+   altitude: 1395.6792 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |"O|  /KB3ZZI,715,0,29'C,http://goo.gl/dGbpe
+
+2015-06-13 10:07:25 EDT: KB3ZZI-9>APRS,WIDE1-1,WIDE2-1,qAR,K3PDK-1:!/:U%^:oQPO   /A=002568|"P|  /KB3ZZI,720,8,29'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.41192777599849 °
+   longitude: -77.67247181867344 °
+   altitude: 782.7264 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |"P|  /KB3ZZI,720,8,29'C,http://goo.gl/dGbpe
+
+2015-06-13 10:09:11 EDT: KB3ZZI-9>APRS,KF4HJW-12,WIDE1,KB4ZIN-5,WIDE2*,qAo,KB4YFK:[ binary data ] [Unsupported packet format]
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+
+2015-06-13 10:17:23 EDT: KB3ZZI-9>APRS,KK4NBP-1,WIDE1,KJ4SNT,WIDE2*,qAR,N4AJT-4:!/:SBE:m1(O   /A=033536|"E|  /KB3ZZI,664,0,31'C,http://goo.gl/dGbpe [Duplicate position packet]
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.44854381165896 °
+   longitude: -77.7749274137234 °
+   altitude: 10221.7728 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |"E|  /KB3ZZI,664,0,31'C,http://goo.gl/dGbpe
+
+2015-06-13 11:02:32 EDT: KB3ZZI-9>APRS,K3WOW-1*,WIDE1*,K3ARL-6*,WIDE2*,qAR,K3WOW-1:!/:LkS:od1O   /A=040097|!k|  /KB3ZZI,395,0,38'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.59088641888451 °
+   longitude: -77.66355670130156 °
+   altitude: 12221.5656 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!k|  /KB3ZZI,395,0,38'C,http://goo.gl/dGbpe
+
+2015-06-13 11:04:20 EDT: KB3ZZI-9>APRS,K3WOW-1*,WIDE1*,K3ARL-6*,WIDE2*,qAR,K3WOW-1:!/:O,):qWzO   /A=057108|!x|  /KB3ZZI,461,0,36'C,http://goo.gl/dGbpe
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.54082945243958 °
+   longitude: -77.58242808314476 °
+   altitude: 17406.5184 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!x|  /KB3ZZI,461,0,36'C,http://goo.gl/dGbpe
+
+2015-06-13 11:04:21 EDT: KB3ZZI-9>APRS,K3WOW-1*,WIDE1*,K3ARL-6*,WIDE2*,qAR,K3WOW-1:!/:OLy:qW&O   /A=058381|!y|  /KB3ZZI,466,0,36'C,http://goo.gl/dGbpe [Rate limited (< 5 sec)]
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.53297490851241 °
+   longitude: -77.58286911368613 °
+   altitude: 17794.5288 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |!y|  /KB3ZZI,466,0,36'C,http://goo.gl/dGbpe
+
+2015-06-13 13:09:28 EDT: KB3ZZI-9>APRS,N3KTX-2*,WIDE1,WIDE2-1,qAR,W3AD-1:!/:Thr:tc?O   /A=000354|$.|  /KB3ZZI,1481,8,49'C,http://goo.gl/dGbp
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.41760866940036 °
+   longitude: -77.44656967494998 °
+   altitude: 107.8992 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |$.|  /KB3ZZI,1481,8,49'C,http://goo.gl/dGbp
+
+2015-06-13 13:14:24 EDT: KB3ZZI-9>APRS,N3KTX-2*,WIDE1,WIDE2-1,qAR,W3AD-1:!/:Tln:tl\O   /A=000419|$2|  /KB3ZZI,1502,8,49'C,http://goo.gl/dGbp
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.41666360395458 °
+   longitude: -77.44211736662764 °
+   altitude: 127.7112 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |$2|  /KB3ZZI,1502,8,49'C,http://goo.gl/dGbp
+
+2015-06-13 13:16:52 EDT: KB3ZZI-9>APRS,N3KTX-2*,WIDE1,WIDE2-1,qAR,N3TJJ-11:!/:Tm1:tlXO   /A=000318|$4|  /KB3ZZI,1512,8,49'C,http://goo.gl/dGbp
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.41658484850076 °
+   longitude: -77.44213836808198 °
+   altitude: 96.9264 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |$4|  /KB3ZZI,1512,8,49'C,http://goo.gl/dGbp
+
+2015-06-13 13:19:20 EDT: KB3ZZI-9>APRS,N3KTX-2*,WIDE1,WIDE2-1,qAR,W3AD-1:!/:TlJ:tlHO   /A=000429|$6|  /KB3ZZI,1522,8,49'C,http://goo.gl/dGbp
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.41675811049915 °
+   longitude: -77.4422223738994 °
+   altitude: 130.7592 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |$6|  /KB3ZZI,1522,8,49'C,http://goo.gl/dGbp
+
+2015-06-13 13:37:34 EDT: KB3ZZI-9>APRS,KV3B-1*,WIDE1*,WIDE2-1,qAR,K5DAT-10:!/:]wx:xW3O   /A=000561|$E|  /KB3ZZI,1599,8,49'C,http://goo.gl/dGbp
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.21835737124796 °
+   longitude: -77.27845303287252 °
+   altitude: 170.9928 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |$E|  /KB3ZZI,1599,8,49'C,http://goo.gl/dGbp
+
+2015-06-13 13:38:52 EDT: KB3ZZI-9>APRS,KV3B-1,WIDE1*,WIDE2-1,qAR,KJ5HY-1:!/:^oI:xtnO   /A=000544|$F|  /KB3ZZI,1604,8,50'C,http://goo.gl/dGbp
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.1986527567034 °
+   longitude: -77.26428755191297 °
+   altitude: 165.8112 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |$F|  /KB3ZZI,1604,8,50'C,http://goo.gl/dGbp
+
+2015-06-13 13:43:57 EDT: KB3ZZI-9>APRS,KV3B-1,WIDE1*,WIDE2-1,qAR,KJ5HY-1:!/:b7_:zCCO   /A=000465|$J|  /KB3ZZI,1626,8,50'C,http://goo.gl/dGbp
+   type: location
+   format: compressed
+   srccallsign: KB3ZZI-9
+   dstcallsign: APRS
+   latitude: 39.12501640738621 °
+   longitude: -77.20096816704557 °
+   altitude: 141.732 m
+   symboltable: /
+   symbolcode: O
+   messaging: 0
+   posresolution: 0.291 m
+   comment: |$J|  /KB3ZZI,1626,8,50'C,http://goo.gl/dGbp

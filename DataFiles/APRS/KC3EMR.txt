@@ -1,0 +1,662 @@
+2015-06-13 07:30:01 EDT: KC3EMR>S9SY4S,N3KTX-4*,WIDE1*,qAR,K3PDK-1:`iT!l <0x1c>>/]"5o}TEST=
+   type: location
+   format: mice
+   srccallsign: KC3EMR
+   dstcallsign: S9SY4S
+   latitude: 39.65716666666667 °
+   longitude: -77.93416666666667 °
+   course: 0 °
+   speed: 0 km/h
+   altitude: 179 m
+   symboltable: /
+   symbolcode: >
+   mbits: 101
+   posresolution: 18.52 m
+   posambiguity: 0
+   comment: ]TEST=
+
+2015-06-13 07:30:09 EDT: KC3EMR>S9SY4S,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:`iT!l <0x1c>>/]"5n}TEST=
+   type: location
+   format: mice
+   srccallsign: KC3EMR
+   dstcallsign: S9SY4S
+   latitude: 39.65716666666667 °
+   longitude: -77.93416666666667 °
+   course: 0 °
+   speed: 0 km/h
+   altitude: 178 m
+   symboltable: /
+   symbolcode: >
+   mbits: 101
+   posresolution: 18.52 m
+   posambiguity: 0
+   comment: ]TEST=
+
+2015-06-13 07:31:16 EDT: KC3EMR>S9SY4S,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:`iT!l <0x1c>>/]"5t}TEST=
+   type: location
+   format: mice
+   srccallsign: KC3EMR
+   dstcallsign: S9SY4S
+   latitude: 39.65716666666667 °
+   longitude: -77.93416666666667 °
+   course: 0 °
+   speed: 0 km/h
+   altitude: 184 m
+   symboltable: /
+   symbolcode: >
+   mbits: 101
+   posresolution: 18.52 m
+   posambiguity: 0
+   comment: ]TEST=
+
+2015-06-13 07:33:16 EDT: KC3EMR>S9SY4S,WIDE1-1,WIDE2-1,qAR,K3PDK-1:'iT!l <0x1c>>/]"5t}TEST=
+   type: location
+   format: mice
+   srccallsign: KC3EMR
+   dstcallsign: S9SY4S
+   latitude: 39.65716666666667 °
+   longitude: -77.93416666666667 °
+   course: 0 °
+   speed: 0 km/h
+   altitude: 184 m
+   symboltable: /
+   symbolcode: >
+   mbits: 101
+   posresolution: 18.52 m
+   posambiguity: 0
+   comment: ]TEST=
+
+2015-06-13 07:37:16 EDT: KC3EMR>S9SY4S,WIDE1-1,WIDE2-1,qAR,K3PDK-1:`iT!l <0x1c>>/]"5m}TEST=
+   type: location
+   format: mice
+   srccallsign: KC3EMR
+   dstcallsign: S9SY4S
+   latitude: 39.65716666666667 °
+   longitude: -77.93416666666667 °
+   course: 0 °
+   speed: 0 km/h
+   altitude: 177 m
+   symboltable: /
+   symbolcode: >
+   mbits: 101
+   posresolution: 18.52 m
+   posambiguity: 0
+   comment: ]TEST=
+
+2015-06-13 07:45:18 EDT: KC3EMR>S9SY4S,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:`iT!l <0x1c>>/]"5n}TEST=
+   type: location
+   format: mice
+   srccallsign: KC3EMR
+   dstcallsign: S9SY4S
+   latitude: 39.65716666666667 °
+   longitude: -77.93416666666667 °
+   course: 0 °
+   speed: 0 km/h
+   altitude: 178 m
+   symboltable: /
+   symbolcode: >
+   mbits: 101
+   posresolution: 18.52 m
+   posambiguity: 0
+   comment: ]TEST=
+
+2015-06-13 08:11:36 EDT: KC3EMR>S9SY4S,WIDE1-1,qAR,K3PDK-1:`iT!l <0x1c>>/]"5c}TEST=
+   type: location
+   format: mice
+   srccallsign: KC3EMR
+   dstcallsign: S9SY4S
+   latitude: 39.65716666666667 °
+   longitude: -77.93416666666667 °
+   course: 0 °
+   speed: 0 km/h
+   altitude: 167 m
+   symboltable: /
+   symbolcode: >
+   mbits: 101
+   posresolution: 18.52 m
+   posambiguity: 0
+   comment: ]TEST=
+
+2015-06-13 08:12:37 EDT: KC3EMR>S9SY4S,WIDE1-1,qAR,K3PDK-1:`iT!l <0x1c>>/]"5i}TEST=
+   type: location
+   format: mice
+   srccallsign: KC3EMR
+   dstcallsign: S9SY4S
+   latitude: 39.65716666666667 °
+   longitude: -77.93416666666667 °
+   course: 0 °
+   speed: 0 km/h
+   altitude: 173 m
+   symboltable: /
+   symbolcode: >
+   mbits: 101
+   posresolution: 18.52 m
+   posambiguity: 0
+   comment: ]TEST=
+
+2015-06-13 08:14:40 EDT: KC3EMR>S9SY4S,WIDE1-1,qAR,K3PDK-1:`iT!l <0x1c>>/]"5q}TEST=
+   type: location
+   format: mice
+   srccallsign: KC3EMR
+   dstcallsign: S9SY4S
+   latitude: 39.65716666666667 °
+   longitude: -77.93416666666667 °
+   course: 0 °
+   speed: 0 km/h
+   altitude: 181 m
+   symboltable: /
+   symbolcode: >
+   mbits: 101
+   posresolution: 18.52 m
+   posambiguity: 0
+   comment: ]TEST=
+
+2015-06-13 08:17:13 EDT: KC3EMR>S9SY4S,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:`iT!l><0x1c>>/]"5m}TEST=
+   type: location
+   format: mice
+   srccallsign: KC3EMR
+   dstcallsign: S9SY4S
+   latitude: 39.65716666666667 °
+   longitude: -77.93416666666667 °
+   course: 0 °
+   speed: 5.555999999999999 km/h
+   altitude: 177 m
+   symboltable: /
+   symbolcode: >
+   mbits: 101
+   posresolution: 18.52 m
+   posambiguity: 0
+   comment: ]TEST=
+
+2015-06-13 08:19:14 EDT: KC3EMR>S9SY1S,WIDE1-1,qAR,K3PDK-1:`iSI +:>/]"5_}TEST=
+   type: location
+   format: mice
+   srccallsign: KC3EMR
+   dstcallsign: S9SY1S
+   latitude: 39.65216666666667 °
+   longitude: -77.92416666666666 °
+   course: 130 °
+   speed: 75.93199999999999 km/h
+   altitude: 163 m
+   symboltable: /
+   symbolcode: >
+   mbits: 101
+   posresolution: 18.52 m
+   posambiguity: 0
+   comment: ]TEST=
+
+2015-06-13 08:23:16 EDT: KC3EMR>S9SX8P,WIDE1-1,qAR,K3PDK-1:`iNH"]+>/]"5B}TEST=
+   type: location
+   format: mice
+   srccallsign: KC3EMR
+   dstcallsign: S9SX8P
+   latitude: 39.64666666666667 °
+   longitude: -77.84066666666666 °
+   course: 115 °
+   speed: 122.232 km/h
+   altitude: 134 m
+   symboltable: /
+   symbolcode: >
+   mbits: 101
+   posresolution: 18.52 m
+   posambiguity: 0
+   comment: ]TEST=
+
+2015-06-13 08:24:16 EDT: KC3EMR>S9SX2R,qAR,K3PDK-1:`iM6"5->/]"5;}TEST=
+   type: location
+   format: mice
+   srccallsign: KC3EMR
+   dstcallsign: S9SX2R
+   latitude: 39.637 °
+   longitude: -77.821 °
+   course: 117 °
+   speed: 114.824 km/h
+   altitude: 127 m
+   symboltable: /
+   symbolcode: >
+   mbits: 101
+   posresolution: 18.52 m
+   posambiguity: 0
+   comment: ]TEST=
+
+2015-06-13 08:25:17 EDT: KC3EMR>S9SW6P,WIDE1-1,WIDE2-1,qAR,K3PDK-1:`iL%"]->/]"5A}TEST=
+   type: location
+   format: mice
+   srccallsign: KC3EMR
+   dstcallsign: S9SW6P
+   latitude: 39.62666666666667 °
+   longitude: -77.8015 °
+   course: 117 °
+   speed: 122.232 km/h
+   altitude: 133 m
+   symboltable: /
+   symbolcode: >
+   mbits: 101
+   posresolution: 18.52 m
+   posambiguity: 0
+   comment: ]TEST=
+
+2015-06-13 08:26:17 EDT: KC3EMR>S9SV9Q,qAR,K3PDK-1:`iK!"+O>/]"5Q}TEST=
+   type: location
+   format: mice
+   srccallsign: KC3EMR
+   dstcallsign: S9SV9Q
+   latitude: 39.61516666666667 °
+   longitude: -77.78416666666666 °
+   course: 151 °
+   speed: 112.972 km/h
+   altitude: 149 m
+   symboltable: /
+   symbolcode: >
+   mbits: 101
+   posresolution: 18.52 m
+   posambiguity: 0
+   comment: ]TEST=
+
+2015-06-13 08:27:18 EDT: KC3EMR>S9SV3W,WIDE1-1,qAR,K3PDK-1:`iJ!" t>/]"5p}TEST=
+   type: location
+   format: mice
+   srccallsign: KC3EMR
+   dstcallsign: S9SV3W
+   latitude: 39.60616666666667 °
+   longitude: -77.7675 °
+   course: 88 °
+   speed: 111.12 km/h
+   altitude: 180 m
+   symboltable: /
+   symbolcode: >
+   mbits: 101
+   posresolution: 18.52 m
+   posambiguity: 0
+   comment: ]TEST=
+
+2015-06-13 08:28:19 EDT: KC3EMR>S9SV3R,qAR,K3PDK-1:`iHT"\~>/]"5q}TEST=
+   type: location
+   format: mice
+   srccallsign: KC3EMR
+   dstcallsign: S9SV3R
+   latitude: 39.60533333333333 °
+   longitude: -77.74266666666666 °
+   course: 98 °
+   speed: 122.232 km/h
+   altitude: 181 m
+   symboltable: /
+   symbolcode: >
+   mbits: 101
+   posresolution: 18.52 m
+   posambiguity: 0
+   comment: ]TEST=
+
+2015-06-13 08:29:19 EDT: KC3EMR>S9SV2V,WIDE1-1,WIDE2-1,qAR,K3PDK-1:`iG"#+!>/]"5_}TEST=
+   type: location
+   format: mice
+   srccallsign: KC3EMR
+   dstcallsign: S9SV2V
+   latitude: 39.60433333333334 °
+   longitude: -77.71766666666667 °
+   course: 105 °
+   speed: 131.492 km/h
+   altitude: 163 m
+   symboltable: /
+   symbolcode: >
+   mbits: 101
+   posresolution: 18.52 m
+   posambiguity: 0
+   comment: ]TEST=
+
+2015-06-13 08:30:19 EDT: KC3EMR>S9SU9U,qAR,K3PDK-1:`iEa"Hr>/]"5W}TEST=
+   type: location
+   format: mice
+   srccallsign: KC3EMR
+   dstcallsign: S9SU9U
+   latitude: 39.59916666666667 °
+   longitude: -77.69483333333334 °
+   course: 86 °
+   speed: 118.528 km/h
+   altitude: 155 m
+   symboltable: /
+   symbolcode: >
+   mbits: 101
+   posresolution: 18.52 m
+   posambiguity: 0
+   comment: ]TEST=
+
+2015-06-13 08:31:20 EDT: KC3EMR>S9SV0S,WIDE1-1,qAR,K3PDK-1:`iD<"fr>/]"5e}TEST=
+   type: location
+   format: mice
+   srccallsign: KC3EMR
+   dstcallsign: S9SV0S
+   latitude: 39.6005 °
+   longitude: -77.672 °
+   course: 86 °
+   speed: 124.084 km/h
+   altitude: 169 m
+   symboltable: /
+   symbolcode: >
+   mbits: 101
+   posresolution: 18.52 m
+   posambiguity: 0
+   comment: ]TEST=
+
+2015-06-13 08:35:23 EDT: KC3EMR>S9SR9U,WIDE1-1,qAR,K3PDK-1:`i@T"?c>/]"7)}TEST=
+   type: location
+   format: mice
+   srccallsign: KC3EMR
+   dstcallsign: S9SR9U
+   latitude: 39.54916666666666 °
+   longitude: -77.60933333333334 °
+   course: 171 °
+   speed: 116.676 km/h
+   altitude: 291 m
+   symboltable: /
+   symbolcode: >
+   mbits: 101
+   posresolution: 18.52 m
+   posambiguity: 0
+   comment: ]TEST=
+
+2015-06-13 08:37:26 EDT: KC3EMR>S9SP8T,N3KTX-2*,WIDE1,WIDE2-1,qAR,KJ5HY-1:`i?b"gU>/]"7?}TEST=
+   type: location
+   format: mice
+   srccallsign: KC3EMR
+   dstcallsign: S9SP8T
+   latitude: 39.514 °
+   longitude: -77.595 °
+   course: 157 °
+   speed: 124.084 km/h
+   altitude: 313 m
+   symboltable: /
+   symbolcode: >
+   mbits: 101
+   posresolution: 18.52 m
+   posambiguity: 0
+   comment: ]TEST=
+
+2015-06-13 08:39:27 EDT: KC3EMR>S9RY7W,WIDE1-1,qAR,K3PDK-1:`i>#nf!>/]"5`}TEST=
+   type: location
+   format: mice
+   srccallsign: KC3EMR
+   dstcallsign: S9RY7W
+   latitude: 39.49616666666667 °
+   longitude: -77.56783333333334 °
+   course: 5 °
+   speed: 50.004 km/h
+   altitude: 164 m
+   symboltable: /
+   symbolcode: >
+   mbits: 101
+   posresolution: 18.52 m
+   posambiguity: 0
+   comment: ]TEST=
+
+2015-06-13 09:00:29 EDT: KC3EMR>S9RY9S,N3KTX-2*,WIDE1,WIDE2-1,qAR,N3GXH-1:`i> l <0x1c>>/]"61}TEST=
+   type: location
+   format: mice
+   srccallsign: KC3EMR
+   dstcallsign: S9RY9S
+   latitude: 39.49883333333333 °
+   longitude: -77.56733333333334 °
+   course: 0 °
+   speed: 0 km/h
+   altitude: 208 m
+   symboltable: /
+   symbolcode: >
+   mbits: 101
+   posresolution: 18.52 m
+   posambiguity: 0
+   comment: ]TEST=
+
+2015-06-13 09:01:28 EDT: KC3EMR>S9RY9R,KV3B-1*,WIDE1*,WIDE2-1,qAR,K5DAT-10:`i> l <0x1c>>/]"6-}TEST=
+   type: location
+   format: mice
+   srccallsign: KC3EMR
+   dstcallsign: S9RY9R
+   latitude: 39.49866666666667 °
+   longitude: -77.56733333333334 °
+   course: 0 °
+   speed: 0 km/h
+   altitude: 204 m
+   symboltable: /
+   symbolcode: >
+   mbits: 101
+   posresolution: 18.52 m
+   posambiguity: 0
+   comment: ]TEST=
+
+2015-06-13 09:03:29 EDT: KC3EMR>S9RY9R,N3KTX-2*,WIDE1,WIDE2-1,qAR,KJ5HY-1:`i> l <0x1c>>/]"6)}TEST=
+   type: location
+   format: mice
+   srccallsign: KC3EMR
+   dstcallsign: S9RY9R
+   latitude: 39.49866666666667 °
+   longitude: -77.56733333333334 °
+   course: 0 °
+   speed: 0 km/h
+   altitude: 200 m
+   symboltable: /
+   symbolcode: >
+   mbits: 101
+   posresolution: 18.52 m
+   posambiguity: 0
+   comment: ]TEST=
+
+2015-06-13 09:31:30 EDT: KC3EMR>S9RY9R,N3KTX-2*,WIDE1,WIDE2-1,qAR,K3HQI-1:`i><0x1f>l <0x1c>>/]"6)}TEST=
+   type: location
+   format: mice
+   srccallsign: KC3EMR
+   dstcallsign: S9RY9R
+   latitude: 39.49866666666667 °
+   longitude: -77.56716666666667 °
+   course: 0 °
+   speed: 0 km/h
+   altitude: 200 m
+   symboltable: /
+   symbolcode: >
+   mbits: 101
+   posresolution: 18.52 m
+   posambiguity: 0
+   comment: ]TEST=
+
+2015-06-13 09:49:39 EDT: KC3EMR>S9RY3P,N3KTX-2*,WIDE1,WIDE2-1,qAR,K3HQI-1:`i<"nf >/]"5l}TEST=
+   type: location
+   format: mice
+   srccallsign: KC3EMR
+   dstcallsign: S9RY3P
+   latitude: 39.48833333333334 °
+   longitude: -77.53433333333334 °
+   course: 4 °
+   speed: 50.004 km/h
+   altitude: 176 m
+   symboltable: /
+   symbolcode: >
+   mbits: 101
+   posresolution: 18.52 m
+   posambiguity: 0
+   comment: ]TEST=
+
+2015-06-13 09:53:44 EDT: KC3EMR>S9SQ3R,N3KTX-2*,WIDE1,WIDE2-1,qAR,W3AD-1:`i>a U%>/]"6E}TEST=
+   type: location
+   format: mice
+   srccallsign: KC3EMR
+   dstcallsign: S9SQ3R
+   latitude: 39.522 °
+   longitude: -77.57816666666666 °
+   course: 309 °
+   speed: 83.33999999999999 km/h
+   altitude: 228 m
+   symboltable: /
+   symbolcode: >
+   mbits: 101
+   posresolution: 18.52 m
+   posambiguity: 0
+   comment: ]TEST=
+
+2015-06-13 09:55:44 EDT: KC3EMR>S9SR1V,WIDE1-1,qAR,K3PDK-1:`i@:oh}>/]"7z}TEST=
+   type: location
+   format: mice
+   srccallsign: KC3EMR
+   dstcallsign: S9SR1V
+   latitude: 39.536 °
+   longitude: -77.605 °
+   course: 297 °
+   speed: 68.524 km/h
+   altitude: 372 m
+   symboltable: /
+   symbolcode: >
+   mbits: 101
+   posresolution: 18.52 m
+   posambiguity: 0
+   comment: ]TEST=
+
+2015-06-13 09:57:44 EDT: KC3EMR>S9SQ6Q,WIDE1-1,WIDE2-1,qAR,K3PDK-1:`iA<0x1e>o,?>/]"8_}TEST=
+   type: location
+   format: mice
+   srccallsign: KC3EMR
+   dstcallsign: S9SQ6Q
+   latitude: 39.52683333333334 °
+   longitude: -77.617 °
+   course: 235 °
+   speed: 57.412 km/h
+   altitude: 436 m
+   symboltable: /
+   symbolcode: >
+   mbits: 101
+   posresolution: 18.52 m
+   posambiguity: 0
+   comment: ]TEST=
+
+2015-06-13 10:00:45 EDT: KC3EMR>S9SP8Q,qAR,K3PDK-1:`iBenJQ>/]"6!}TEST=
+   type: location
+   format: mice
+   srccallsign: KC3EMR
+   dstcallsign: S9SP8Q
+   latitude: 39.5135 °
+   longitude: -77.6455 °
+   course: 253 °
+   speed: 44.44799999999999 km/h
+   altitude: 192 m
+   symboltable: /
+   symbolcode: >
+   mbits: 101
+   posresolution: 18.52 m
+   posambiguity: 0
+   comment: ]TEST=
+
+2015-06-13 10:02:45 EDT: KC3EMR>S9SP3Q,qAR,K3PDK-1:`iC>nTK>/]"5Q}TEST=
+   type: location
+   format: mice
+   srccallsign: KC3EMR
+   dstcallsign: S9SP3Q
+   latitude: 39.50516666666667 °
+   longitude: -77.65566666666666 °
+   course: 247 °
+   speed: 46.3 km/h
+   altitude: 149 m
+   symboltable: /
+   symbolcode: >
+   mbits: 101
+   posresolution: 18.52 m
+   posambiguity: 0
+   comment: ]TEST=
+
+2015-06-13 10:05:47 EDT: KC3EMR>S9RY5W,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:`iES ,M>/]"5F}TEST=
+   type: location
+   format: mice
+   srccallsign: KC3EMR
+   dstcallsign: S9RY5W
+   latitude: 39.49283333333333 °
+   longitude: -77.6925 °
+   course: 249 °
+   speed: 75.93199999999999 km/h
+   altitude: 138 m
+   symboltable: /
+   symbolcode: >
+   mbits: 101
+   posresolution: 18.52 m
+   posambiguity: 0
+   comment: ]TEST=
+
+2015-06-13 10:11:00 EDT: KC3EMR>S9RX6R,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:`iE.n4t>/]"50}TEST=
+   type: location
+   format: mice
+   srccallsign: KC3EMR
+   dstcallsign: S9RX6R
+   latitude: 39.477 °
+   longitude: -77.68633333333334 °
+   course: 88 °
+   speed: 40.744 km/h
+   altitude: 116 m
+   symboltable: /
+   symbolcode: >
+   mbits: 101
+   posresolution: 18.52 m
+   posambiguity: 0
+   comment: ]TEST=
+
+2015-06-13 10:13:00 EDT: KC3EMR>S9RX3V,N3KTX-4*,WIDE1*,qAR,K3PDK-1:`iCzo!$>/]"5H}TEST=
+   type: location
+   format: mice
+   srccallsign: KC3EMR
+   dstcallsign: S9RX3V
+   latitude: 39.47266666666667 °
+   longitude: -77.66566666666667 °
+   course: 108 °
+   speed: 55.56 km/h
+   altitude: 140 m
+   symboltable: /
+   symbolcode: >
+   mbits: 101
+   posresolution: 18.52 m
+   posambiguity: 0
+   comment: ]TEST=
+
+2015-06-13 10:15:00 EDT: KC3EMR>S9RW8Y,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:`iCR!,#>/]"5a}TEST=
+   type: location
+   format: mice
+   srccallsign: KC3EMR
+   dstcallsign: S9RW8Y
+   latitude: 39.46483333333333 °
+   longitude: -77.65900000000001 °
+   course: 207 °
+   speed: 94.452 km/h
+   altitude: 165 m
+   symboltable: /
+   symbolcode: >
+   mbits: 101
+   posresolution: 18.52 m
+   posambiguity: 0
+   comment: ]TEST=
+
+2015-06-13 10:16:00 EDT: KC3EMR>S9RW1S,qAR,K3PDK-1:`iCv!5m>/]"5j}TEST=
+   type: location
+   format: mice
+   srccallsign: KC3EMR
+   dstcallsign: S9RW1S
+   latitude: 39.45216666666666 °
+   longitude: -77.66500000000001 °
+   course: 181 °
+   speed: 96.30399999999999 km/h
+   altitude: 174 m
+   symboltable: /
+   symbolcode: >
+   mbits: 101
+   posresolution: 18.52 m
+   posambiguity: 0
+   comment: ]TEST=
+
+2015-06-13 10:21:02 EDT: KC3EMR>S9RT1Q,KV3B-1*,WIDE1*,qAR,K5DAT-10:`iCXl <0x1c>>/]"5l}TEST=
+   type: location
+   format: mice
+   srccallsign: KC3EMR
+   dstcallsign: S9RT1Q
+   latitude: 39.40183333333334 °
+   longitude: -77.66 °
+   course: 0 °
+   speed: 0 km/h
+   altitude: 176 m
+   symboltable: /
+   symbolcode: >
+   mbits: 101
+   posresolution: 18.52 m
+   posambiguity: 0
+   comment: ]TEST=
