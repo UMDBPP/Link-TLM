@@ -9,9 +9,9 @@
 #include "System/Log.h"
 #include "System/JSONLoader.h"
 
-#include "rs232.h"
+//#include "rs232.h"
 
-int pollCom();
+//int pollCom();
 
 int main(void) {
 
@@ -112,7 +112,7 @@ int main(void) {
 	timepack2.calcAscentRate(timepack1);
 	timepack2.print();
 
-	unsigned char buf[4096];
+/*	unsigned char buf[4096];
 	int n;
 	std::string mode = "8N1";
 	std::string oldData;
@@ -137,16 +137,17 @@ int main(void) {
 
 		usleep(1000000);
 	}
-
+*/
 
 	std::cout << BPP::PythonInterface::getInt("BPPregex", "oldPacketMatch", "W3EAX-9>APT311,WIDE2-2:/203716h3859.58N/07656.35WO051/000/A=000111/W3EAX") << std::endl;
 	return 0;
 }
 
+/*
 int pollCom() {
 	int n;
 	unsigned char buf[4096];
 	n = RS232_PollComport(24, buf, 4095);
 	std::cout << "FUNC READ " << n << std::endl;
 	return n;
-}
+} */
