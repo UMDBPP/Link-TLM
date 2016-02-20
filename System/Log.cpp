@@ -57,17 +57,18 @@ std::string BPP::Log::getTS() {
 // Drops a timestamp to signify when log started.
 bool BPP::Log::open(std::string filename) {
     logfile.open(filename, std::ofstream::out | std::ofstream::app); // Open the file.
-    logOpen = logfile.is_open();
+    logOpen = logfile.is_open(); // Set open status.
 
     if(logOpen) {
         logfile << "LOG BEGINNING ON " << getTS() << std::endl; // Drop timestamp and log beginning.
     }
 
-    return logOpen;
+    return logOpen; // Allows failure checking.
 }
 
 // No arguments given/left to log
 // Therefore header-defined template isn't necessary.
+// Gets called after all arguments expended; places timestamp.
 void BPP::Log::log() {
     std::string ts = getTS(); // Grab timestamp.
     ts.erase(ts.length()-1); // Strip newline.

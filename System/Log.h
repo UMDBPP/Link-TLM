@@ -26,7 +26,8 @@
 
     Log.h:
 
-    Simple text file logging class. Should clean up packet logging efforts...
+    Simple text file logging class. Should clean up packet logging efforts.
+    Uses C++ templates to deal with different argument types and numbers of arguments.
 */
 
 #ifndef LOG_H
@@ -40,8 +41,8 @@ namespace BPP {
 class Log {
 
     private:
-        std::ofstream logfile;
-        bool logOpen;
+        std::ofstream logfile; // File object
+        bool logOpen; // Sanity check
 
         std::string getTS(); // Get a stringified timestamp
 
@@ -57,16 +58,17 @@ class Log {
         // Templates must be in header:
 
         // Only one argument given/left to log.
-        template<typename T> void log(const T& t) {
-            if(logOpen) {
+        template<typename T> void log(const T& t) { // This construct allows any type.
+            if(logOpen) { // Check to make sure file is open.
                 logfile << t; // Write out argument.
-                log(); // Recursive call to empty log function.
+                log(); // Recursive call to empty log function, for timestamp.
             }
         }
 
         // More than one argument given to logging function.
-        template<typename F,typename ...T> void log(const F& first, const T&... rest) {
-            if(logOpen) {
+        // Gets called until only one argument left, then moves to above overload.
+        template<typename F,typename ...T> void log(const F& first, const T&... rest) { // Construct allows any type/number of args.
+            if(logOpen) { // Check to make sure file is open.
                 logfile << first; // Write out first argument.
                 log(rest...); // Recursive call on rest of argument.
             }

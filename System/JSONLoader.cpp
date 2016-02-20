@@ -55,7 +55,7 @@ BPP::JSONLoader::JSONLoader(const std::string& _jsonFileName) {
     } else { // If no failure, continue:
         std::string jsonFileString = ""; // String for entire JSON file.
         std::string line; // Temp variable for getline()
-        while(std::getline(json, line)) {
+        while(std::getline(json, line)) { // Read all data from file.
             jsonFileString += line; // JSON doesn't care about newlines, so just concat
         }
 
@@ -180,11 +180,11 @@ std::string BPP::JSONLoader::getParsedLogFile() {
 // This is used for the Python scripts.
 // Python doesn't deal with relative file paths well.
 std::string BPP::JSONLoader::getInstallDirectory() {
-    std::string directory = "/home/nick/Code/JPL_Sample_NMRossomando"; // Initialize to default (build env)
+    std::string directory = "/home/nick/Code/Link_TLM"; // Initialize to default (build env)
 
     // Again, read & error check.
     if(loadFailure || !settings.HasMember("installDirectory")) {
-        std::cerr << "WARNING: No Install Directory Specified. Using /home/nick/Code/JPL_Sample_NMRossomando.\n";
+        std::cerr << "WARNING: No Install Directory Specified. Using /home/nick/Code/Link_TLM.\n";
         return directory;
     }
 

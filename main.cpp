@@ -33,15 +33,16 @@
 
 #include "MainProcess.h"
 
+// Beautifully short main.
 int main(void) {
-	BPP::MainProcess mainLoop;
+	BPP::MainProcess mainLoop; // Create the main object
 
-	if(mainLoop.failed()) {
+	if(mainLoop.failed()) { // Test for initialization failure!
 		std::cout << "Main Loop Failed to Initialize.\n";
-		return -1;
+		return -1; // If we did fail, print error and return.
 	}
 
-	mainLoop.mainLoop();
+	mainLoop.mainLoop(); // Run the program.
 
-	return 0;
+	return 0; // Never get here.
 }
