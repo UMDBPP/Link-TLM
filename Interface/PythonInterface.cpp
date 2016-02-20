@@ -41,7 +41,7 @@ std::string BPP::PythonInterface::getString(std::string pySource, std::string py
 
     // Initialize Python:
     Py_Initialize();
-    PyRun_SimpleString("import sys");
+    PyRun_SimpleString("import sys"); // Set the working directory to location of Python scripts.
     PyRun_SimpleString("import os");
     PyRun_SimpleString(pythonDir.c_str());
     
@@ -56,7 +56,7 @@ std::string BPP::PythonInterface::getString(std::string pySource, std::string py
     if (PyCallable_Check(pFunc)) { // Ensure the function is callable, then call it.
         pValue = PyObject_CallObject(pFunc, pArgs);
     } else {
-        PyErr_Print();
+        PyErr_Print(); // If an error occurs, print it.
     }
 
     // Extract the return value:
@@ -82,7 +82,7 @@ int BPP::PythonInterface::getInt(std::string pySource, std::string pyFunc, std::
 
     // Initialize Python:
     Py_Initialize();
-    PyRun_SimpleString("import sys");
+    PyRun_SimpleString("import sys"); // Set the working directory to location of Python scripts.
     PyRun_SimpleString("import os");
     PyRun_SimpleString(pythonDir.c_str());
     
@@ -120,7 +120,7 @@ float BPP::PythonInterface::getFloat(std::string pySource, std::string pyFunc, s
 
     // Initialize Python:
     Py_Initialize();
-    PyRun_SimpleString("import sys");
+    PyRun_SimpleString("import sys"); // Set the working directory to location of Python scripts.
     PyRun_SimpleString("import os");
     PyRun_SimpleString("sys.path.append(\"/home/nick/Desktop/Link_TLM/Python\")");
     

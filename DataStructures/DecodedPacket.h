@@ -40,17 +40,17 @@ namespace BPP {
 // Structure containing decoded data from APRS location packets.
 // Also has a constructor for easy assignment.
 // Convention: Time: YYYY-MM-DD HH:MM:SS, Negative latitude is South, Negative longitude is West,
-// altitude is in feet, heading is degrees clockwise from North, speed is in Knots.
+// altitude is in feet, heading is degrees clockwise from North, speed is in Knots, ascent rate is ft/s.
 struct DecodedPacket {
 	std::string callsign;
-    std::string timestamp;
+  std::string timestamp;
 	float lat;
 	float lon;
 	int alt;
 	int heading;
 	float speed;
 	std::string comment;
-    float ascentRate;
+  float ascentRate;
 
 	DecodedPacket(std::string cs, std::string ts, float _lat, float _lon, int _alt, int _heading, float _speed, std::string cmt) : \
 		callsign(cs), \
