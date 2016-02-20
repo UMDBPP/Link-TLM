@@ -54,12 +54,16 @@ BPP::MainProcess::MainProcess() : settings("Prefs/settings.json"), initFail(fals
 	//}
 
 	// Set the callsigns to look for.
+	// Retrieve these from JSON preferences file.
 	balloonCalls = settings.getBalloonCalls();
 	vanCalls = settings.getVanCalls();
 
+	// Retrieve install location information from the JSON file as well.
+	// Python needs this because it hates relative paths.
 	installDirectory = settings.getInstallDirectory();
 
 	// Open the logs.
+	// Log filenames defined in same JSON file.
 	allPackets.open(settings.getUnparsedLogFile());
 	parsedPackets.open(settings.getParsedLogFile());
 
@@ -108,12 +112,19 @@ void BPP::MainProcess::readSerialData() {
 
 // Parse the packets we've recieved.
 // Also check packet validity.
+// Much/most of this functionality will be moved to a data structure for
+// holding the packets.
 bool BPP::MainProcess::parseRecievedPacket() {
-	bool goodPacket = false;
+	bool goodPacket = false; // Initially assume a bad packet was recieved.
 
+	// Create a new packet, place it on the stack.
+	// Use C++ smart pointers to avoid memory leaks.
 	std::unique_ptr<BPP::Packet> newPacket = std::make_unique<BPP::Packet>(lastRawPacket, installDirectory);
-	newPacket->parse();
+	newPacket->parse(); // Parse the packet.
 
+	// Check to see if the packet matches any balloon callsign.
+	// Also check to see if there were any parse errors.
+	// If both checks are okay, we have a valid packet.
 	for(size_t i=0; i<balloonCalls.size(); i++) {
 		if(newPacket->getCall() == balloonCalls[i]){
 			if(newPacket->isValid()) {
@@ -122,6 +133,7 @@ bool BPP::MainProcess::parseRecievedPacket() {
 		}
 	}
 
+	// Same process as above, except for the van callsigns.
 	for(size_t i=0; i<vanCalls.size(); i++) {
 		if(newPacket->getCall() == vanCalls[i]){
 			if(newPacket->isValid()) {
@@ -130,23 +142,32 @@ bool BPP::MainProcess::parseRecievedPacket() {
 		}
 	}
 
+	// Typically, the problem is an untracked callsign.
+	// More robust errors in the future would be a good idea.
 	if(!goodPacket) {
 		std::cout << "Untracked Callsign: " << newPacket->getCall() << std::endl;
 		return false;
 	}
 
-	// Need to filter this in the future.
+	// Roughly calculate ascent/descent rate.
+	// Not super accurate.
+	// Need to filter this in the future (low pass).
 	if(recievedPackets.size() > 0) {
 		newPacket->calcAscentRate(*recievedPackets.back());
 	}
 
+	// If everything is good, add the packet pointer to the vector of them.
+	// Also return success code.
 	recievedPackets.push_back(std::move(newPacket));
 	return true;
 }
 
-// Print out sstuff to terminal in clean format.
+// Print out stuff to terminal in clean format.
 void BPP::MainProcess::printLatestPacket() {
+	// Access the data held in the last packet recieved.
 	BPP::DecodedPacket packet = recievedPackets.back()->getPacket();
+	
+	// Logall of the packet data to the parsed packet log file.
 	parsedPackets.log(packet.callsign, ",", \
 		packet.timestamp, ",", \
 		packet.lat, ",", \
@@ -156,21 +177,24 @@ void BPP::MainProcess::printLatestPacket() {
 		packet.speed, ",", \
 		packet.ascentRate);
 
+	// Clear the terminal screen, then print all packet information to it.
 	BPP::clearTerm();
 	recievedPackets.back()->print();
 }
 
 // The main loop that runs everything.
 void BPP::MainProcess::mainLoop() {
-	while(1) {
-		readSerialData();
+	while(1) { // Go until the program is killed.
+		readSerialData(); // Read incoming serial data.
 
-		if(newDataRecieved) {
-			if(parseRecievedPacket()) {
-				printLatestPacket();
+		if(newDataRecieved) { // If we recieved new data,
+			if(parseRecievedPacket()) { // Parse it,
+				printLatestPacket(); // Then log and print it.
 			}
 		}
 
+		// Delay for 1 second.
+		// Needs t obe non-blocking in the future.
 		usleep(1000000);
 	}
 }

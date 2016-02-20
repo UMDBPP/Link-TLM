@@ -1,4 +1,5 @@
 *.o
+*/*.pyc
 Link-TLM
 TestBin
 test.txt
