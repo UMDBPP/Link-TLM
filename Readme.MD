@@ -43,8 +43,7 @@ sudo apt-get update
 sudo apt-get install g++-5
 ```
 
-In this case, the very first line of `makefile` must be changed to the appropriate program alias
-(for Mint, change `g++` to `g++-5`).
+In this case, the `makefile` handles choosign which compiler alias to use.
 
 Building
 --------
