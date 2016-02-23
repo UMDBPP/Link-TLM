@@ -1,6 +1,13 @@
-CC=g++
 CFLAGS=--std=c++14 -c -Wall -Wextra -O2 -I. -I./DataStructures -I/usr/include/python2.7 -I./deps
 LIBS=-L/usr/lib/python2.7/config -lpython2.7 -lpthread -ldl -lutil -lm -lcurses -Xlinker -export-dynamic
+
+# Set compiler alias based on version:
+GCC_MAJOR_VERSION=$(shell g++ --version | grep [0-9].[0-9].[0-9] -o | grep ^[0-9] -o)
+ifeq ($(GCC_MAJOR_VERSION),5)
+	CC=g++
+else
+	CC=g++-5
+endif
 
 all: main.o MainProcess.o PythonInterface.o rs232.o Util.o Packet.o Log.o JSONLoader.o
 	$(CC) main.o MainProcess.o PythonInterface.o rs232.o Util.o Packet.o Log.o JSONLoader.o -o Link-TLM $(LIBS)
