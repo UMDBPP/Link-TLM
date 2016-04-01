@@ -1,6 +1,6 @@
 ''' Link Telemetry v0.1.0 "Charlie Brown"
 
-Copyright (c) 2015 University of Maryland Space Systems Lab
+Copyright (c) 2015-2016 University of Maryland Space Systems Lab
 NearSpace Balloon Program
 
 Written by Nicholas Rossomando
