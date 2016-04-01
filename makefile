@@ -50,3 +50,5 @@ logclean:
 
 purge:
 	rm -rf *.o TestBin Link-TLM
+
+.PHONY: clean logclean purge
