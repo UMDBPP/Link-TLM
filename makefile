@@ -9,11 +9,11 @@ else
 	CC=g++-5
 endif
 
-all: main.o MainProcess.o PythonInterface.o rs232.o Util.o Packet.o Log.o JSONLoader.o
-	$(CC) main.o MainProcess.o PythonInterface.o rs232.o Util.o Packet.o Log.o JSONLoader.o -o Link-TLM $(LIBS)
+all: main.o MainProcess.o PythonInterface.o RS232.o Util.o Packet.o Log.o JSONLoader.o
+	$(CC) main.o MainProcess.o PythonInterface.o RS232.o Util.o Packet.o Log.o JSONLoader.o -o Link-TLM $(LIBS)
 
-test: testmain.o MainProcess.o PythonInterface.o rs232.o Util.o Packet.o Log.o JSONLoader.o
-	$(CC) testmain.o MainProcess.o PythonInterface.o rs232.o Util.o Packet.o Log.o JSONLoader.o -o TestBin $(LIBS)
+test: testmain.o MainProcess.o PythonInterface.o RS232.o Util.o Packet.o Log.o JSONLoader.o
+	$(CC) testmain.o MainProcess.o PythonInterface.o RS232.o Util.o Packet.o Log.o JSONLoader.o -o TestBin $(LIBS)
 
 main.o: main.cpp
 	$(CC) main.cpp $(CFLAGS)
@@ -27,8 +27,8 @@ MainProcess.o: MainProcess.cpp
 PythonInterface.o: Interface/PythonInterface.cpp
 	$(CC) Interface/PythonInterface.cpp $(CFLAGS)
 
-rs232.o: rs232.c
-	$(CC) rs232.c $(CFLAGS)
+RS232.o: Interface/RS232.cpp
+	$(CC) Interface/RS232.cpp $(CFLAGS)
 
 Util.o: System/Util.cpp
 	$(CC) System/Util.cpp $(CFLAGS)
@@ -43,12 +43,12 @@ JSONLoader.o: System/JSONLoader.cpp
 	$(CC) System/JSONLoader.cpp $(CFLAGS)
 
 clean:
-	rm -rf *.o TestBin
+	rm -rf *.o TestBin test.txt
 
 logclean:
 	rm -rf test.txt Logs/*
 
 purge:
-	rm -rf *.o TestBin Link-TLM
+	rm -rf *.o TestBin Link-TLM test.txt
 
 .PHONY: clean logclean purge

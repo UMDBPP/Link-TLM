@@ -2,18 +2,42 @@
 #include <string>
 #include <vector>
 
+extern "C" {
+	#include "unistd.h"
+}
+
 #include "DataStructures/DecodedPacket.h"
 #include "Interface/PythonInterface.h"
+#include "Interface/RS232.h"
 #include "System/Util.h"
 #include "DataStructures/Packet.h"
 #include "System/Log.h"
 #include "System/JSONLoader.h"
 
-//#include "rs232.h"
-
 //int pollCom();
 
 int main(void) {
+
+	BPP::JSONLoader settings("Prefs/settings.json");
+	std::cout << "Balloon Calls:\n";
+	std::vector<std::string> bCalls = settings.getBalloonCalls();
+	for(size_t i=0; i<bCalls.size(); i++) {
+		std::cout << bCalls[i] << std::endl;
+	}
+	std::cout << "Van Calls:\n";
+	std::vector<std::string> vCalls = settings.getVanCalls();
+	for(size_t i=0; i<vCalls.size(); i++) {
+		std::cout << vCalls[i] << std::endl;
+	}
+	std::cout << "Unparsed Log:\n";
+	std::cout << settings.getUnparsedLogFile() << std::endl;
+	std::cout << "Parsed Log:\n";
+	std::cout << settings.getParsedLogFile() << std::endl;
+
+	std::string instDirectory = settings.getInstallDirectory();
+
+	BPP::clearTerm();
+	usleep(5000000);
 
 	BPP::DecodedPacket packet("W3EAX-9", std::string("2015-06-13 07:17:44 EDT"), 39.657036, -77.934181, 606, 500, -1, std::string("W3EAX-9 www.umd.edu"));
 	BPP::DecodedPacket pkt2;
@@ -27,9 +51,9 @@ int main(void) {
 	pkt2 = packet;
 	std::cout << "CS2: " << pkt2.callsign << std::endl;
 
-	std::cout << BPP::PythonInterface::getString("BPPparser", "getLon", "W3EAX-9>APT311,WIDE2-2:/203716h3859.58N/07656.35WO051/000/A=000111/W3EAX") << std::endl;
-	std::cout << BPP::PythonInterface::getInt("BPPparser", "getAlt", "W3EAX-9>APT311,WIDE2-2:/203716h3859.58N/07656.35WO051/000/A=000111/W3EAX") << std::endl;
-	std::cout << BPP::PythonInterface::getFloat("BPPparser", "getSpd", "W3EAX-9>APT311,WIDE2-2:/203716h3859.58N/07656.35WO051/000/A=000111/W3EAX") << std::endl;
+	std::cout << BPP::PythonInterface::getString("BPPparser", "getLon", "W3EAX-9>APT311,WIDE2-2:/203716h3859.58N/07656.35WO051/000/A=000111/W3EAX", instDirectory) << std::endl;
+	std::cout << BPP::PythonInterface::getInt("BPPparser", "getAlt", "W3EAX-9>APT311,WIDE2-2:/203716h3859.58N/07656.35WO051/000/A=000111/W3EAX", instDirectory) << std::endl;
+	std::cout << BPP::PythonInterface::getFloat("BPPparser", "getSpd", "W3EAX-9>APT311,WIDE2-2:/203716h3859.58N/07656.35WO051/000/A=000111/W3EAX", instDirectory) << std::endl;
 	
 	//BPP::TempParse parse("W3EAX-9>APT311,WIDE2-2:/203716h3859.58N/07656.35WO051/000/A=000111/W3EAX");
 	//BPP::TempParse parse2("KB3ZZI-9>APRS,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:!/:Ig\\:iOfO   /A=000606|!!|  /KB3ZZI,7,8,27'C,http://goo.gl/dGbpev");
@@ -37,10 +61,10 @@ int main(void) {
 	//parse.parse();
 	//parse.print();
 
-	BPP::Packet p1("W3EAX-9>APT311,WIDE2-2:/203716h3859.58N/07656.35WO051/000/A=000111/W3EAX");
-	BPP::Packet p2("KB3ZZI-9>APRS,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:!/:Ig\\:iOfO   /A=000606|!!|  /KB3ZZI,7,8,27'C,http://goo.gl/dGbpev");
+	BPP::Packet p1("W3EAX-9>APT311,WIDE2-2:/203716h3859.58N/07656.35WO051/000/A=000111/W3EAX", instDirectory);
+	BPP::Packet p2("KB3ZZI-9>APRS,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:!/:Ig\\:iOfO   /A=000606|!!|  /KB3ZZI,7,8,27'C,http://goo.gl/dGbpev", instDirectory);
 
-	p2.init("KB3ZZI-9>APRS,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:!/:Ig\\:iOfO   /A=000606|!!|  /KB3ZZI,7,8,27'C,http://goo.gl/dGbpev");
+	p2.init("KB3ZZI-9>APRS,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:!/:Ig\\:iOfO   /A=000606|!!|  /KB3ZZI,7,8,27'C,http://goo.gl/dGbpev", instDirectory);
 
 	p1.parse();
 	std::cout << "P1 Valid: " << p1.isValid() << std::endl << std::endl;
@@ -66,7 +90,7 @@ int main(void) {
 	BPP::clearTerm();
 	usleep(5000000);
 
-	BPP::Packet p3("WIDE2-1,qAR,K3PDK-1:!/:Ig\\:iOfO   /A=000");
+	BPP::Packet p3("WIDE2-1,qAR,K3PDK-1:!/:Ig\\:iOfO   /A=000", instDirectory);
 	p3.parse();
 	std::cout << "P3 Valid: " << p3.isValid() << std::endl;
 
@@ -85,29 +109,10 @@ int main(void) {
 	BPP::clearTerm();
 	usleep(5000000);
 
-	BPP::JSONLoader settings("Prefs/settings.json");
-	std::cout << "Balloon Calls:\n";
-	std::vector<std::string> bCalls = settings.getBalloonCalls();
-	for(size_t i=0; i<bCalls.size(); i++) {
-		std::cout << bCalls[i] << std::endl;
-	}
-	std::cout << "Van Calls:\n";
-	std::vector<std::string> vCalls = settings.getVanCalls();
-	for(size_t i=0; i<vCalls.size(); i++) {
-		std::cout << vCalls[i] << std::endl;
-	}
-	std::cout << "Unparsed Log:\n";
-	std::cout << settings.getUnparsedLogFile() << std::endl;
-	std::cout << "Parsed Log:\n";
-	std::cout << settings.getParsedLogFile() << std::endl;
-
-	BPP::clearTerm();
-	usleep(5000000);
-
-	BPP::Packet timepack1("KB3ZZI-9>APRS,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:!/:Ig\\:iOfO   /A=000600|!!|  /KB3ZZI,7,8,27'C,http://goo.gl/dGbpev");
+	BPP::Packet timepack1("KB3ZZI-9>APRS,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:!/:Ig\\:iOfO   /A=000600|!!|  /KB3ZZI,7,8,27'C,http://goo.gl/dGbpev", instDirectory);
 	timepack1.parse();
 	usleep(5000000);
-	BPP::Packet timepack2("KB3ZZI-9>APRS,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:!/:Ig\\:iOfO   /A=000625|!!|  /KB3ZZI,7,8,27'C,http://goo.gl/dGbpev");
+	BPP::Packet timepack2("KB3ZZI-9>APRS,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:!/:Ig\\:iOfO   /A=000625|!!|  /KB3ZZI,7,8,27'C,http://goo.gl/dGbpev", instDirectory);
 	timepack2.parse();
 	timepack2.calcAscentRate(timepack1);
 	timepack2.print();
@@ -138,8 +143,19 @@ int main(void) {
 		usleep(1000000);
 	}
 */
+	RS232Serial serialPort;
+	serialPort.portOpen("/dev/ttyACM0", B9600, 8, 'N', 1);
 
-	std::cout << BPP::PythonInterface::getInt("BPPregex", "oldPacketMatch", "W3EAX-9>APT311,WIDE2-2:/203716h3859.58N/07656.35WO051/000/A=000111/W3EAX") << std::endl;
+	int n = 0;
+	std::string data;
+	while(1) {
+		n = serialPort.rxData();
+		data = serialPort.getData();
+		std::cout << data << "END\n";
+		usleep(1000000);
+	}
+
+	std::cout << BPP::PythonInterface::getInt("BPPregex", "oldPacketMatch", "W3EAX-9>APT311,WIDE2-2:/203716h3859.58N/07656.35WO051/000/A=000111/W3EAX", instDirectory) << std::endl;
 	return 0;
 }
 

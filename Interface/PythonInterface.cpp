@@ -1,4 +1,4 @@
-/* Link Telemetry v0.1.0 "Charlie Brown"
+/* Link Telemetry v0.2.0 "Columbia"
    
    Copyright (c) 2015-2016 University of Maryland Space Systems Lab
    NearSpace Balloon Payload Program
@@ -118,11 +118,14 @@ int BPP::PythonInterface::getInt(std::string pySource, std::string pyFunc, std::
 float BPP::PythonInterface::getFloat(std::string pySource, std::string pyFunc, std::string argv, std::string directory) {
     PyObject *pName, *pModule, *pArgs, *pFunc, *pValue = NULL; // Create Python objects.
 
+    // Get location of Python scripts:
+    std::string pythonDir = "sys.path.append(\"" + directory + "Python\")";
+
     // Initialize Python:
     Py_Initialize();
     PyRun_SimpleString("import sys"); // Set the working directory to location of Python scripts.
     PyRun_SimpleString("import os");
-    PyRun_SimpleString("sys.path.append(\"/home/nick/Desktop/Link_TLM/Python\")");
+    PyRun_SimpleString(pythonDir.c_str());
     
     pName = PyString_FromString(pySource.c_str()); // Python-ify the name of the source file.
 

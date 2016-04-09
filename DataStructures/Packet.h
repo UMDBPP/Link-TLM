@@ -1,4 +1,4 @@
-/*  Link Telemetry v0.1.0 "Charlie Brown"
+/*  Link Telemetry v0.2.0 "Columbia"
     
     Copyright (c) 2015-2016 University of Maryland Space Systems Lab
     NearSpace Balloon Payload Program
@@ -55,7 +55,7 @@ class Packet {
         Packet(const Packet& oldPacket); // Storing packets on heap. Thus copy ctor.
         ~Packet(); // Dtor
 
-        void init(std::string _rawPacket); // Init function - USE ONLY W/ DEFAULT CTOR
+        void init(std::string _rawPacket, std::string _installDirectory); // Init function - USE ONLY W/ DEFAULT CTOR
         void parse(); // Parse after init
         void calcAscentRate(const Packet& prevPacket); // Calculates balloon avg ascent rate.
         void print(); // Annnnnnd print out the packet.

@@ -1,4 +1,4 @@
-/* Link Telemetry v0.1.0 "Charlie Brown"
+/* Link Telemetry v0.2.0 "Columbia"
    
    Copyright (c) 2015-2016 University of Maryland Space Systems Lab
    NearSpace Balloon Payload Program
@@ -59,8 +59,9 @@ BPP::Packet::Packet(const Packet& oldPacket) {
 
 BPP::Packet::~Packet() {} // Nothing yet.
 
-void BPP::Packet::init(std::string _rawPacket) {
+void BPP::Packet::init(std::string _rawPacket, std::string _installDirectory) {
     rawPacket = _rawPacket; // init function for default CTOR
+    installDirectory = _installDirectory;
 }
 
 void BPP::Packet::validityCheck() {
