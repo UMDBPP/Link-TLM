@@ -144,14 +144,19 @@ int main(void) {
 	}
 */
 	RS232Serial serialPort;
-	serialPort.portOpen("/dev/ttyACM0", B9600, 8, 'N', 1);
+	serialPort.portOpen("/dev/ttyUSB0", B9600, 8, 'N', 1);
 
 	int n = 0;
-	std::string data;
+	std::string data = "";
+	std::string oldData = "";
 	while(1) {
+		oldData = data;
 		n = serialPort.rxData();
 		data = serialPort.getData();
-		std::cout << data << "END\n";
+		if(oldData != data) {
+			std::cout << data << "END\n";
+		}
+		serialPort.portFlush();
 		usleep(1000000);
 	}
 
