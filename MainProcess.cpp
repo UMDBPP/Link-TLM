@@ -197,7 +197,7 @@ void BPP::MainProcess::mainLoop() {
 		}
 
 		// Delay for 1 second.
-		// Needs t obe non-blocking in the future.
+		// Needs to be non-blocking in the future.
 		usleep(1000000);
 	}
 }

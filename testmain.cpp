@@ -143,7 +143,7 @@ int main(void) {
 		usleep(1000000);
 	}
 */
-	RS232Serial serialPort;
+	BPP::RS232Serial serialPort;
 	serialPort.portOpen("/dev/ttyUSB0", B9600, 8, 'N', 1);
 
 	int n = 0;
