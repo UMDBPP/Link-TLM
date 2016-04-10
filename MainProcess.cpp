@@ -49,12 +49,12 @@ BPP::MainProcess::MainProcess() : settings("Prefs/settings.json"), initFail(fals
 	// Serial port number is hard coded in this library.
 	// So you have to know the numbers in advance.
 	std::cout << "Enter Serial Port Number (As defined by lib docs.)\n";
-	std::cin >> serialPort;
+	std::cin >> serialPortName;
 
-	// Open the serial port, 8 data bits, no parity, 1 stop bit.
-	//if(RS232_OpenComport(serialPort, 9600, std::string("8N1").c_str())) {
-	//	initFail = true;
-	//}
+	// Open the serial port: 9600 baud, 8 data bits, no parity, 1 stop bit.
+	if(serialPort.portOpen(serialPortName, B9600, 8, 'N', 1) {
+		initFail = true;
+	}
 
 	// Set the callsigns to look for.
 	// Retrieve these from JSON preferences file.
@@ -77,39 +77,40 @@ BPP::MainProcess::MainProcess() : settings("Prefs/settings.json"), initFail(fals
 
 BPP::MainProcess::~MainProcess() { } // Thankfully, smart pointers clean up memory.
 
-// This is a horrid, awful mess.
-// Let's maybe fix this when we replace the serial lib?
+// I got to clean this up! Yay!
+// This reads new packets off the serial port.
+// It also attempts to reassemble packets that have been "Cut in half"
+// It does this without locking up in case of a true partial packet.
 void BPP::MainProcess::readSerialData() {
-	int n = -1;
+	int n = -1; // Indicators for recieved data lengths
 	int n2 = -1;
-	unsigned char buf[4096];
-	std::string data;
+	std::string data; // temporary data store
 
+	// New data flag; controls if a new Packet is generated this iteration or not.
 	newDataRecieved = false;
 
-	//n = RS232_PollComport(serialPort, buf, 4095);
+	n = serialPort.rxData(); // Pull all data from the serial port.
 
+	// Only do this if we actually recieved data!
 	if(n > 0) {
-		newDataRecieved = true;
+		newDataRecieved = true; // Set new data flag to true.
 
-		buf[n] = 0;
-		data = (char *)buf;
+		data = serialPort.getData(); // Pull data into the temp string.
 
-		if(n < 25) {
-			usleep(2000);
-			//n2 = RS232_PollComport(serialPort, buf, 4095);
+		if(n < 25) { // If we recieved a really short packet...
+			usleep(2000); // ...wait a tiny bit (couple of milliseconds)...
+			n2 = serialPort.rxData(); // ...then try again...
 
-			if(n2 > 0) {
-				buf[n] = 0;
-				data += (char *)buf;
-			}
+			if(n2 > 0) { // ...If there was more...
+				data += serialPort.getData(); // ...Add it to the temp string.
+			} // If there wasn't more, it was a true partial packet. These are handled by Packet()'s validity check.
 		}
 
-		if(data != lastRawPacket) {
-			allPackets.log(data);
+		if(data != lastRawPacket) { // If we didn't get a duplicate packet...
+			allPackets.log(data); // ...Add it to the log!
 		}
 
-		lastRawPacket = data;
+		lastRawPacket = data; // Finally, put the temp data into a class member string.
 	}
 }
 

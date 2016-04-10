@@ -50,7 +50,8 @@ class MainProcess {
 		std::vector<std::unique_ptr<BPP::Packet>> recievedPackets; // On the heap, using smart pointers.
 		BPP::JSONLoader settings; // Loads JSON settings file - filename in initialzer list.
 		BPP::Log allPackets; // Log file for all recieved, unparsed packets.
-		BPP::Log parsedPackets;// Log file for all parsed packets from a recognized callsign.
+		BPP::Log parsedPackets; // Log file for all parsed packets from a recognized callsign.
+		BPP::RS232Serial serialPort; // Object for managing the serial port.
 
 		std::string installDirectory; // Install directory specified in settings.
 
@@ -59,7 +60,7 @@ class MainProcess {
 
 		bool initFail; // Initialization failure checking.
 		bool newDataRecieved; // Check for if new data has come in.
-		int serialPort; // Serial port number, as defined by rs232 lib.
+		std::string serialPortName; // Filename of serial port. (For the dev team: in Unix, everything is a file!)
 		std::string lastRawPacket; // Latest valid raw APRS packet recieved.
 
 		// Read data from the serial port.
