@@ -1,4 +1,4 @@
-Link Telemetry - Demo Version v0.1.0 "Charlie Brown"
+Link Telemetry - Version v0.2.0 "Columbia"
 ====================================================
 
 University of Maryland Space Systems Lab
@@ -8,8 +8,6 @@ Link Telemetry (Link-TLM) is designed to be an integrated solution for tracking 
 via the [APRS](http://www.aprs.org/) network. The software interfaces with a Kenwood TM-D710GA radio
 via a RS-232 serial connection to recieve APRS packets. These packets are then decoded to yield
 location information throughout the flight.
-
-**NOTICE: The RS-232 Interface is currently DISABLED! A new RS-232 interface is being written.**
 
 This is a very early version of the software. In its current form, it recieves packets from the radio,
 logs the raw data, and selectively parses packets from the balloon. The parsed data is displayed to the
@@ -29,7 +27,7 @@ Link Telemetry's only external dependencies are g++ 5.0 or higher, Python 2.7, G
 RapidJson is provided with the software (along with a copy of its license; it is MIT, the same as Link-TLM itself).
 Most Linux distributions will already have Python installed, however, it may be necessary to install the Python 2
 development libraries. The package name varies between distributions; on Debian or Ubuntu based systems, it is 
-`python-dev`. G++ and GNU make are usually found in another same development package.
+`python-dev`. G++ and GNU make are usually found in another development package.
 
 Many distributions do not have g++ and make installed by default; for example, under Ubuntu
 or Linux Mint, they are found in the `build-essential` package. Under Arch Linux, they are found in the
@@ -54,17 +52,19 @@ directory, and run the command `make`.
 To clean up extra files created during compilation, run `make clean`.
 Logs can be purged by `make logclean`, and the executables themselves can be removed by `make purge`.
 
-Before running the demo, one final step is required. Open the `settings.json` file in the `Prefs/`
-subdirectory. Change the `install directory` value to the absolute filepath of the `Link_TLM`
-directory. For example, in my development environment, this value would be `"/home/nick/Code/Link_TLM/"`.
+Before running the program, one final step is required. Open the `settings.json` file in the `Prefs/`
+subdirectory. Change the `install directory` value to the absolute filepath of the `Link-TLM`
+directory. For example, in my development environment, this value would be `"/home/nick/Code/Link-TLM/"`.
 This step is necessary for the Python interface; Python does not typically handle relative file paths well.
 
 Running
 -------
 
-To run the demo after building, simply run `./Link-TLM` from a command line in the `Link_TLM` directory.
-Being a demo, no special hardware and no other input from the user is necessary. Output to the screen can be monitored,
-and output is also saved to two log files. The filenames are specified in `settings.json` in the `Prefs/`
+To run the program after building, simply run `./Link-TLM` from a command line in the `Link_TLM` directory.
+Enter the filename of the serial port you are using when prompted (something like `/dev/ttyUSB0`). A radio is
+not technically necessary; any serial device outputting APRS packets will work. For testing without a radio,
+an Arduino writing APRS packets captured on previous launches is used. Output to the screen can be monitored,
+and output is also saved to two log files. The log filenames are specified in `settings.json` in the `Prefs/`
 subdirectory.
 
 FAQ
