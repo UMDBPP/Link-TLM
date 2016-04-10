@@ -52,7 +52,7 @@ BPP::MainProcess::MainProcess() : settings("Prefs/settings.json"), initFail(fals
 	std::cin >> serialPortName;
 
 	// Open the serial port: 9600 baud, 8 data bits, no parity, 1 stop bit.
-	if(serialPort.portOpen(serialPortName, B9600, 8, 'N', 1) {
+	if(serialPort.portOpen(serialPortName, B9600, 8, 'N', 1)) {
 		initFail = true;
 	}
 
