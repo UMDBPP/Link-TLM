@@ -37,6 +37,7 @@
 #include <string>
 
 #include "DataStructures/Packet.h"
+#include "DataStructures/GroundTrack.h"
 #include "System/JSONLoader.h"
 #include "System/Log.h"
 #include "Interface/RS232.h"
@@ -46,11 +47,9 @@ namespace BPP {
 class MainProcess {
 
 	private:
-		// Vector of all recieved packets.
-		std::vector<std::unique_ptr<BPP::Packet>> recievedPackets; // On the heap, using smart pointers.
+		BPP::GroundTrack trackedPackets; // Keeps tabs on all recieved packets and calculates derived quantities.
 		BPP::JSONLoader settings; // Loads JSON settings file - filename in initialzer list.
 		BPP::Log allPackets; // Log file for all recieved, unparsed packets.
-		BPP::Log parsedPackets; // Log file for all parsed packets from a recognized callsign.
 		BPP::RS232Serial serialPort; // Object for managing the serial port.
 
 		std::string installDirectory; // Install directory specified in settings.

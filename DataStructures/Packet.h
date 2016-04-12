@@ -57,7 +57,6 @@ class Packet {
 
         void init(std::string _rawPacket, std::string _installDirectory); // Init function - USE ONLY W/ DEFAULT CTOR
         void parse(); // Parse after init
-        void calcAscentRate(const Packet& prevPacket); // Calculates balloon avg ascent rate.
         void print(); // Annnnnnd print out the packet.
 
         // Getters are const: do NOT modify values!

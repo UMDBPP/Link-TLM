@@ -58,20 +58,22 @@ BPP::MainProcess::MainProcess() : settings("Prefs/settings.json"), initFail(fals
 
 	// Set the callsigns to look for.
 	// Retrieve these from JSON preferences file.
+	// For balloon callsigns, "register" with ground track.
 	balloonCalls = settings.getBalloonCalls();
+	for(const std::string cs : balloonCalls) {
+		trackedPackets.registerCallsign(cs);
+	}
 	vanCalls = settings.getVanCalls();
 
 	// Retrieve install location information from the JSON file as well.
 	// Python needs this because it hates relative paths.
 	installDirectory = settings.getInstallDirectory();
+	trackedPackets.setInstallDirectory(installDirectory); // Set up for GroundTrack too.
 
 	// Open the logs.
 	// Log filenames defined in same JSON file.
 	allPackets.open(settings.getUnparsedLogFile());
-	parsedPackets.open(settings.getParsedLogFile());
-
-	// Print a header to the parsed log file.
-	parsedPackets.log("callsign, timestamp, lat, lon, alt, heading, speed, ascent rate");
+	trackedPackets.initLog(settings.getParsedLogFile()); // Parsed log in GroundTrack.
 
 }
 
@@ -115,75 +117,18 @@ void BPP::MainProcess::readSerialData() {
 }
 
 // Parse the packets we've recieved.
-// Also check packet validity.
-// Much/most of this functionality will be moved to a data structure for
-// holding the packets.
+// Most former functionality moved to GroundTrack class.
+// Keep this for program flow clarity, though.
 bool BPP::MainProcess::parseRecievedPacket() {
-	bool goodPacket = false; // Initially assume a bad packet was recieved.
-
-	// Create a new packet, place it on the stack.
-	// Use C++ smart pointers to avoid memory leaks.
-	std::unique_ptr<BPP::Packet> newPacket = std::make_unique<BPP::Packet>(lastRawPacket, installDirectory);
-	newPacket->parse(); // Parse the packet.
-
-	// Check to see if the packet matches any balloon callsign.
-	// Also check to see if there were any parse errors.
-	// If both checks are okay, we have a valid packet.
-	for(size_t i=0; i<balloonCalls.size(); i++) {
-		if(newPacket->getCall() == balloonCalls[i]){
-			if(newPacket->isValid()) {
-				goodPacket = true;
-			}
-		}
-	}
-
-	// Same process as above, except for the van callsigns.
-	for(size_t i=0; i<vanCalls.size(); i++) {
-		if(newPacket->getCall() == vanCalls[i]){
-			if(newPacket->isValid()) {
-				goodPacket = true;
-			}
-		}
-	}
-
-	// Typically, the problem is an untracked callsign.
-	// More robust errors in the future would be a good idea.
-	if(!goodPacket) {
-		std::cout << "Untracked Callsign: " << newPacket->getCall() << std::endl;
-		return false;
-	}
-
-	// Roughly calculate ascent/descent rate.
-	// Not super accurate.
-	// Need to filter this in the future (low pass).
-	if(recievedPackets.size() > 0) {
-		newPacket->calcAscentRate(*recievedPackets.back());
-	}
-
-	// If everything is good, add the packet pointer to the vector of them.
-	// Also return success code.
-	recievedPackets.push_back(std::move(newPacket));
-	return true;
+	return trackedPackets.addPacket(lastRawPacket); // Okay, this turned into a one-liner.
 }
 
 // Print out stuff to terminal in clean format.
 void BPP::MainProcess::printLatestPacket() {
-	// Access the data held in the last packet recieved.
-	BPP::DecodedPacket packet = recievedPackets.back()->getPacket();
-	
-	// Logall of the packet data to the parsed packet log file.
-	parsedPackets.log(packet.callsign, ",", \
-		packet.timestamp, ",", \
-		packet.lat, ",", \
-		packet.lon, ",", \
-		packet.alt, ",", \
-		packet.heading, ",", \
-		packet.speed, ",", \
-		packet.ascentRate);
-
 	// Clear the terminal screen, then print all packet information to it.
+	// Also logs to file.
 	BPP::clearTerm();
-	recievedPackets.back()->print();
+	trackedPackets.printPacket();
 }
 
 // The main loop that runs everything.
