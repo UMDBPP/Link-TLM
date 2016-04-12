@@ -34,6 +34,7 @@
 #ifndef PYTHON_H
 #define PYTHON_H
 
+#include <Python.h> // Home to the Python interface library. Python version 2.7
 #include <string>
 
 namespace BPP {

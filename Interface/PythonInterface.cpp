@@ -31,8 +31,6 @@
 
 #include "PythonInterface.h"
 
-#include <Python.h> // Home to the Python interface library. Python version 2.7
-
 std::string BPP::PythonInterface::getString(std::string pySource, std::string pyFunc, std::string argv, std::string directory) {
     PyObject *pName, *pModule, *pArgs, *pFunc, *pValue = NULL; // Create Python objects.
 
