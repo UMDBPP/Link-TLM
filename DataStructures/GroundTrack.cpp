@@ -12,8 +12,10 @@
 
 // CTOR
 // Initializes values via initializer list.
+// Sets install directory to a default in case it isn't inited later...
 // Everything else has separate function.
-BPP::GroundTrack::GroundTrack() : capturedPackets(0), \
+BPP::GroundTrack::GroundTrack() : installDirectory("/home/nick/Code/Link-TLM"), \
+	capturedPackets(0), \
 	logEnabled(false), \
 	ascentRate(0.0f), \
 	groundSpeed(0.0f), \
@@ -189,6 +191,8 @@ bool BPP::GroundTrack::initLog(std::string _logFileName) {
 	if(!logEnabled) { // If log didn't open, inform user, but don't crash.
 		std::cerr << "Logging of parsed packets not enabled: " << _logFileName << " not opened!\n";
 		std::cerr << "Proceeding without parsed packet logging...\n";
+	} else { // If it did, print data header:
+		parsedPackets.log("Callsign,Timestamp,Lat,Lon,Alt(ft),Downrange Distance(mi),Ascent Rate(ft/s),Ground Speed(mph)");
 	}
 
 	return logEnabled; // Return log status (In case user wants this to be a failure case...)
@@ -211,12 +215,66 @@ void BPP::GroundTrack::registerCallsign(std::string _callsign) {
 // Discard if partial packet or untracked callsign.
 // If it's good, add it to the track. Then do derived calculations.
 bool BPP::GroundTrack::addPacket(std::string _rawPacket) {
+	 // Begin assuming we've recieved either an untracked packet.
+	bool trackedPacket = false;
 
+	BPP::Packet tempPacket(_rawPacket, installDirectory); // Make temporary packet for recieved data.
+	tempPacket.parse(); // Parse the raw data.
+
+	// Now for checking. First, we check for callsign.
+	// Untracked callsigns are by far the most common "invalid" packet type.
+	// Also, range-based for loops are great.
+	for(auto const& track : groundTracks) {
+		if(tempPacket.getCall() == track.first) { // If we match a callsign...
+			trackedPacket = true; // ...we have a packet we want to track.
+		}
+	}
+
+	// At this point, if we don't have a tracked packet, we can stop:
+	if(!trackedPacket) {
+		std::cout << "Untracked Callsign: " << tempPacket.getCall() << std::endl; // Provide user feedback.
+		return false;
+	}
+
+	// Now we check if we recieved a valid (not partial) packet.
+	// This doesn't care about data in the comment string, only actual tracking data.
+	// So comments CAN still be dropped.
+	if(!tempPacket.isValid()) { // If the packet isn't valid due to data loss...
+		std::cout << "Partial Packet. Not added to track.\n"; // ...Provide feedback.
+		return false; // And stop.
+	}
+
+	// Now, if we've gotten down here, all is good, and we can safely add the packet to the track.
+	groundTracks[tempPacket.getCall()].push_back(tempPacket); // Add the new packet to the end of its callsign vector.
+	return true; // And report success!
 }
 
 // Print out the latest packet in a nice, formatted form.
 // Also, if logging is enabled, add it to the log!
 // Includes derived data.
-void printPacket() {
+void BPP::GroundTrack::printPacket() {
+	BPP::Packet latestPacket = getLatest()[0]; // Get the latest packet, first of all.
 
+	latestPacket.print(); // First use packet's built-in print.
+	// Now print derived quantities:
+	std::cout << "Downrange Distance (mi): " << downrangeDistance << " and (km): " << downrangeDistance/0.62137f << std::endl;
+	std::cout << "Ascent Rate (ft/s): " << ascentRate << " and (m/s): " << ascentRate*0.3048f << std::endl;
+	std::cout << "Ground Speed (mph): " << groundSpeed << " and (m/s): " << groundSpeed*0.44704f << std::endl;
+	std::cout << "Lat Rate of Change (degrees/s): " << latlonDerivative[0] << std::endl;
+	std::cout << "Lon Rate of Change (degrees/s): " << latlonDerivative[1] << std::endl;
+
+	// Now, log what we need to, if logging is on:
+	if(logEnabled) {
+		BPP::DecodedPacket packetData = latestPacket.getPacket(); // Extract the data from the packet.
+
+		// And log everthing!
+		parsedPackets.log(packetData.callsign, ",", \
+			packetData.timestamp, ",", \
+			packetData.lat, ",", \
+			packetData.lon, ",", \
+			packetData.alt, ",", \
+			downrangeDistance, ",", \
+			ascentRate, ",", \
+			groundSpeed);
+	}
 }

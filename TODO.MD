@@ -14,3 +14,4 @@ Link-TLM TODO List
 |Raspberry Pi 2 port|Moderate|
 |Multithreading/thread safety|Moderate|
 |Position output for directional antenna|Unknown|
+|Add duplicate packet detection/removal|Moderate|
