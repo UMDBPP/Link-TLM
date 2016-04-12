@@ -5,7 +5,7 @@ TestBin
 test.txt
 Default/*
 
-*.sublime-workspace ## Sublime workspace file. Project IS checked in.
+
 
 #################
 ## Eclipse
