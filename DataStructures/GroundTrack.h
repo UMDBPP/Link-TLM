@@ -56,13 +56,16 @@ class GroundTrack {
 		float groundSpeed; // mph
 		float downrangeDistance; // mi
 		std::array<float, 2> latlonDerivative; // Rate of change of lat and lon.
-		std::array<std::string, 3> latestCallsigns; // Stores latest callsigns packets recieved from. Only need 2, 3 for safety.
+		std::array<std::string, 3> latestCallsigns; // Stores latest callsigns packets recieved from. Only need 2, 3 for safety. Index 0 = most recent.
 
 		void calculateAscentRate(); // Calculate ascent rate from last couple of packets.
 		void calculateGroundSpeed(); // Calculate speed from last couple of packets.
 		void calculateLatLonROC(); // Calculate derivative of lat and lon.
 		void calculateDownrangeDistance(); // Get downrange distance from lat and lon.
+		
 		float diffLatLon(BPP::Packet _firstPacket, BPP::Packet _secondPacket); // Calculate Great Circle Dist using Haversine formula.
+		int diffTime(BPP::Packet _firstPacket, BPP::Packet _secondPacket); // Calculate time difference between two packets.
+		std::vector<BPP::Packet> getLatest(int _numPackets = 1); // Retrieve the latest n packets from the ground track.
 
 	public:
 		GroundTrack(); // Default CTOR
