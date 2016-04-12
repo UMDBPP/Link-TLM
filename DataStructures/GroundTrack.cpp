@@ -56,7 +56,13 @@ void BPP::GroundTrack::calculateGroundSpeed() {
 // Also not filtered for same reason as in ground speed calc.
 // Units are degrees/second.
 void BPP::GroundTrack::calculateLatLonROC() {
+	std::vector<BPP::Packet> calcPackets = getLatest(2); // Retrieve latest two packets.
+	float deltaLat = calcPackets[0].getPacket().lat - calcPackets[1].getPacket().lat; // Change in latitude.
+	float deltaLon = calcPackets[0].getPacket().lon - calcPackets[1].getPacket().lon; // change in longitude.
+	int deltaTime = diffTime(calcPackets[1], calcPackets[0]); // Time between packets.
 
+	latlonDerivative[0] = deltaLat/static_cast<float>(deltaTime); // ROC of lat in degrees/sec.
+	latlonDerivative[1] = deltaLon/static_cast<float>(deltaTime); // ROC of lon in degrees/sec.
 }
 
 // Get horizontal distance from launch pad.
@@ -178,14 +184,26 @@ std::vector<BPP::Packet> BPP::GroundTrack::getLatest(int _numPackets) {
 // If that doesn't happen for whatever reason, contimue without logging.
 // Also inform user that that is the case.
 bool BPP::GroundTrack::initLog(std::string _logFileName) {
+	logEnabled = parsedPackets.open(_logFileName); // Open the log file, report if success.
 
+	if(!logEnabled) { // If log didn't open, inform user, but don't crash.
+		std::cerr << "Logging of parsed packets not enabled: " << _logFileName << " not opened!\n";
+		std::cerr << "Proceeding without parsed packet logging...\n";
+	}
+
+	return logEnabled; // Return log status (In case user wants this to be a failure case...)
 }
 
 // Add given callsign to map.
 // Preempt packet reading so we can use "registered" callsigns, and ignore
 // all other ones.
 void BPP::GroundTrack::registerCallsign(std::string _callsign) {
+	std::vector<BPP::Packet> tempVect; // Create empty vector to add to the map.
 
+	groundTracks[_callsign] = tempVect; // Insert vector into map with callsign as key.
+
+	// Feedback for user: should know what callsigns they're tracking!
+	std::cout << "Added Callsign " << _callsign << " to list of tracked callsigns.\n";
 }
 
 // Parse raw, string APRS packet.
@@ -197,6 +215,7 @@ bool BPP::GroundTrack::addPacket(std::string _rawPacket) {
 }
 
 // Print out the latest packet in a nice, formatted form.
+// Also, if logging is enabled, add it to the log!
 // Includes derived data.
 void printPacket() {
 

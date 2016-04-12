@@ -55,7 +55,7 @@ class GroundTrack {
 		float ascentRate; // ft/s
 		float groundSpeed; // mph
 		float downrangeDistance; // mi
-		std::array<float, 2> latlonDerivative; // Rate of change of lat and lon.
+		std::array<float, 2> latlonDerivative; // Rate of change of lat and lon. lat is index 0, lon is index 1.
 		std::array<std::string, 3> latestCallsigns; // Stores latest callsigns packets recieved from. Only need 2, 3 for safety. Index 0 = most recent.
 
 		void calculateAscentRate(); // Calculate ascent rate from last couple of packets.
