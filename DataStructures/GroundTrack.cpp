@@ -18,8 +18,7 @@ BPP::GroundTrack::GroundTrack() : capturedPackets(0), \
 	ascentRate(0.0f), \
 	groundSpeed(0.0f), \
 	downrangeDistance(0.0f), \
-	latlonDerivative[0](0.0f), \
-	latlonDerivative[1](0.0f) { }
+	latlonDerivative { 0.0f, 0.0f } { }
 
 // DTOR, trivial:
 BPP::GroundTrack::~GroundTrack() { }
@@ -29,8 +28,12 @@ BPP::GroundTrack::~GroundTrack() { }
 // Will look into filtering very, very soon.
 // (Need to make it work before I make it better.)
 // Emits result in ft/s; conversion to m/s in print function.
-void BPP::GroundTrack::calculateAscentSpeed() {
+void BPP::GroundTrack::calculateAscentRate() {
+	std::vector<BPP::Packet> calcPackets = getLatest(2); // Grab latest two packets.
+	int deltaAltitude = calcPackets[0].getPacket().alt - calcPackets[1].getPacket().alt; // Calc change in alt in ft.
+	int deltaTime = diffTime(calcPackets[1], calcPackets[0]); // Get time between packets in sec.
 
+	ascentRate = static_cast<float>(deltaAltitude)/static_cast<float>(deltaTime); // Calculate ascent rate in ft/s.
 }
 
 // Ground speed calculation function.
@@ -42,9 +45,9 @@ void BPP::GroundTrack::calculateAscentSpeed() {
 void BPP::GroundTrack::calculateGroundSpeed() {
 	std::vector<BPP::Packet> calcPackets = getLatest(2); // Grab two most recent packets.
 	float distanceTraveled = diffLatLon(calcPackets[1], calcPackets[0]); // Get ground distance between packets.
-	int elapsedTime = diffTime(calcPackets[1], calcPackets[0]); // Get time between packets.
+	int deltaTime = diffTime(calcPackets[1], calcPackets[0]); // Get time between packets.
 
-	float hours = static_cast<float>(elapsedTime)/3600.0f; // Convert seconds to hours for mph units.
+	float hours = static_cast<float>(deltaTime)/3600.0f; // Convert seconds to hours for mph units.
 
 	groundSpeed = distanceTraveled/hours; // Finally, calculate speed in mph. Store internally.
 }
@@ -76,8 +79,8 @@ float BPP::GroundTrack::diffLatLon(BPP::Packet _firstPacket, BPP::Packet _second
 	BPP::DecodedPacket first = _firstPacket.getPacket(); // Extract packet data from given packets.
 	BPP::DecodedPacket last = _secondPacket.getPacket();
 
-	float diffLat = second.lat - first.lat;
-	float diffLon = second.lon - first.lon; // Get difference between the two points.
+	float diffLat = last.lat - first.lat;
+	float diffLon = last.lon - first.lon; // Get difference between the two points.
 
 	// Haversine Equation
 	float a = pow((sin(diffLat/2.0f)),2) + cos(first.lat)*cos(last.lat)*pow((sin(diffLon/2.0f)),2);
@@ -118,11 +121,12 @@ int BPP::GroundTrack::diffTime(BPP::Packet _firstPacket, BPP::Packet _secondPack
 }
 
 // Retrieve the latest numPackets packets from the ground track.
+// Defaults to 1.
 // Handles cases where these packets have come from the same or different callsigns.
 // Returns a vector of the packets.
 // Return convention: index 0 is the newest packet, 1 is second newest, etc.
 // Throws error if more than 3 packets requested; returns latest 3 in this case.
-std::vector<BPP::Packet> BPP::GroundTrack::getLatest(int _numPackets = 1) {
+std::vector<BPP::Packet> BPP::GroundTrack::getLatest(int _numPackets) {
 	std::vector<BPP::Packet> packets; // Return value
 
 	// First, check input:
