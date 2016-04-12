@@ -31,8 +31,11 @@
 
 #include "Util.h"
 
+#define _USE_MATH_DEFINES // For M_PI
+
 #include <unistd.h>
 #include <term.h>
+#include <cmath>
 
 // Clear the terminal screen.
 // Uses Linux terminal libs to avoid system calls and/or quick hacks.
@@ -46,4 +49,10 @@ void BPP::clearTerm() {
     }
 
     putp(tigetstr("clear"));
+}
+
+// Degrees to radians.
+// Used for distance calculation stuff.
+float BPP::deg2rad(float _degrees) {
+    return _degrees * (M_PI/180.0f);
 }

@@ -48,7 +48,7 @@ BPP::MainProcess::MainProcess() : settings("Prefs/settings.json"), initFail(fals
 
 	// Serial port number is hard coded in this library.
 	// So you have to know the numbers in advance.
-	std::cout << "Enter Serial Port Number (As defined by lib docs.)\n";
+	std::cout << "Enter Serial Port Filename (Something Like /dev/ttyUSB0)\n";
 	std::cin >> serialPortName;
 
 	// Open the serial port: 9600 baud, 8 data bits, no parity, 1 stop bit.

@@ -4,7 +4,7 @@
    NearSpace Balloon Payload Program
    
    Written by Nicholas Rossomando
-   2015-05-06
+   2015-04-06
 
    Permission is hereby granted, free of charge, to any person obtaining a copy
    of this software and associated documentation files (the "Software"), to deal
@@ -58,7 +58,7 @@ class RS232Serial {
 		void portFlush(); // Clear data in the recieve buffer.
 		void portClose(); // Close the serial port.
 
-		std::string getData() { return data; } // Data getter.
+		std::string getData() const { return data; } // Data getter.
 
 }; // RS232Serial
 

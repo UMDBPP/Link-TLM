@@ -5,6 +5,7 @@
    
    Written by Nicholas Rossomando
    2015-10-26
+   2016-04-11
 
    Permission is hereby granted, free of charge, to any person obtaining a copy
    of this software and associated documentation files (the "Software"), to deal
@@ -37,6 +38,9 @@ namespace BPP {
 
 // Clear the terminal screen. The RIGHT way.
 void clearTerm();
+
+// Degree to radian conversion for distance maths.
+float deg2rad(float _degrees);
 
 }; // BPP
 
