@@ -114,7 +114,7 @@ int main(void) {
 	usleep(5000000);
 	BPP::Packet timepack2("KB3ZZI-9>APRS,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:!/:Ig\\:iOfO   /A=000625|!!|  /KB3ZZI,7,8,27'C,http://goo.gl/dGbpev", instDirectory);
 	timepack2.parse();
-	timepack2.calcAscentRate(timepack1);
+	//timepack2.calcAscentRate(timepack1);
 	timepack2.print();
 
 /*	unsigned char buf[4096];

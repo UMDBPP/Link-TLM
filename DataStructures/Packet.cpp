@@ -138,7 +138,7 @@ void BPP::Packet::print() { // Simply print out all data from the parsed packet.
     std::cout << "Time: " << parsedPacket.timestamp << std::endl;
     std::cout << "Lat: " << parsedPacket.lat << std::endl;
     std::cout << "Lon: " << parsedPacket.lon << std::endl;
-    std::cout << "Alt (ft): " << parsedPacket.alt << "and (m): " << parsedPacket.alt/3.2808f << std::endl;
+    std::cout << "Alt (ft): " << parsedPacket.alt << " and (m): " << parsedPacket.alt/3.2808f << std::endl;
     std::cout << "Comment: " << parsedPacket.comment << std::endl;
 }
 

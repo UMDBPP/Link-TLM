@@ -52,7 +52,8 @@ BPP::GroundTrack::GroundTrack() : installDirectory("/home/nick/Code/Link-TLM"), 
 	ascentRate(0.0f), \
 	groundSpeed(0.0f), \
 	downrangeDistance(0.0f), \
-	latlonDerivative { 0.0f, 0.0f } { }
+	latlonDerivative { 0.0f, 0.0f }, \
+	latestCallsigns { "", "", "" } { }
 
 // DTOR, trivial:
 BPP::GroundTrack::~GroundTrack() { }
@@ -278,6 +279,12 @@ bool BPP::GroundTrack::addPacket(std::string _rawPacket) {
 
 	// Now, if we've gotten down here, all is good, and we can safely add the packet to the track.
 	groundTracks[tempPacket.getCall()].push_back(tempPacket); // Add the new packet to the end of its callsign vector.
+
+	// Also, shift the array of latest callsigns!
+	latestCallsigns[2] = latestCallsigns[1];
+	latestCallsigns[1] = latestCallsigns[0];
+	latestCallsigns[0] = tempPacket.getCall();
+
 	return true; // And report success!
 }
 
