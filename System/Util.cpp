@@ -36,6 +36,7 @@
 #include <unistd.h>
 #include <term.h>
 #include <cmath>
+#include <iostream>
 
 // Clear the terminal screen.
 // Uses Linux terminal libs to avoid system calls and/or quick hacks.
@@ -49,6 +50,18 @@ void BPP::clearTerm() {
     }
 
     putp(tigetstr("clear"));
+}
+
+// Print program banner.
+void BPP::LinkTlm() {
+    std::cout << ".##.......####.##....##.##....##.........########.##.......##.....##\n";
+    std::cout << ".##........##..###...##.##...##.............##....##.......###...###\n";
+    std::cout << ".##........##..####..##.##..##..............##....##.......####.####\n";
+    std::cout << ".##........##..##.##.##.#####....#######....##....##.......##.###.##\n";
+    std::cout << ".##........##..##..####.##..##..............##....##.......##.....##\n";
+    std::cout << ".##........##..##...###.##...##.............##....##.......##.....##\n";
+    std::cout << ".########.####.##....##.##....##............##....########.##.....##\n";
+    std::cout << std::endl << std::endl;
 }
 
 // Degrees to radians.

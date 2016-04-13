@@ -46,6 +46,9 @@ extern "C" {
 // Also, error check the initialization of serial.
 BPP::MainProcess::MainProcess() : settings("Prefs/settings.json"), initFail(false) {
 
+	// Print Program Banner at start of program:
+	BPP::LinkTlm();
+
 	// Serial port number is hard coded in this library.
 	// So you have to know the numbers in advance.
 	std::cout << "Enter Serial Port Filename (Something Like /dev/ttyUSB0)\n";

@@ -39,6 +39,9 @@ namespace BPP {
 // Clear the terminal screen. The RIGHT way.
 void clearTerm();
 
+// ASCII Art, because.
+void LinkTlm();
+
 // Degree to radian conversion for distance maths.
 float deg2rad(float _degrees);
 
