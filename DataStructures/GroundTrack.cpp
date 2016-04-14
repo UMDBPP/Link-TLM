@@ -190,7 +190,7 @@ std::vector<BPP::Packet> BPP::GroundTrack::getLatest(int _numPackets) {
 		if(latestCallsigns[0] != latestCallsigns[1]) { // If newest two came from different callsigns, pretty easy.
 			packets.push_back(groundTracks[latestCallsigns[1]].back()); // Because we can use back() on a different vector.
 		} else { // Otherwise, have to handle not using back():
-			index = groundTracks[latestCallsigns[1]].size() - 1; // Get the index of the second to last value.
+			index = groundTracks[latestCallsigns[1]].size() - 2; // Get the index of the second to last value.
 			packets.push_back(groundTracks[latestCallsigns[1]][index]); // Retrieve said value and add to return vector. 
 		}
 	}
@@ -202,10 +202,10 @@ std::vector<BPP::Packet> BPP::GroundTrack::getLatest(int _numPackets) {
 			packets.push_back(groundTracks[latestCallsigns[2]].back()); // It's the lovely back() trick.
 		} else if((latestCallsigns[2] == latestCallsigns[1]) && (latestCallsigns[2] == latestCallsigns[0])) {
 			// If all three latest packets were from the same call:
-			index = groundTracks[latestCallsigns[2]].size() - 2; // Get the index of the third to last value.
+			index = groundTracks[latestCallsigns[2]].size() - 3; // Get the index of the third to last value.
 			packets.push_back(groundTracks[latestCallsigns[2]][index]); // Retrieve said value and add to return vector. 
 		} else { // Only other case: last packet was from a call that was used for one, but not both, previous values.
-			index = groundTracks[latestCallsigns[2]].size() - 1; // Since it was only accessed once before, we get second to last value.
+			index = groundTracks[latestCallsigns[2]].size() - 2; // Since it was only accessed once before, we get second to last value.
 			packets.push_back(groundTracks[latestCallsigns[2]][index]);
 		}
 	}
@@ -284,6 +284,14 @@ bool BPP::GroundTrack::addPacket(std::string _rawPacket) {
 	latestCallsigns[2] = latestCallsigns[1];
 	latestCallsigns[1] = latestCallsigns[0];
 	latestCallsigns[0] = tempPacket.getCall();
+
+	// Finally, calculate derived values:
+	if(latestCallsigns[1] != "") { // Make sure we have more than one packet to work with
+		calculateAscentRate();
+		calculateGroundSpeed();
+		calculateLatLonROC();
+		calculateDownrangeDistance();
+	}
 
 	return true; // And report success!
 }
