@@ -33,6 +33,7 @@
 #include "MainProcess.h"
 
 #include <iostream>
+#include <thread>
 
 extern "C" {
 	#include "unistd.h"
@@ -78,9 +79,12 @@ BPP::MainProcess::MainProcess() : settings("Prefs/settings.json"), initFail(fals
 	allPackets.open(settings.getUnparsedLogFile());
 	trackedPackets.initLog(settings.getParsedLogFile()); // Parsed log in GroundTrack.
 
+	// Set our exit code to false to start:
+	exitCode = false;
+
 }
 
-BPP::MainProcess::~MainProcess() { } // Thankfully, smart pointers clean up memory.
+BPP::MainProcess::~MainProcess() { } // Thankfully, C++ STL containers clean up after themselves...
 
 // I got to clean this up! Yay!
 // This reads new packets off the serial port.
@@ -134,9 +138,23 @@ void BPP::MainProcess::printLatestPacket() {
 	trackedPackets.printPacket();
 }
 
+// Should be called from a different thread to not block main loop.
+// Looks for program exit code (q or Q) on stdin.
+// Could also be used for other input in future.
+void BPP::MainProcess::readUserInput() {
+	char code;
+	std::cin >> code; // read a single character from stdin.
+
+	if((code == 'q') || (code == 'Q')) { // If user sent quit code.
+		exitCode = true; // Set atomic (thread-safe) bool to true.
+	}
+}
+
 // The main loop that runs everything.
 void BPP::MainProcess::mainLoop() {
-	while(1) { // Go until the program is killed.
+	std::thread inputThread(&BPP::MainProcess::readUserInput, this); // Spawn input thread
+
+	while(!exitCode) { // Go until the program is killed.
 		readSerialData(); // Read incoming serial data.
 
 		if(newDataRecieved) { // If we recieved new data,
@@ -149,4 +167,6 @@ void BPP::MainProcess::mainLoop() {
 		// Needs to be non-blocking in the future.
 		usleep(1000000);
 	}
+
+	inputThread.join(); // Kill input thread after loop exit.
 }

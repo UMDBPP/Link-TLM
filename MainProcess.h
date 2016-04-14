@@ -35,6 +35,7 @@
 #include <vector>
 #include <memory>
 #include <string>
+#include <atomic>
 
 #include "DataStructures/Packet.h"
 #include "DataStructures/GroundTrack.h"
@@ -59,6 +60,7 @@ class MainProcess {
 
 		bool initFail; // Initialization failure checking.
 		bool newDataRecieved; // Check for if new data has come in.
+		std::atomic<bool> exitCode; // Check if exit interrupt recieved.
 		std::string serialPortName; // Filename of serial port. (For the dev team: in Unix, everything is a file!)
 		std::string lastRawPacket; // Latest valid raw APRS packet recieved.
 
@@ -71,6 +73,9 @@ class MainProcess {
 
 		// Print packet to terminal.
 		void printLatestPacket();
+
+		// Scan user keyboard input for exit code.
+		void readUserInput();
 
 	public:
 		// Default Constructor
