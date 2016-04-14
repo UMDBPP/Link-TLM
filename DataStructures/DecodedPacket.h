@@ -1,4 +1,4 @@
-/* Link Telemetry v0.1.0 "Gumdrop"
+/* Link Telemetry v0.2.0 "Columbia"
    
    Copyright (c) 2015-2016 University of Maryland Space Systems Lab
    NearSpace Balloon Payload Program
@@ -50,7 +50,6 @@ struct DecodedPacket {
 	int heading;
 	float speed;
 	std::string comment;
-  float ascentRate;
 
 	DecodedPacket(std::string cs, std::string ts, float _lat, float _lon, int _alt, int _heading, float _speed, std::string cmt) : \
 		callsign(cs), \
@@ -60,10 +59,9 @@ struct DecodedPacket {
 		alt(_alt), \
 		heading(_heading), \
 		speed(_speed), \
-		comment(cmt), \
-        ascentRate(0.0f) { }
+		comment(cmt) { }
 
-   DecodedPacket() : \
+    DecodedPacket() : \
         callsign(""), \
         timestamp(""), \
         lat(1000.0f), \
@@ -71,8 +69,7 @@ struct DecodedPacket {
         alt(0), \
         heading(0), \
         speed(0.0f), \
-        comment(""), \
-        ascentRate(0.0f) { }
+        comment("") { }
 };
 
 } // BPP

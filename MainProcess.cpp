@@ -1,4 +1,4 @@
-/* Link Telemetry v0.1.0 "Charlie Brown"
+/* Link Telemetry v0.2.0 "Columbia"
    
    Copyright (c) 2015-2016 University of Maryland Space Systems Lab
    NearSpace Balloon Payload Program
@@ -33,7 +33,10 @@
 #include "MainProcess.h"
 
 #include <iostream>
-//#include "rs232.h"
+
+extern "C" {
+	#include "unistd.h"
+}
 
 #include "System/Util.h"
 #include "DataStructures/DecodedPacket.h"
@@ -43,143 +46,92 @@
 // Also, error check the initialization of serial.
 BPP::MainProcess::MainProcess() : settings("Prefs/settings.json"), initFail(false) {
 
+	// Print Program Banner at start of program:
+	BPP::LinkTlm();
+
 	// Serial port number is hard coded in this library.
 	// So you have to know the numbers in advance.
-	std::cout << "Enter Serial Port Number (As defined by lib docs.)\n";
-	std::cin >> serialPort;
+	std::cout << "Enter Serial Port Filename (Something Like /dev/ttyUSB0)\n";
+	std::cin >> serialPortName;
 
-	// Open the serial port, 8 data bits, no parity, 1 stop bit.
-	//if(RS232_OpenComport(serialPort, 9600, std::string("8N1").c_str())) {
-	//	initFail = true;
-	//}
+	// Open the serial port: 9600 baud, 8 data bits, no parity, 1 stop bit.
+	if(serialPort.portOpen(serialPortName, B9600, 8, 'N', 1)) {
+		initFail = true;
+	}
 
 	// Set the callsigns to look for.
 	// Retrieve these from JSON preferences file.
+	// For balloon callsigns, "register" with ground track.
 	balloonCalls = settings.getBalloonCalls();
+	for(const std::string cs : balloonCalls) {
+		trackedPackets.registerCallsign(cs);
+	}
 	vanCalls = settings.getVanCalls();
 
 	// Retrieve install location information from the JSON file as well.
 	// Python needs this because it hates relative paths.
 	installDirectory = settings.getInstallDirectory();
+	trackedPackets.setInstallDirectory(installDirectory); // Set up for GroundTrack too.
 
 	// Open the logs.
 	// Log filenames defined in same JSON file.
 	allPackets.open(settings.getUnparsedLogFile());
-	parsedPackets.open(settings.getParsedLogFile());
-
-	// Print a header to the parsed log file.
-	parsedPackets.log("callsign, timestamp, lat, lon, alt, heading, speed, ascent rate");
+	trackedPackets.initLog(settings.getParsedLogFile()); // Parsed log in GroundTrack.
 
 }
 
 BPP::MainProcess::~MainProcess() { } // Thankfully, smart pointers clean up memory.
 
-// This is a horrid, awful mess.
-// Let's maybe fix this when we replace the serial lib?
+// I got to clean this up! Yay!
+// This reads new packets off the serial port.
+// It also attempts to reassemble packets that have been "Cut in half"
+// It does this without locking up in case of a true partial packet.
 void BPP::MainProcess::readSerialData() {
-	int n = -1;
+	int n = -1; // Indicators for recieved data lengths
 	int n2 = -1;
-	unsigned char buf[4096];
-	std::string data;
+	std::string data; // temporary data store
 
+	// New data flag; controls if a new Packet is generated this iteration or not.
 	newDataRecieved = false;
 
-	//n = RS232_PollComport(serialPort, buf, 4095);
+	n = serialPort.rxData(); // Pull all data from the serial port.
 
+	// Only do this if we actually recieved data!
 	if(n > 0) {
-		newDataRecieved = true;
+		newDataRecieved = true; // Set new data flag to true.
 
-		buf[n] = 0;
-		data = (char *)buf;
+		data = serialPort.getData(); // Pull data into the temp string.
 
-		if(n < 25) {
-			usleep(2000);
-			//n2 = RS232_PollComport(serialPort, buf, 4095);
+		if(n < 25) { // If we recieved a really short packet...
+			usleep(2000); // ...wait a tiny bit (couple of milliseconds)...
+			n2 = serialPort.rxData(); // ...then try again...
 
-			if(n2 > 0) {
-				buf[n] = 0;
-				data += (char *)buf;
-			}
+			if(n2 > 0) { // ...If there was more...
+				data += serialPort.getData(); // ...Add it to the temp string.
+			} // If there wasn't more, it was a true partial packet. These are handled by Packet()'s validity check.
 		}
 
-		if(data != lastRawPacket) {
-			allPackets.log(data);
+		if(data != lastRawPacket) { // If we didn't get a duplicate packet...
+			allPackets.log(data); // ...Add it to the log!
 		}
 
-		lastRawPacket = data;
+		lastRawPacket = data; // Finally, put the temp data into a class member string.
 	}
 }
 
 // Parse the packets we've recieved.
-// Also check packet validity.
-// Much/most of this functionality will be moved to a data structure for
-// holding the packets.
+// Most former functionality moved to GroundTrack class.
+// Keep this for program flow clarity, though.
 bool BPP::MainProcess::parseRecievedPacket() {
-	bool goodPacket = false; // Initially assume a bad packet was recieved.
-
-	// Create a new packet, place it on the stack.
-	// Use C++ smart pointers to avoid memory leaks.
-	std::unique_ptr<BPP::Packet> newPacket = std::make_unique<BPP::Packet>(lastRawPacket, installDirectory);
-	newPacket->parse(); // Parse the packet.
-
-	// Check to see if the packet matches any balloon callsign.
-	// Also check to see if there were any parse errors.
-	// If both checks are okay, we have a valid packet.
-	for(size_t i=0; i<balloonCalls.size(); i++) {
-		if(newPacket->getCall() == balloonCalls[i]){
-			if(newPacket->isValid()) {
-				goodPacket = true;
-			}
-		}
-	}
-
-	// Same process as above, except for the van callsigns.
-	for(size_t i=0; i<vanCalls.size(); i++) {
-		if(newPacket->getCall() == vanCalls[i]){
-			if(newPacket->isValid()) {
-				goodPacket = true;
-			}
-		}
-	}
-
-	// Typically, the problem is an untracked callsign.
-	// More robust errors in the future would be a good idea.
-	if(!goodPacket) {
-		std::cout << "Untracked Callsign: " << newPacket->getCall() << std::endl;
-		return false;
-	}
-
-	// Roughly calculate ascent/descent rate.
-	// Not super accurate.
-	// Need to filter this in the future (low pass).
-	if(recievedPackets.size() > 0) {
-		newPacket->calcAscentRate(*recievedPackets.back());
-	}
-
-	// If everything is good, add the packet pointer to the vector of them.
-	// Also return success code.
-	recievedPackets.push_back(std::move(newPacket));
-	return true;
+	return trackedPackets.addPacket(lastRawPacket); // Okay, this turned into a one-liner.
 }
 
 // Print out stuff to terminal in clean format.
 void BPP::MainProcess::printLatestPacket() {
-	// Access the data held in the last packet recieved.
-	BPP::DecodedPacket packet = recievedPackets.back()->getPacket();
-	
-	// Logall of the packet data to the parsed packet log file.
-	parsedPackets.log(packet.callsign, ",", \
-		packet.timestamp, ",", \
-		packet.lat, ",", \
-		packet.lon, ",", \
-		packet.alt, ",", \
-		packet.heading, ",", \
-		packet.speed, ",", \
-		packet.ascentRate);
-
 	// Clear the terminal screen, then print all packet information to it.
+	// Also logs to file.
 	BPP::clearTerm();
-	recievedPackets.back()->print();
+	trackedPackets.printPacket();
 }
 
 // The main loop that runs everything.
@@ -194,7 +146,7 @@ void BPP::MainProcess::mainLoop() {
 		}
 
 		// Delay for 1 second.
-		// Needs t obe non-blocking in the future.
+		// Needs to be non-blocking in the future.
 		usleep(1000000);
 	}
 }

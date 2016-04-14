@@ -1,4 +1,4 @@
-/* Link Telemetry v0.1.0 "Charlie Brown"
+/* Link Telemetry v0.2.0 "Columbia"
    
    Copyright (c) 2015-2016 University of Maryland Space Systems Lab
    NearSpace Balloon Payload Program
@@ -32,10 +32,6 @@
 #include "Packet.h"
 
 #include <iostream>
-#include <ctime>
-#include <iomanip> // For std::get_time()
-#include <sstream>
-#include <locale>
 
 #include "Interface/PythonInterface.h"
 
@@ -59,8 +55,9 @@ BPP::Packet::Packet(const Packet& oldPacket) {
 
 BPP::Packet::~Packet() {} // Nothing yet.
 
-void BPP::Packet::init(std::string _rawPacket) {
+void BPP::Packet::init(std::string _rawPacket, std::string _installDirectory) {
     rawPacket = _rawPacket; // init function for default CTOR
+    installDirectory = _installDirectory;
 }
 
 void BPP::Packet::validityCheck() {
@@ -135,40 +132,13 @@ void BPP::Packet::parse() {
 
 }
 
-// Calculates the average ascent rate of the balloon.
-// Uses difference in timestamps and altitudes.
-void BPP::Packet::calcAscentRate(const Packet& prevPacket) {
-    // Get current packet timestamp in Unix time:
-    // All current APRS radios use local time instead of UTC...
-    std::tm tmpTime;
-    std::istringstream ct(parsedPacket.timestamp);
-    ct.imbue(std::locale("en_US.utf-8"));
-    ct >> std::get_time(&tmpTime, "%Y-%m-%d %H:%M:%S Local");
-    tmpTime.tm_isdst = 0; // Undefinied unless we define it. Since we're using differential time, DST doesn't matter!
-    time_t curTime = std::mktime(&tmpTime);
-
-    // Get the previous packet's time:
-    std::istringstream pt(prevPacket.getPacket().timestamp);
-    pt.imbue(std::locale("en_US.utf-8"));
-    pt >> std::get_time(&tmpTime, "%Y-%m-%d %H:%M:%S Local");
-    tmpTime.tm_isdst = 0;
-    time_t prevTime = std::mktime(&tmpTime);
-
-    // Get previous altitude:
-    int prevAlt = prevPacket.getPacket().alt;
-
-    // Altitude calculation:
-    parsedPacket.ascentRate = (static_cast<float>(parsedPacket.alt - prevAlt))/(static_cast<float>(curTime - prevTime));
-}
-
 void BPP::Packet::print() { // Simply print out all data from the parsed packet.
 
     std::cout << "Callsign: " << parsedPacket.callsign << std::endl;
     std::cout << "Time: " << parsedPacket.timestamp << std::endl;
     std::cout << "Lat: " << parsedPacket.lat << std::endl;
     std::cout << "Lon: " << parsedPacket.lon << std::endl;
-    std::cout << "Alt (ft): " << parsedPacket.alt << std::endl;
-    std::cout << "Ascent Rate (ft/s): " << parsedPacket.ascentRate << std::endl;
+    std::cout << "Alt (ft): " << parsedPacket.alt << " and (m): " << parsedPacket.alt/3.2808f << std::endl;
     std::cout << "Comment: " << parsedPacket.comment << std::endl;
 }
 

@@ -4,7 +4,7 @@
    NearSpace Balloon Payload Program
    
    Written by Nicholas Rossomando
-   2015-11-10
+   2015-04-06
 
    Permission is hereby granted, free of charge, to any person obtaining a copy
    of this software and associated documentation files (the "Software"), to deal
@@ -24,25 +24,44 @@
    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
    SOFTWARE.
 
-   main.cpp:
+   RS232.h:
 
-   Program entry point and not much else.
+   Serial reading class. Replaces GPL licensed and not very friendly old library.
 */
 
-#include <iostream>
+#ifndef RS232_H
+#define RS232_H
 
-#include "MainProcess.h"
+#include <string>
 
-// Beautifully short main.
-int main(void) {
-	BPP::MainProcess mainLoop; // Create the main object
-
-	if(mainLoop.failed()) { // Test for initialization failure!
-		std::cout << "Main Loop Failed to Initialize.\n";
-		return -1; // If we did fail, print error and return.
-	}
-
-	mainLoop.mainLoop(); // Run the program.
-
-	return 0; // Never get here.
+extern "C" {
+	#include <termios.h>
+	#include <unistd.h>
 }
+
+namespace BPP {
+
+class RS232Serial {
+
+	private:
+		int port; // Com port file handle, because POSIX file interaction.
+		struct termios originalPortConfig; // Store the original port settings for restore.
+		struct termios portConfig; // termios settings structure for new settings.
+		std::string data; // string to store serial data.
+
+	public:
+		RS232Serial(); // Default CTOR
+		~RS232Serial(); // DTOR
+
+		int portOpen(std::string _comPort, int _baudRate, int _dataBits, char _parity, int _stopBits); // Initialize to selected serial port.
+		int rxData(); // Recieve data from serial port
+		void portFlush(); // Clear data in the recieve buffer.
+		void portClose(); // Close the serial port.
+
+		std::string getData() const { return data; } // Data getter.
+
+}; // RS232Serial
+
+} // BPP
+
+#endif

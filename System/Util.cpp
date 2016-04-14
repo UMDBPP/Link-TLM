@@ -1,4 +1,4 @@
-/* Link Telemetry v0.1.0 "Charlie Brown"
+/* Link Telemetry v0.2.0 "Columbia"
    
    Copyright (c) 2015-2016 University of Maryland Space Systems Lab
    NearSpace Balloon Payload Program
@@ -31,8 +31,12 @@
 
 #include "Util.h"
 
+#define _USE_MATH_DEFINES // For M_PI
+
 #include <unistd.h>
 #include <term.h>
+#include <cmath>
+#include <iostream>
 
 // Clear the terminal screen.
 // Uses Linux terminal libs to avoid system calls and/or quick hacks.
@@ -46,4 +50,22 @@ void BPP::clearTerm() {
     }
 
     putp(tigetstr("clear"));
+}
+
+// Print program banner.
+void BPP::LinkTlm() {
+    std::cout << ".##.......####.##....##.##....##.........########.##.......##.....##\n";
+    std::cout << ".##........##..###...##.##...##.............##....##.......###...###\n";
+    std::cout << ".##........##..####..##.##..##..............##....##.......####.####\n";
+    std::cout << ".##........##..##.##.##.#####....#######....##....##.......##.###.##\n";
+    std::cout << ".##........##..##..####.##..##..............##....##.......##.....##\n";
+    std::cout << ".##........##..##...###.##...##.............##....##.......##.....##\n";
+    std::cout << ".########.####.##....##.##....##............##....########.##.....##\n";
+    std::cout << std::endl << std::endl;
+}
+
+// Degrees to radians.
+// Used for distance calculation stuff.
+float BPP::deg2rad(float _degrees) {
+    return _degrees * (M_PI/180.0f);
 }

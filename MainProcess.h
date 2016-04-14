@@ -1,4 +1,4 @@
-/* Link Telemetry v0.1.0 "Charlie Brown"
+/* Link Telemetry v0.2.0 "Columbia"
    
    Copyright (c) 2015-2016 University of Maryland Space Systems Lab
    NearSpace Balloon Payload Program
@@ -37,19 +37,20 @@
 #include <string>
 
 #include "DataStructures/Packet.h"
+#include "DataStructures/GroundTrack.h"
 #include "System/JSONLoader.h"
 #include "System/Log.h"
+#include "Interface/RS232.h"
 
 namespace BPP {
 
 class MainProcess {
 
 	private:
-		// Vector of all recieved packets.
-		std::vector<std::unique_ptr<BPP::Packet>> recievedPackets; // On the heap, using smart pointers.
+		BPP::GroundTrack trackedPackets; // Keeps tabs on all recieved packets and calculates derived quantities.
 		BPP::JSONLoader settings; // Loads JSON settings file - filename in initialzer list.
 		BPP::Log allPackets; // Log file for all recieved, unparsed packets.
-		BPP::Log parsedPackets;// Log file for all parsed packets from a recognized callsign.
+		BPP::RS232Serial serialPort; // Object for managing the serial port.
 
 		std::string installDirectory; // Install directory specified in settings.
 
@@ -58,7 +59,7 @@ class MainProcess {
 
 		bool initFail; // Initialization failure checking.
 		bool newDataRecieved; // Check for if new data has come in.
-		int serialPort; // Serial port number, as defined by rs232 lib.
+		std::string serialPortName; // Filename of serial port. (For the dev team: in Unix, everything is a file!)
 		std::string lastRawPacket; // Latest valid raw APRS packet recieved.
 
 		// Read data from the serial port.

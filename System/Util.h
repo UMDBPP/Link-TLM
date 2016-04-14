@@ -1,10 +1,11 @@
-/* Link Telemetry v0.1.0 "Charlie Brown"
+/* Link Telemetry v0.2.0 "Columbia"
    
    Copyright (c) 2015-2016 University of Maryland Space Systems Lab
    NearSpace Balloon Payload Program
    
    Written by Nicholas Rossomando
    2015-10-26
+   2016-04-11
 
    Permission is hereby granted, free of charge, to any person obtaining a copy
    of this software and associated documentation files (the "Software"), to deal
@@ -37,6 +38,12 @@ namespace BPP {
 
 // Clear the terminal screen. The RIGHT way.
 void clearTerm();
+
+// ASCII Art, because.
+void LinkTlm();
+
+// Degree to radian conversion for distance maths.
+float deg2rad(float _degrees);
 
 }; // BPP
 
