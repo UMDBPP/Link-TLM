@@ -40,6 +40,9 @@ figs = 0
 def initInteractivePlot():
 	plt.ion() # Go into interactive mode.
 
+# Create a plot.
+# Label the plot, label the axes.
+# Return the integer handle of the figure.
 def createPlot(Title, xLabel, yLabel):
 	global figs
 	figs += 1
@@ -51,6 +54,8 @@ def createPlot(Title, xLabel, yLabel):
 
 	return figs # This will report figure handle to C++ (or Python, honestly.)
 
+# Create 2-4 subplots; do nothing if other numbers requested.
+# Doesn't return handles; C++ takes care of that since there are limited possiblities.
 def createSubplots(figHandle, numPlots):
 	plt.figure(figHandle) # Switch to proper figure
 
@@ -65,6 +70,7 @@ def createSubplots(figHandle, numPlots):
 	else:
 		return
 
+# Allows titling and axis labelling of subplots.
 def formatSubplot(figHandle, subplotHandle, Title, xLabel, yLabel):
 	plt.figure(figHandle)
 	plt.subplot(subplotHandle) # Switch the the figure and subplot we want to edit.
@@ -73,6 +79,10 @@ def formatSubplot(figHandle, subplotHandle, Title, xLabel, yLabel):
 	plt.xlabel(xLabel)
 	plt.ylabel(yLabel) # Add all our labels.
 
+# Add a point to the plot. New values are x2, y2.
+# Previous points are x1, y1.
+# This allows plotting as a line instead of points (thankfully).
+# For non-subplotted graphs, use 111 as subplotHandle.
 def addPointToPlot(figHandle, subplotHandle, x1, x2, y1, y2):
 	plt.figure(figHandle)
 	plt.subplot(subplotHandle) # Switch to desired plot & subplot
