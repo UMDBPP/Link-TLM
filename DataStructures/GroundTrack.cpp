@@ -44,10 +44,8 @@
 
 // CTOR
 // Initializes values via initializer list.
-// Sets install directory to a default in case it isn't inited later...
 // Everything else has separate function.
-BPP::GroundTrack::GroundTrack() : installDirectory("/home/nick/Code/Link-TLM"), \
-	capturedPackets(0), \
+BPP::GroundTrack::GroundTrack() : capturedPackets(0), \
 	logEnabled(false), \
 	ascentRate(0.0f), \
 	groundSpeed(0.0f), \
@@ -251,7 +249,7 @@ bool BPP::GroundTrack::addPacket(std::string _rawPacket) {
 	 // Begin assuming we've recieved either an untracked packet.
 	bool trackedPacket = false;
 
-	BPP::Packet tempPacket(_rawPacket, installDirectory); // Make temporary packet for recieved data.
+	BPP::Packet tempPacket(_rawPacket); // Make temporary packet for recieved data.
 	tempPacket.parse(); // Parse the raw data.
 
 	// Now for checking. First, we check for callsign.

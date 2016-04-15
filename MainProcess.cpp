@@ -40,10 +40,11 @@ extern "C" {
 }
 
 #include "System/Util.h"
+#include "Interface/PythonInterface.h"
 #include "DataStructures/DecodedPacket.h"
 
 // Initialize everything.
-// Gets settings, initializes ground track, opens logs.
+// Gets settings, initializes ground track, opens logs, starts Python interpreter.
 // Also, print ASCII art splash screen.
 BPP::MainProcess::MainProcess() : settings("Prefs/settings.json"), initFail(false) {
 
@@ -62,7 +63,7 @@ BPP::MainProcess::MainProcess() : settings("Prefs/settings.json"), initFail(fals
 	// Retrieve install location information from the JSON file as well.
 	// Python needs this because it hates relative paths.
 	installDirectory = settings.getInstallDirectory();
-	trackedPackets.setInstallDirectory(installDirectory); // Set up for GroundTrack too.
+	BPP::PythonInterface::initPython(installDirectory); // Start Python and add directory to path
 
 	// Open the logs.
 	// Log filenames defined in same JSON file.
@@ -74,7 +75,9 @@ BPP::MainProcess::MainProcess() : settings("Prefs/settings.json"), initFail(fals
 
 }
 
-BPP::MainProcess::~MainProcess() { } // Thankfully, C++ STL containers clean up after themselves...
+BPP::MainProcess::~MainProcess() { 
+	BPP::PythonInterface::stopPython();
+}
 
 // I got to clean this up! Yay!
 // This reads new packets off the serial port.

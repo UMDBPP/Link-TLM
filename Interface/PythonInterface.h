@@ -43,15 +43,21 @@ namespace BPP {
     // The solution is to use a namespace with ONLY the "loose" functions.
     namespace PythonInterface {
 
+        // Initialize the Python interpreter.
+        void initPython(std::string directory);
+
+        // Shut down Python.
+        void stopPython();
+
         // Hand a Python function a string, get a string back.
-        // Arguments: Python source file name (without extension), Python function name, string argument, install directory.
-        std::string getString(std::string pySource, std::string pyFunc, std::string argv, std::string directory);
+        // Arguments: Python source file name (without extension), Python function name, string argument.
+        std::string getString(std::string pySource, std::string pyFunc, std::string argv);
 
         // Same as above, but returns an integer.
-        int getInt(std::string pySource, std::string pyFunc, std::string argv, std::string directory);
+        int getInt(std::string pySource, std::string pyFunc, std::string argv);
 
         // And again, for floats.
-        float getFloat(std::string pySource, std::string pyFunc, std::string argv, std::string directory);
+        float getFloat(std::string pySource, std::string pyFunc, std::string argv);
 
     } // PythonInterface
 

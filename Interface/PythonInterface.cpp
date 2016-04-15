@@ -31,17 +31,27 @@
 
 #include "PythonInterface.h"
 
-std::string BPP::PythonInterface::getString(std::string pySource, std::string pyFunc, std::string argv, std::string directory) {
+// Start up the Python interpreter.
+// Also, set the directory path so Python can access relevant code.
+void BPP::PythonInterface::initPython(std::string directory) {
+    Py_Initialize(); // Actually start
+    
+    PyRun_SimpleString("import sys");
+    PyRun_SimpleString("import os"); // Bring in libraries to alter path.
+
+    // Get full directory path:
+    std::string pythonDirCmd = "sys.path.append(\"" + directory + "Python\")";
+    PyRun_SimpleString(pythonDirCmd.c_str()); // Append directory to path.
+}
+
+// Shut down the Python interpreter.
+// It's simple but this needs to be external.
+void BPP::PythonInterface::stopPython() {
+    Py_Finalize();
+}
+
+std::string BPP::PythonInterface::getString(std::string pySource, std::string pyFunc, std::string argv) {
     PyObject *pName, *pModule, *pArgs, *pFunc, *pValue = NULL; // Create Python objects.
-
-    // Get location of Python scripts:
-    std::string pythonDir = "sys.path.append(\"" + directory + "Python\")";
-
-    // Initialize Python:
-    Py_Initialize();
-    PyRun_SimpleString("import sys"); // Set the working directory to location of Python scripts.
-    PyRun_SimpleString("import os");
-    PyRun_SimpleString(pythonDir.c_str());
     
     pName = PyString_FromString(pySource.c_str()); // Python-ify the name of the source file.
 
@@ -65,24 +75,13 @@ std::string BPP::PythonInterface::getString(std::string pySource, std::string py
     Py_DECREF(pName);
     Py_DECREF(pValue);
     Py_DECREF(pArgs);
-
-    // Finish the Python Interpreter
-    Py_Finalize();
+    Py_XDECREF(pFunc);
 
     return result;
 }
 
-int BPP::PythonInterface::getInt(std::string pySource, std::string pyFunc, std::string argv, std::string directory) {
+int BPP::PythonInterface::getInt(std::string pySource, std::string pyFunc, std::string argv) {
     PyObject *pName, *pModule, *pArgs, *pFunc, *pValue = NULL; // Create Python objects.
-
-    // Get location of Python scripts:
-    std::string pythonDir = "sys.path.append(\"" + directory + "Python\")";
-
-    // Initialize Python:
-    Py_Initialize();
-    PyRun_SimpleString("import sys"); // Set the working directory to location of Python scripts.
-    PyRun_SimpleString("import os");
-    PyRun_SimpleString(pythonDir.c_str());
     
     pName = PyString_FromString(pySource.c_str()); // Python-ify the name of the source file.
 
@@ -106,24 +105,13 @@ int BPP::PythonInterface::getInt(std::string pySource, std::string pyFunc, std::
     Py_DECREF(pName);
     Py_DECREF(pValue);
     Py_DECREF(pArgs);
-
-    // Finish the Python Interpreter
-    Py_Finalize();
+    Py_XDECREF(pFunc);
 
     return result;
 }
 
-float BPP::PythonInterface::getFloat(std::string pySource, std::string pyFunc, std::string argv, std::string directory) {
+float BPP::PythonInterface::getFloat(std::string pySource, std::string pyFunc, std::string argv) {
     PyObject *pName, *pModule, *pArgs, *pFunc, *pValue = NULL; // Create Python objects.
-
-    // Get location of Python scripts:
-    std::string pythonDir = "sys.path.append(\"" + directory + "Python\")";
-
-    // Initialize Python:
-    Py_Initialize();
-    PyRun_SimpleString("import sys"); // Set the working directory to location of Python scripts.
-    PyRun_SimpleString("import os");
-    PyRun_SimpleString(pythonDir.c_str());
     
     pName = PyString_FromString(pySource.c_str()); // Python-ify the name of the source file.
 
@@ -147,9 +135,7 @@ float BPP::PythonInterface::getFloat(std::string pySource, std::string pyFunc, s
     Py_DECREF(pName);
     Py_DECREF(pValue);
     Py_DECREF(pArgs);
-
-    // Finish the Python Interpreter
-    Py_Finalize();
+    Py_XDECREF(pFunc);
 
     return result;
 }
