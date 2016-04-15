@@ -43,22 +43,12 @@ extern "C" {
 #include "DataStructures/DecodedPacket.h"
 
 // Initialize everything.
-// Opens the setings file, opens the serial port, grabs settings.
-// Also, error check the initialization of serial.
+// Gets settings, initializes ground track, opens logs.
+// Also, print ASCII art splash screen.
 BPP::MainProcess::MainProcess() : settings("Prefs/settings.json"), initFail(false) {
 
 	// Print Program Banner at start of program:
 	BPP::LinkTlm();
-
-	// Serial port number is hard coded in this library.
-	// So you have to know the numbers in advance.
-	std::cout << "Enter Serial Port Filename (Something Like /dev/ttyUSB0)\n";
-	std::cin >> serialPortName;
-
-	// Open the serial port: 9600 baud, 8 data bits, no parity, 1 stop bit.
-	if(serialPort.portOpen(serialPortName, B9600, 8, 'N', 1)) {
-		initFail = true;
-	}
 
 	// Set the callsigns to look for.
 	// Retrieve these from JSON preferences file.
@@ -147,6 +137,24 @@ void BPP::MainProcess::readUserInput() {
 
 	if((code == 'q') || (code == 'Q')) { // If user sent quit code.
 		exitCode = true; // Set atomic (thread-safe) bool to true.
+	}
+}
+
+// Allow user to specify serial port filename via command line argument.
+// Requests from stdin if not (Default parameter is empty string).
+void BPP::MainProcess::initSerial(std::string argv) {
+	std::string serialPortName; // Temp variable
+
+	if(argv == "") { // If cmd line arg not supplied, ask user.
+		std::cout << "Enter Serial Port Filename (Something Like /dev/ttyUSB0)\n";
+		std::cin >> serialPortName;
+	} else {
+		serialPortName = argv; // otherwise, use cmd line arg.
+	}
+
+	// Open the serial port: 9600 baud, 8 data bits, no parity, 1 stop bit.
+	if(serialPort.portOpen(serialPortName, B9600, 8, 'N', 1)) {
+		initFail = true; // Failure check.
 	}
 }
 

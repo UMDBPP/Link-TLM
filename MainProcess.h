@@ -82,6 +82,8 @@ class MainProcess {
 		MainProcess();
 		~MainProcess(); // DTOR (though smart pointers keep this trivial)
 
+		void initSerial(std::string _argv = ""); // Allow command line arg to init serial.
+
 		bool failed() { return initFail; } // Getter for initialization failure status.
 
 		// Program main logic loop.
