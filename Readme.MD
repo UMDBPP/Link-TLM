@@ -23,7 +23,7 @@ API, and a port to the Raspberry Pi 2. This effort will include multithreading (
 Dependencies
 ------------
 
-Link Telemetry's only external dependencies are g++ 5.0 or higher, Python 2.7, GNU make and the RapidJson library.
+Link Telemetry's external dependencies are g++ 5.0 or higher, Python 2.7, GNU make, matplotlib and the RapidJson library.
 RapidJson is provided with the software (along with a copy of its license; it is MIT, the same as Link-TLM itself).
 Most Linux distributions will already have Python installed, however, it may be necessary to install the Python 2
 development libraries. The package name varies between distributions; on Debian or Ubuntu based systems, it is 
@@ -42,6 +42,9 @@ sudo apt-get install g++-5
 ```
 
 In this case, the `makefile` handles choosing which compiler alias to use.
+
+Matplotlib must be installed for python 2; this will vary by distribution, but in Ubuntu-based distros, use the following:
+`sudo apt-get install python-matplotlib`.
 
 Building
 --------
