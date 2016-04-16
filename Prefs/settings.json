@@ -1,5 +1,5 @@
 {
-	"balloonCallsigns" : ["W3EAX-10", "W3EAX-11", "KC3BXO-1"],
+	"balloonCallsigns" : ["W3EAX-10", "W3EAX-9", "KC3BXO-6"],
 	"vanCallsigns" : 0,
 	"unparsedLogFilename" : "Logs/NS52_allPackets.txt",
 	"parsedLogFilename" : "Logs/NS52_parsedPackets.txt",

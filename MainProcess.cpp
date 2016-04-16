@@ -1,4 +1,4 @@
-/* Link Telemetry v0.2.0 "Columbia"
+/* Link Telemetry v0.2.1 "Columbia"
    
    Copyright (c) 2015-2016 University of Maryland Space Systems Lab
    NearSpace Balloon Payload Program
@@ -64,6 +64,7 @@ BPP::MainProcess::MainProcess() : settings("Prefs/settings.json"), initFail(fals
 	// Python needs this because it hates relative paths.
 	installDirectory = settings.getInstallDirectory();
 	BPP::PythonInterface::initPython(installDirectory); // Start Python and add directory to path
+	trackedPackets.initPlots(); // Create plots now that Python has started.
 
 	// Open the logs.
 	// Log filenames defined in same JSON file.
@@ -171,6 +172,7 @@ void BPP::MainProcess::mainLoop() {
 		if(newDataRecieved) { // If we recieved new data,
 			if(parseRecievedPacket()) { // Parse it,
 				printLatestPacket(); // Then log and print it.
+				trackedPackets.plotLatest();
 			}
 		}
 

@@ -1,4 +1,4 @@
-''' Link Telemetry v0.2.0 "Columbia"
+''' Link Telemetry v0.2.1 "Columbia"
 
 Copyright (c) 2015-2016 University of Maryland Space Systems Lab
 NearSpace Balloon Program

@@ -52,6 +52,8 @@ def createPlot(Title, xLabel, yLabel):
 	plt.xlabel(xLabel) # Label the x axis
 	plt.ylabel(yLabel) # Label the y axis
 
+	plt.draw() # Update the plot.
+
 	return figs # This will report figure handle to C++ (or Python, honestly.)
 
 # Create 2-4 subplots; do nothing if other numbers requested.
@@ -70,6 +72,8 @@ def createSubplots(figHandle, numPlots):
 	else:
 		return
 
+	plt.draw() # Update the plot.
+
 # Allows titling and axis labelling of subplots.
 def formatSubplot(figHandle, subplotHandle, Title, xLabel, yLabel):
 	plt.figure(figHandle)
@@ -79,6 +83,8 @@ def formatSubplot(figHandle, subplotHandle, Title, xLabel, yLabel):
 	plt.xlabel(xLabel)
 	plt.ylabel(yLabel) # Add all our labels.
 
+	plt.draw() # Update plot
+
 # Add a point to the plot. New values are x2, y2.
 # Previous points are x1, y1.
 # This allows plotting as a line instead of points (thankfully).
@@ -87,4 +93,5 @@ def addPointToPlot(figHandle, subplotHandle, x1, x2, y1, y2):
 	plt.figure(figHandle)
 	plt.subplot(subplotHandle) # Switch to desired plot & subplot
 
-	plt.plot([x1, x2],[y1, y2],'g')
+	plt.plot([x1, x2],[y1, y2],'g') # Draw a line between the old and new points.
+	plt.draw() # Make explicit draw() call.

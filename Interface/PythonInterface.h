@@ -1,10 +1,11 @@
-/* Link Telemetry v0.2.0 "Columbia"
+/* Link Telemetry v0.2.1 "Columbia"
    
    Copyright (c) 2015-2016 University of Maryland Space Systems Lab
    NearSpace Balloon Payload Program
    
    Written by Nicholas Rossomando
    2015-07-14
+   2016-04-15
 
    Permission is hereby granted, free of charge, to any person obtaining a copy
    of this software and associated documentation files (the "Software"), to deal
@@ -36,6 +37,7 @@
 
 #include <Python.h> // Home to the Python interface library. Python version 2.7
 #include <string>
+#include <vector>
 
 namespace BPP {
 
@@ -58,6 +60,25 @@ namespace BPP {
 
         // And again, for floats.
         float getFloat(std::string pySource, std::string pyFunc, std::string argv);
+
+        // Matplotlib wrapper:
+
+        // Initialize matplotlib in interactive mode.
+        void initPlotting();
+
+        // Create a plot with given title and axis labels.
+        int createPlot(std::string _title = "", std::string _xLabel = "", std::string _yLabel = "");
+
+        // Create subplots on a larger plot.
+        std::vector<int> createSubplots(int _plotHandle, int _numSubPlots);
+
+        // Add labels to specified subplot.
+        void formatSubplot(int _plotHandle, int _subplotHandle, std::string _title = "", std::string _xLabel = "", std::string _yLabel = "");
+
+        // Actual plotting function, with overload for graphs with subplots.
+        // x1,y1 is "old" data point; x2,y2 is "new".
+        void plotDataPoint(int _plotHandle, float _x1, float _y1, float _x2, float _y2);
+        void plotDataPoint(int _plotHandle, int _subplotHandle, float _x1, float _y1, float _x2, float _y2);
 
     } // PythonInterface
 
