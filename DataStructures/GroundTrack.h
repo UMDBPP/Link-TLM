@@ -1,4 +1,4 @@
-/* Link Telemetry v0.2.0 "Columbia"
+/* Link Telemetry v0.2.1 "Columbia"
    
    Copyright (c) 2015-2016 University of Maryland Space Systems Lab
    NearSpace Balloon Payload Program
@@ -41,6 +41,7 @@
 
 #include "Packet.h"
 #include "System/Log.h"
+#include "Interface/Plot.h"
 
 namespace BPP {
 
@@ -49,7 +50,6 @@ class GroundTrack {
 	private:
 		std::map<std::string, std::vector<BPP::Packet>> groundTracks; // Callsign-indexed list of recieved packets.
 		BPP::Log parsedPackets; // Log file for packets we've parsed so far.
-		std::string installDirectory; // Install directory, for Python pathing.
 
 		int capturedPackets; // Number of packets we've collected and kept so far.
 		bool logEnabled; // Whether we're logging captured data or not.
@@ -68,17 +68,24 @@ class GroundTrack {
 		int diffTime(BPP::Packet _firstPacket, BPP::Packet _secondPacket); // Calculate time difference between two packets.
 		std::vector<BPP::Packet> getLatest(int _numPackets = 1); // Retrieve the latest n packets from the ground track.
 
+		// Create the plots we're interested in.
+		BPP::Plot altVsTime;
+		BPP::Plot ascentRateVsTime;
+		BPP::Plot latVsTime;
+		BPP::Plot lonVsTime;
+
 	public:
 		GroundTrack(); // Default CTOR
 		~GroundTrack(); // Another trivial DTOR!
 
 		bool initLog(std::string _logFileName); // Logging intialization function.
+		void initPlots(); // Start the plotting interface.
 		void registerCallsign(std::string _callsign); // Add a callsign to the tracking list.
 		bool addPacket(std::string _rawPacket); // Parse and validity check packets; reject untracked callsigns.
 		void printPacket(); // Print the latest packet and other associated data to terminal. (Convert to SI)
+		void plotLatest(); // Plot the latest data to graphs.
 
 		int getNumPackets() { return capturedPackets; } // Get number of packets currently in the track.
-		void setInstallDirectory(std::string _instDir) { installDirectory = _instDir; } // Setter for install directory; takes place of larger init function.
 
 }; // GroundTrack
 

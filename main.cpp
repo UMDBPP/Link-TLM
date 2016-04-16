@@ -1,4 +1,4 @@
-/* Link Telemetry v0.2.0 "Columbia"
+/* Link Telemetry v0.2.1 "Columbia"
    
    Copyright (c) 2015-2016 University of Maryland Space Systems Lab
    NearSpace Balloon Payload Program
@@ -34,8 +34,14 @@
 #include "MainProcess.h"
 
 // Beautifully short main.
-int main(void) {
+int main(int argc, char** argv) {
 	BPP::MainProcess mainLoop; // Create the main object
+
+    if(argc > 1) { // If cmd line argument supplied, use it for serial port name.
+        mainLoop.initSerial(std::string(argv[1]));
+    } else {
+        mainLoop.initSerial(); // Otherwise, ask the user for it.
+    }
 
 	if(mainLoop.failed()) { // Test for initialization failure!
 		std::cout << "Main Loop Failed to Initialize.\n";

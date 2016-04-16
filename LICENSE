@@ -32,3 +32,12 @@ Copyright (C) 2015 THL A29 Limited, a Tencent company, and Milo Yip. All rights 
 RapidJSON is also licensed under the terms of the MIT license, with the exception
 of some of its dependencies. Please see Link_TLM/deps/rapidjson/license.txt for
 further information.
+
+-----------------------------------------------------------------------------------------
+
+matplotlib
+
+Copyright (c) 2012-2016 Matplotlib Development Team; All Rights Reserved
+
+Matplotlib is not redistributed in this project; the full license text can be found at
+http://matplotlib.org/users/license.html

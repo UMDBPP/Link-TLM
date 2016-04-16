@@ -1,4 +1,4 @@
-/* Link Telemetry v0.2.0 "Columbia"
+/* Link Telemetry v0.2.1 "Columbia"
    
    Copyright (c) 2015-2016 University of Maryland Space Systems Lab
    NearSpace Balloon Payload Program
@@ -35,6 +35,7 @@
 #include <vector>
 #include <memory>
 #include <string>
+#include <atomic>
 
 #include "DataStructures/Packet.h"
 #include "DataStructures/GroundTrack.h"
@@ -59,6 +60,7 @@ class MainProcess {
 
 		bool initFail; // Initialization failure checking.
 		bool newDataRecieved; // Check for if new data has come in.
+		std::atomic<bool> exitCode; // Check if exit interrupt recieved.
 		std::string serialPortName; // Filename of serial port. (For the dev team: in Unix, everything is a file!)
 		std::string lastRawPacket; // Latest valid raw APRS packet recieved.
 
@@ -72,10 +74,15 @@ class MainProcess {
 		// Print packet to terminal.
 		void printLatestPacket();
 
+		// Scan user keyboard input for exit code.
+		void readUserInput();
+
 	public:
 		// Default Constructor
 		MainProcess();
 		~MainProcess(); // DTOR (though smart pointers keep this trivial)
+
+		void initSerial(std::string _argv = ""); // Allow command line arg to init serial.
 
 		bool failed() { return initFail; } // Getter for initialization failure status.
 

@@ -1,4 +1,4 @@
-/* Link Telemetry v0.2.0 "Columbia"
+/* Link Telemetry v0.2.1 "Columbia"
    
    Copyright (c) 2015-2016 University of Maryland Space Systems Lab
    NearSpace Balloon Payload Program
@@ -39,9 +39,8 @@ BPP::Packet::Packet() {
     validPacket = true; // At least init this.
 }
 
-BPP::Packet::Packet(std::string _rawPacket, std::string _installDirectory) {
+BPP::Packet::Packet(std::string _rawPacket) {
     rawPacket = _rawPacket; // Simple!
-    installDirectory = _installDirectory;
     validPacket = true;
 }
 
@@ -50,14 +49,12 @@ BPP::Packet::Packet(const Packet& oldPacket) {
     validPacket = oldPacket.validPacket;
     parsedPacket = oldPacket.getPacket();
     rawPacket = oldPacket.rawPacket;
-    installDirectory = oldPacket.installDirectory;
 }
 
 BPP::Packet::~Packet() {} // Nothing yet.
 
-void BPP::Packet::init(std::string _rawPacket, std::string _installDirectory) {
+void BPP::Packet::init(std::string _rawPacket) {
     rawPacket = _rawPacket; // init function for default CTOR
-    installDirectory = _installDirectory;
 }
 
 void BPP::Packet::validityCheck() {
@@ -77,25 +74,25 @@ void BPP::Packet::validityCheck() {
 void BPP::Packet::parse() {
 
     // Get callsign
-    parsedPacket.callsign = BPP::PythonInterface::getString("BPPparser", "getCallsign", rawPacket, installDirectory);
+    parsedPacket.callsign = BPP::PythonInterface::getString("BPPparser", "getCallsign", rawPacket);
 
     // Get timestamp
-    parsedPacket.timestamp = BPP::PythonInterface::getString("BPPparser", "getTimestamp", rawPacket, installDirectory);
+    parsedPacket.timestamp = BPP::PythonInterface::getString("BPPparser", "getTimestamp", rawPacket);
 
     // Get Altitude
-    parsedPacket.alt = BPP::PythonInterface::getInt("BPPparser", "getAlt", rawPacket, installDirectory);
+    parsedPacket.alt = BPP::PythonInterface::getInt("BPPparser", "getAlt", rawPacket);
 
     // Get Course:
-    parsedPacket.heading = BPP::PythonInterface::getInt("BPPparser", "getCse", rawPacket, installDirectory);
+    parsedPacket.heading = BPP::PythonInterface::getInt("BPPparser", "getCse", rawPacket);
 
     // Get Speed:
-    parsedPacket.speed = BPP::PythonInterface::getFloat("BPPparser", "getSpd", rawPacket, installDirectory);
+    parsedPacket.speed = BPP::PythonInterface::getFloat("BPPparser", "getSpd", rawPacket);
 
     // Get Comment:
-    parsedPacket.comment = BPP::PythonInterface::getString("BPPparser", "getCmt", rawPacket, installDirectory);
+    parsedPacket.comment = BPP::PythonInterface::getString("BPPparser", "getCmt", rawPacket);
 
     // Get Latitude:
-    std::string uglyLat = BPP::PythonInterface::getString("BPPparser", "getLat", rawPacket, installDirectory);
+    std::string uglyLat = BPP::PythonInterface::getString("BPPparser", "getLat", rawPacket);
     if(uglyLat == "None") {
         validPacket = false; // Validity check 
     }
@@ -108,11 +105,11 @@ void BPP::Packet::parse() {
         if(dir == 'S') parsedPacket.lat = -parsedPacket.lat;
 
     } else { // Compressed
-        parsedPacket.lat = BPP::PythonInterface::getFloat("BPPdecompress", "decompressLat", uglyLat, installDirectory); // No conversions needed here.
+        parsedPacket.lat = BPP::PythonInterface::getFloat("BPPdecompress", "decompressLat", uglyLat); // No conversions needed here.
     }
 
     // Get Longitude
-    std::string uglyLon = BPP::PythonInterface::getString("BPPparser", "getLon", rawPacket, installDirectory);
+    std::string uglyLon = BPP::PythonInterface::getString("BPPparser", "getLon", rawPacket);
     if(uglyLon == "None") {
         validPacket = false; // Validity check
     }
@@ -125,7 +122,7 @@ void BPP::Packet::parse() {
         if(dir == 'S') parsedPacket.lon = -parsedPacket.lon;
 
     } else { // Compressed
-        parsedPacket.lon = BPP::PythonInterface::getFloat("BPPdecompress", "decompressLon", uglyLon, installDirectory); // No conversion needed.
+        parsedPacket.lon = BPP::PythonInterface::getFloat("BPPdecompress", "decompressLon", uglyLon); // No conversion needed.
     }
 
     validityCheck();

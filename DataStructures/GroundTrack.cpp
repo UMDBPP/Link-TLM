@@ -1,4 +1,4 @@
-/* Link Telemetry v0.2.0 "Columbia"
+/* Link Telemetry v0.2.1 "Columbia"
    
    Copyright (c) 2015-2016 University of Maryland Space Systems Lab
    NearSpace Balloon Payload Program
@@ -44,10 +44,8 @@
 
 // CTOR
 // Initializes values via initializer list.
-// Sets install directory to a default in case it isn't inited later...
 // Everything else has separate function.
-BPP::GroundTrack::GroundTrack() : installDirectory("/home/nick/Code/Link-TLM"), \
-	capturedPackets(0), \
+BPP::GroundTrack::GroundTrack() : capturedPackets(0), \
 	logEnabled(false), \
 	ascentRate(0.0f), \
 	groundSpeed(0.0f), \
@@ -231,6 +229,24 @@ bool BPP::GroundTrack::initLog(std::string _logFileName) {
 	return logEnabled; // Return log status (In case user wants this to be a failure case...)
 }
 
+// Creates plots.
+// Avoids segfault by delaying plot init until after Python init.
+void BPP::GroundTrack::initPlots() {
+	// Create and label all plots.
+	altVsTime.init("Altitude vs. Time", "MET (sec)", "Altitude (ft)");
+	ascentRateVsTime.init("Ascent Rate vs. Time", "MET (sec)", "Vertical Speed (ft/s)");
+	
+	latVsTime.init("","","");
+	latVsTime.dividePlot(2);
+	latVsTime.labelSubplot(1,"Latitude vs. Time","","Latitude (deg)");
+	latVsTime.labelSubplot(2,"Latitude Derivative vs. Time","MET (sec)","Latitude Change (deg/s)");
+
+	lonVsTime.init("","","");
+	lonVsTime.dividePlot(2);
+	lonVsTime.labelSubplot(1,"Longitude vs. Time","","Longitude (deg)");
+	lonVsTime.labelSubplot(2,"Longitude Derivative vs. Time","MET (sec)","Longitude Change (deg/s)");
+}
+
 // Add given callsign to map.
 // Preempt packet reading so we can use "registered" callsigns, and ignore
 // all other ones.
@@ -248,10 +264,10 @@ void BPP::GroundTrack::registerCallsign(std::string _callsign) {
 // Discard if partial packet or untracked callsign.
 // If it's good, add it to the track. Then do derived calculations.
 bool BPP::GroundTrack::addPacket(std::string _rawPacket) {
-	 // Begin assuming we've recieved either an untracked packet.
+	 // Begin assuming we've recieved an untracked packet.
 	bool trackedPacket = false;
 
-	BPP::Packet tempPacket(_rawPacket, installDirectory); // Make temporary packet for recieved data.
+	BPP::Packet tempPacket(_rawPacket); // Make temporary packet for recieved data.
 	tempPacket.parse(); // Parse the raw data.
 
 	// Now for checking. First, we check for callsign.
@@ -267,6 +283,18 @@ bool BPP::GroundTrack::addPacket(std::string _rawPacket) {
 	if(!trackedPacket) {
 		std::cout << "Untracked Callsign: " << tempPacket.getCall() << std::endl; // Provide user feedback.
 		return false;
+	}
+
+	// Then, we check for duplicate packets:
+	if(latestCallsigns[0] != "") {
+		BPP::Packet latest = getLatest()[0];
+		BPP::DecodedPacket oldPacket = latest.getPacket();
+		BPP::DecodedPacket newPacket = tempPacket.getPacket();
+
+		if((oldPacket.alt == newPacket.alt) && (oldPacket.callsign == newPacket.callsign)) { // IF both these values are exactly the same, it's a duplicate.
+			std::cout << "Duplicate Packet. Not added to track.\n"; // Report...
+			return false; // ...and return.
+		}
 	}
 
 	// Now we check if we recieved a valid (not partial) packet.
@@ -324,4 +352,35 @@ void BPP::GroundTrack::printPacket() {
 			ascentRate, ",", \
 			groundSpeed);
 	}
+}
+
+// Plot all the points to our plots.
+void BPP::GroundTrack::plotLatest() {
+	std::vector<BPP::Packet> latest;
+	float deltaT;
+	if(latestCallsigns[1] != "") { // If not first packet...
+		latest = getLatest(2); // Get latest packets.
+		deltaT = static_cast<float>(diffTime(latest[1], latest[0])); // Get delta time.
+	} else { // If first packet...
+		latest = getLatest(); // Only grab one latest packet
+		deltaT = 0.0f; // Start time at 0.
+	}
+
+	std::vector<float> alt;
+	alt.push_back(static_cast<float>(latest[0].getPacket().alt)); // Get altitude.
+	altVsTime.plotNewPoint(deltaT, alt); // Plot altitude vs time
+
+	std::vector<float> tempAR;
+	tempAR.push_back(ascentRate); // Vectorize ascent rate
+	ascentRateVsTime.plotNewPoint(deltaT, tempAR); // Plot ascent rate
+
+	std::vector<float> latVect;
+	latVect.push_back(latest[0].getPacket().lat);
+	latVect.push_back(latlonDerivative[0]); // Vectorize lat data.
+	latVsTime.plotNewPoint(deltaT, latVect); // Plot lat and its derivative.
+
+	std::vector<float> lonVect;
+	lonVect.push_back(latest[0].getPacket().lon);
+	lonVect.push_back(latlonDerivative[1]); // Vectorize lon data.
+	lonVsTime.plotNewPoint(deltaT, lonVect); // Plot lon and its derivative.
 }

@@ -9,11 +9,11 @@ else
 	CC=g++-5
 endif
 
-all: main.o MainProcess.o PythonInterface.o RS232.o Util.o Packet.o GroundTrack.o Log.o JSONLoader.o
-	$(CC) main.o MainProcess.o PythonInterface.o RS232.o Util.o Packet.o GroundTrack.o Log.o JSONLoader.o -o Link-TLM $(LIBS)
+all: main.o MainProcess.o PythonInterface.o Plot.o RS232.o Util.o Packet.o GroundTrack.o Log.o JSONLoader.o
+	$(CC) main.o MainProcess.o PythonInterface.o Plot.o RS232.o Util.o Packet.o GroundTrack.o Log.o JSONLoader.o -o Link-TLM $(LIBS)
 
-test: testmain.o MainProcess.o PythonInterface.o RS232.o Util.o Packet.o GroundTrack.o Log.o JSONLoader.o
-	$(CC) testmain.o MainProcess.o PythonInterface.o RS232.o Util.o Packet.o GroundTrack.o Log.o JSONLoader.o -o TestBin $(LIBS)
+test: testmain.o MainProcess.o PythonInterface.o Plot.o RS232.o Util.o Packet.o GroundTrack.o Log.o JSONLoader.o
+	$(CC) testmain.o MainProcess.o PythonInterface.o Plot.o RS232.o Util.o Packet.o GroundTrack.o Log.o JSONLoader.o -o TestBin $(LIBS)
 
 main.o: main.cpp
 	$(CC) main.cpp $(CFLAGS)
@@ -26,6 +26,9 @@ MainProcess.o: MainProcess.cpp
 
 PythonInterface.o: Interface/PythonInterface.cpp
 	$(CC) Interface/PythonInterface.cpp $(CFLAGS)
+
+Plot.o: Interface/Plot.cpp
+	$(CC) Interface/Plot.cpp $(CFLAGS)
 
 RS232.o: Interface/RS232.cpp
 	$(CC) Interface/RS232.cpp $(CFLAGS)

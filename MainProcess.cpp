@@ -1,4 +1,4 @@
-/* Link Telemetry v0.2.0 "Columbia"
+/* Link Telemetry v0.2.1 "Columbia"
    
    Copyright (c) 2015-2016 University of Maryland Space Systems Lab
    NearSpace Balloon Payload Program
@@ -33,31 +33,23 @@
 #include "MainProcess.h"
 
 #include <iostream>
+#include <thread>
 
 extern "C" {
 	#include "unistd.h"
 }
 
 #include "System/Util.h"
+#include "Interface/PythonInterface.h"
 #include "DataStructures/DecodedPacket.h"
 
 // Initialize everything.
-// Opens the setings file, opens the serial port, grabs settings.
-// Also, error check the initialization of serial.
+// Gets settings, initializes ground track, opens logs, starts Python interpreter.
+// Also, print ASCII art splash screen.
 BPP::MainProcess::MainProcess() : settings("Prefs/settings.json"), initFail(false) {
 
 	// Print Program Banner at start of program:
 	BPP::LinkTlm();
-
-	// Serial port number is hard coded in this library.
-	// So you have to know the numbers in advance.
-	std::cout << "Enter Serial Port Filename (Something Like /dev/ttyUSB0)\n";
-	std::cin >> serialPortName;
-
-	// Open the serial port: 9600 baud, 8 data bits, no parity, 1 stop bit.
-	if(serialPort.portOpen(serialPortName, B9600, 8, 'N', 1)) {
-		initFail = true;
-	}
 
 	// Set the callsigns to look for.
 	// Retrieve these from JSON preferences file.
@@ -71,16 +63,22 @@ BPP::MainProcess::MainProcess() : settings("Prefs/settings.json"), initFail(fals
 	// Retrieve install location information from the JSON file as well.
 	// Python needs this because it hates relative paths.
 	installDirectory = settings.getInstallDirectory();
-	trackedPackets.setInstallDirectory(installDirectory); // Set up for GroundTrack too.
+	BPP::PythonInterface::initPython(installDirectory); // Start Python and add directory to path
+	trackedPackets.initPlots(); // Create plots now that Python has started.
 
 	// Open the logs.
 	// Log filenames defined in same JSON file.
 	allPackets.open(settings.getUnparsedLogFile());
 	trackedPackets.initLog(settings.getParsedLogFile()); // Parsed log in GroundTrack.
 
+	// Set our exit code to false to start:
+	exitCode = false;
+
 }
 
-BPP::MainProcess::~MainProcess() { } // Thankfully, smart pointers clean up memory.
+BPP::MainProcess::~MainProcess() { 
+	BPP::PythonInterface::stopPython();
+}
 
 // I got to clean this up! Yay!
 // This reads new packets off the serial port.
@@ -134,14 +132,47 @@ void BPP::MainProcess::printLatestPacket() {
 	trackedPackets.printPacket();
 }
 
+// Should be called from a different thread to not block main loop.
+// Looks for program exit code (q or Q) on stdin.
+// Could also be used for other input in future.
+void BPP::MainProcess::readUserInput() {
+	char code;
+	std::cin >> code; // read a single character from stdin.
+
+	if((code == 'q') || (code == 'Q')) { // If user sent quit code.
+		exitCode = true; // Set atomic (thread-safe) bool to true.
+	}
+}
+
+// Allow user to specify serial port filename via command line argument.
+// Requests from stdin if not (Default parameter is empty string).
+void BPP::MainProcess::initSerial(std::string argv) {
+	std::string serialPortName; // Temp variable
+
+	if(argv == "") { // If cmd line arg not supplied, ask user.
+		std::cout << "Enter Serial Port Filename (Something Like /dev/ttyUSB0)\n";
+		std::cin >> serialPortName;
+	} else {
+		serialPortName = argv; // otherwise, use cmd line arg.
+	}
+
+	// Open the serial port: 9600 baud, 8 data bits, no parity, 1 stop bit.
+	if(serialPort.portOpen(serialPortName, B9600, 8, 'N', 1)) {
+		initFail = true; // Failure check.
+	}
+}
+
 // The main loop that runs everything.
 void BPP::MainProcess::mainLoop() {
-	while(1) { // Go until the program is killed.
+	std::thread inputThread(&BPP::MainProcess::readUserInput, this); // Spawn input thread
+
+	while(!exitCode) { // Go until the program is killed.
 		readSerialData(); // Read incoming serial data.
 
 		if(newDataRecieved) { // If we recieved new data,
 			if(parseRecievedPacket()) { // Parse it,
 				printLatestPacket(); // Then log and print it.
+				trackedPackets.plotLatest();
 			}
 		}
 
@@ -149,4 +180,6 @@ void BPP::MainProcess::mainLoop() {
 		// Needs to be non-blocking in the future.
 		usleep(1000000);
 	}
+
+	inputThread.join(); // Kill input thread after loop exit.
 }

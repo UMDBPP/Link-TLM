@@ -1,4 +1,4 @@
-/*  Link Telemetry v0.2.0 "Columbia"
+/*  Link Telemetry v0.2.1 "Columbia"
     
     Copyright (c) 2015-2016 University of Maryland Space Systems Lab
     NearSpace Balloon Payload Program
@@ -43,19 +43,18 @@ class Packet {
 
     private:
         std::string rawPacket; // Raw packet read from RS232.
-        std::string installDirectory; // For Python absolute file paths
         BPP::DecodedPacket parsedPacket; // Decoded packet after parsing.
         bool validPacket; // Packet validity check variable.
 
         void validityCheck();
 
     public:
-        Packet(std::string _rawPacket, std::string _installDirectory); // Explicit constructor
+        Packet(std::string _rawPacket); // Explicit constructor
         Packet(); // Default ctor
         Packet(const Packet& oldPacket); // Storing packets on heap. Thus copy ctor.
         ~Packet(); // Dtor
 
-        void init(std::string _rawPacket, std::string _installDirectory); // Init function - USE ONLY W/ DEFAULT CTOR
+        void init(std::string _rawPacket); // Init function - USE ONLY W/ DEFAULT CTOR
         void parse(); // Parse after init
         void print(); // Annnnnnd print out the packet.
 

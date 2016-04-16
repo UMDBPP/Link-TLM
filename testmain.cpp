@@ -8,6 +8,7 @@ extern "C" {
 
 #include "DataStructures/DecodedPacket.h"
 #include "Interface/PythonInterface.h"
+#include "Interface/Plot.h"
 #include "Interface/RS232.h"
 #include "System/Util.h"
 #include "DataStructures/Packet.h"
@@ -18,7 +19,7 @@ extern "C" {
 
 int main(void) {
 
-	BPP::JSONLoader settings("Prefs/settings.json");
+/*	BPP::JSONLoader settings("Prefs/settings.json");
 	std::cout << "Balloon Calls:\n";
 	std::vector<std::string> bCalls = settings.getBalloonCalls();
 	for(size_t i=0; i<bCalls.size(); i++) {
@@ -142,7 +143,7 @@ int main(void) {
 
 		usleep(1000000);
 	}
-*/
+
 	BPP::RS232Serial serialPort;
 	serialPort.portOpen("/dev/ttyUSB0", B9600, 8, 'N', 1);
 
@@ -160,7 +161,26 @@ int main(void) {
 		usleep(1000000);
 	}
 
-	std::cout << BPP::PythonInterface::getInt("BPPregex", "oldPacketMatch", "W3EAX-9>APT311,WIDE2-2:/203716h3859.58N/07656.35WO051/000/A=000111/W3EAX", instDirectory) << std::endl;
+	std::cout << BPP::PythonInterface::getInt("BPPregex", "oldPacketMatch", "W3EAX-9>APT311,WIDE2-2:/203716h3859.58N/07656.35WO051/000/A=000111/W3EAX", instDirectory) << std::endl; */
+	BPP::PythonInterface::initPython("/home/nick/Code/Link-TLM/");
+	BPP::Plot testPlot;
+	testPlot.init("Hi","x","y");
+	testPlot.dividePlot(2);
+	testPlot.labelSubplot(1,"ONE","","Y");
+	testPlot.labelSubplot(2,"TWO","","YPrime");
+	std::vector<float> testVal;
+	testVal.push_back(2.0f);
+	testVal.push_back(3.0f);
+	testPlot.plotNewPoint(1.0f, testVal);
+	testVal[0] = 3.0f;
+	testVal[1] = 4.0f;
+	testPlot.plotNewPoint(1.0f, testVal);
+
+	char a;
+	std::cin >> a;
+
+	BPP::PythonInterface::stopPython();
+
 	return 0;
 }
 

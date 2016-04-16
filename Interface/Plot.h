@@ -4,7 +4,7 @@
    NearSpace Balloon Payload Program
    
    Written by Nicholas Rossomando
-   2015-04-06
+   2016-04-15
 
    Permission is hereby granted, free of charge, to any person obtaining a copy
    of this software and associated documentation files (the "Software"), to deal
@@ -24,44 +24,44 @@
    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
    SOFTWARE.
 
-   RS232.h:
+   Plot.h:
 
-   Serial reading class. Replaces GPL licensed and not very friendly old library.
+   Declares plotting class. Keeps track of individual plots and data on them.
+   Used with matplotlib wrapper found in PythonInterface.
 */
 
-#ifndef RS232_H
-#define RS232_H
+#ifndef PLOT_H
+#define PLOT_H
 
 #include <string>
-
-extern "C" {
-	#include <termios.h>
-	#include <unistd.h>
-}
+#include <vector>
 
 namespace BPP {
 
-class RS232Serial {
+class Plot {
 
 	private:
-		int port; // Com port file handle, because POSIX file interaction.
-		struct termios originalPortConfig; // Store the original port settings for restore.
-		struct termios portConfig; // termios settings structure for new settings.
-		std::string data; // string to store serial data.
+		int plotHandle; // Handle to Matplotlib figure.
+		std::vector<int> subplotHandles; // Handles to each subplot (if they exist).
+		bool dividedPlot; // Check for if we're subplotted or not (so we don't have to check if the vector is empty).
+
+		// "Old" values - for line plotting.
+		float prevX;
+		std::vector<float> prevY;
 
 	public:
-		RS232Serial(); // Default CTOR
-		~RS232Serial(); // DTOR
+		Plot(); // CTOR and DTOR
+		~Plot();
 
-		int portOpen(std::string _comPort, int _baudRate, int _dataBits, char _parity, int _stopBits); // Initialize to selected serial port.
-		int rxData(); // Recieve data from serial port
-		void portFlush(); // Clear data in the recieve buffer.
-		void portClose(); // Close the serial port.
+		void init(std::string _plotTitle, std::string _xAxisLabel, std::string _yAxisLabel); // Create the plot and label it.
+		void dividePlot(int _numberOfDivs); // Divide plot into subplots.
+		void labelSubplot(int _subplotNumber, std::string _title, std::string _xAxisLabel, std::string _yAxisLabel); // Label any subplot.
 
-		std::string getData() const { return data; } // Data getter.
+		void plotNewPoint(float _x, std::vector<float> _y); // Add a new point to each subplot (or just the plot if only one.)
 
-}; // RS232Serial
+}; // Plot
 
 } // BPP
 
 #endif
+// PLOT_H
