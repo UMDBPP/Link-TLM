@@ -118,6 +118,12 @@ float BPP::GroundTrack::diffLatLon(BPP::Packet _firstPacket, BPP::Packet _second
 	BPP::DecodedPacket first = _firstPacket.getPacket(); // Extract packet data from given packets.
 	BPP::DecodedPacket last = _secondPacket.getPacket();
 
+	// Convert to radians!!
+	first.lat = BPP::deg2rad(first.lat);
+	first.lon = BPP::deg2rad(first.lon);
+	last.lat = BPP::deg2rad(last.lat);
+	last.lon = BPP::deg2rad(last.lon);
+
 	float diffLat = last.lat - first.lat;
 	float diffLon = last.lon - first.lon; // Get difference between the two points.
 
@@ -337,6 +343,7 @@ void BPP::GroundTrack::printPacket() {
 	std::cout << "Ground Speed (mph): " << groundSpeed << " and (m/s): " << groundSpeed*0.44704f << std::endl;
 	std::cout << "Lat Rate of Change (degrees/s): " << latlonDerivative[0] << std::endl;
 	std::cout << "Lon Rate of Change (degrees/s): " << latlonDerivative[1] << std::endl;
+	std::cout << std::endl; // Throw in an extra newline to help separate data.
 
 	// Now, log what we need to, if logging is on:
 	if(logEnabled) {
