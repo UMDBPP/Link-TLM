@@ -50,6 +50,7 @@ BPP::GroundTrack::GroundTrack() : capturedPackets(0), \
 	ascentRate(0.0f), \
 	groundSpeed(0.0f), \
 	downrangeDistance(0.0f), \
+	timeToImpact(-5), \ // Known, obviously false default value
 	latlonDerivative { 0.0f, 0.0f }, \
 	latestCallsigns { "", "", "" } { }
 
@@ -61,12 +62,19 @@ BPP::GroundTrack::~GroundTrack() { }
 // Will look into filtering very, very soon.
 // (Need to make it work before I make it better.)
 // Emits result in ft/s; conversion to m/s in print function.
+// If ascent rate is negative (descent rate), also estimate time to sea level impact.
 void BPP::GroundTrack::calculateAscentRate() {
 	std::vector<BPP::Packet> calcPackets = getLatest(2); // Grab latest two packets.
 	int deltaAltitude = calcPackets[0].getPacket().alt - calcPackets[1].getPacket().alt; // Calc change in alt in ft.
 	int deltaTime = diffTime(calcPackets[1], calcPackets[0]); // Get time between packets in sec.
 
 	ascentRate = static_cast<float>(deltaAltitude)/static_cast<float>(deltaTime); // Calculate ascent rate in ft/s.
+
+	if(ascentRate < 0.0f) { // If we're moving down...
+		timeToImpact = static_cast<int>(ascentRate/calcPackets[0].getPacket().alt); // ...Calculate an estimated time to impact.
+	} else { // Otherwise...
+		timeToImpact = -5; // ...Reset to default value.
+	}
 }
 
 // Ground speed calculation function.
@@ -343,6 +351,9 @@ void BPP::GroundTrack::printPacket() {
 	std::cout << "Ground Speed (mph): " << groundSpeed << " and (m/s): " << groundSpeed*0.44704f << std::endl;
 	std::cout << "Lat Rate of Change (degrees/s): " << latlonDerivative[0] << std::endl;
 	std::cout << "Lon Rate of Change (degrees/s): " << latlonDerivative[1] << std::endl;
+	if(timeToImpact != -5) { // If we have an estimated impact time, show it.
+		std::cout << "Estimated time to (sea level) impact (sec): " << timeToImpact << std::endl;
+	}
 	std::cout << std::endl; // Throw in an extra newline to help separate data.
 
 	// Now, log what we need to, if logging is on:
