@@ -45,12 +45,13 @@
 // CTOR
 // Initializes values via initializer list.
 // Everything else has separate function.
+// Set time to impact in particular to known, obviously false default value.
 BPP::GroundTrack::GroundTrack() : capturedPackets(0), \
 	logEnabled(false), \
 	ascentRate(0.0f), \
 	groundSpeed(0.0f), \
 	downrangeDistance(0.0f), \
-	timeToImpact(-5), \ // Known, obviously false default value
+	timeToImpact(-5), \
 	latlonDerivative { 0.0f, 0.0f }, \
 	latestCallsigns { "", "", "" } { }
 
