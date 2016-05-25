@@ -137,10 +137,13 @@ void BPP::MainProcess::printLatestPacket() {
 // Could also be used for other input in future.
 void BPP::MainProcess::readUserInput() {
 	char code;
-	std::cin >> code; // read a single character from stdin.
+	
+	while(!exitCode) { // For the life of the program...
+		std::cin >> code; // read a single character from stdin.
 
-	if((code == 'q') || (code == 'Q')) { // If user sent quit code.
-		exitCode = true; // Set atomic (thread-safe) bool to true.
+		if((code == 'q') || (code == 'Q')) { // If user sent quit code.
+			exitCode = true; // Set atomic (thread-safe) bool to true.
+		}
 	}
 }
 
