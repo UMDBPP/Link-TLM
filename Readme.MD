@@ -49,7 +49,7 @@ Matplotlib must be installed for python 2; this will vary by distribution, but i
 Building
 --------
 
-Building the code is simple thanks to GNU make. Simply open a commmand line, navigate to the `Link_TLM`
+Building the code is simple thanks to GNU make. Simply open a commmand line, navigate to the `Link-TLM`
 directory, and run the command `make`. 
 
 To clean up extra files created during compilation, run `make clean`.
