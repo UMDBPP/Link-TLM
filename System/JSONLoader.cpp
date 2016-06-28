@@ -1,4 +1,4 @@
-/*  Link Telemetry v0.2.1 "Columbia"
+/*  Link Telemetry v0.3 "Yankee Clipper"
     
     Copyright (c) 2015-2016 University of Maryland Space Systems Lab
     NearSpace Balloon Payload Program
@@ -47,6 +47,7 @@
 // Takes filename, opens file, dumps all file data into a string.
 BPP::JSONLoader::JSONLoader(const std::string& _jsonFileName) {
     loadFailure = false;
+    jsonFilename = _jsonFileName;
 
     std::ifstream json(_jsonFileName); // Pop open the json file.
     if(json.fail()) { // Error check!
@@ -74,125 +75,62 @@ BPP::JSONLoader::JSONLoader(const std::string& _jsonFileName) {
 // Trivial destructor.
 BPP::JSONLoader::~JSONLoader() { }
 
-// Parse the balloon callsigns from the JSON settings file.
-// Returns a vector of all supplied callsigns.
-// If this fails or if JSON didn't load, use W3EAX-9 as a standard.
-std::vector<std::string> BPP::JSONLoader::getBalloonCalls() {
-    std::vector<std::string> callsigns; // Return value
+// Parse out a vector (array) of strings from a JSON file.
+// Argument is the name of the JSON member to search for.
+// Return a vector of all supplied strings; if only one string, return length 1 vector.
+// Also print error stuff!
+std::vector<std::string> BPP::JSONLoader::getStringVector(const std::string& _jsonMember) {
+    std::vector<std::string> values; // Returned values
 
-    if(loadFailure || !settings.HasMember("balloonCallsigns")) { // If balloon callsigns aren't defined or the JSON fails to load,
-        std::cerr << "ERROR: Settings File Does Not Contain Balloon Callsign Definitions. Using W3EAX-9.\n"; // Throw an error message,
-        callsigns.push_back(std::string("W3EAX-9")); // Use the default value,
-        return callsigns; // And return.
+    if(loadFailure || !settings.HasMember(_jsonMember.c_str())) { // If the member speicifed wasn't found,
+        std::cerr << "ERROR: JSON file " << jsonFilename << " has no member " << _jsonMember << "! Returning Empty!\n"; // Report the error,
+        return values; // and return (with an empty vector).
     }
 
-    // Get the value stored in "balloonCallsigns":
-    const rapidjson::Value& balloonCalls = settings["balloonCallsigns"];
+    // If we've gotten this far, the value exists, so store it:
+    const rapidjson::Value& jsonValues = settings[_jsonMember.c_str()];
 
-    // Now, check if the defined callsigns are an array or a single string:
-    if(balloonCalls.IsArray()) { // If an array of callsigns was specified
-        for(rapidjson::SizeType i=0; i<balloonCalls.Size(); i++) { // Dump them all into the vector.
-            callsigns.push_back(balloonCalls[i].GetString());
+    // Check for array vs. single string vs. unexpected data type:
+    if(jsonValues.IsArray()) {
+        if(jsonValues.Size() == 0) { // Throw specific error for size zero array:
+            std::cerr << "WARNING: Value " << _jsonMember << " in file " << jsonFilename << " is an Empty array!\n";
+        } else if(jsonValues[0].IsString()) { // Needs to be an array of strings!
+            for(rapidjson::SizeType i=0; i<jsonValues.Size(); i++) {
+                values.push_back(jsonValues[i].GetString());
+            }
         }
-    } else if (balloonCalls.IsString()) {
-        callsigns.push_back(balloonCalls.GetString()); // If only one CS was specified (as a string), just add it to the vector.
+    } else if(jsonValues.IsString()) {
+        values.push_back(jsonValues.GetString());
     } else {
-        // If we got here, a value was specified but it was NOT in the correct format, assume default.
-        std::cerr << "ERROR: Balloon Callsign Definitions in Unrecognized Format. Using W3EAX-9.\n";
-        callsigns.push_back(std::string("W3EAX-9"));
+        // If we got down here, we have some data type we don't want.
+        std::cerr << "ERROR: Value " << _jsonMember << " in file " << jsonFilename << " in Unexpected format!\n";
+        std::cerr << "Ensure that " << _jsonMember << " is a string or array of strings!\n";
     }
 
-    return callsigns; // Finally, return.
+    return values; // Return even if empty; check if empty from calling function for safety.
 }
 
-// Literally the same as the above, except for grabbing callsigns assigned to vans.
-// This parameter is non-critical, so no default value is assumed.
-// Returns an empty vector if there are issues.
-std::vector<std::string> BPP::JSONLoader::getVanCalls() {
-    std::vector<std::string> callsigns; // Return value.
-
-    if(loadFailure || !settings.HasMember("vanCallsigns")) { // If calls aren't specified at all,
-        std::cerr << "WARNING: No Van Callsigns Defined. Van Tracking Disabled!\n";
-        return callsigns; // Return an empty vector.
-    }
-
-    const rapidjson::Value& vanCalls = settings["vanCallsigns"]; // Extract values stored in "vanCallsigns"
-
-    // Do the same string/array check as above; except in case of error, return empty vector.
-    if(vanCalls.IsArray()) {
-        for(rapidjson::SizeType i=0; i<vanCalls.Size(); i++) {
-            callsigns.push_back(vanCalls[i].GetString());
-        }
-    } else if (vanCalls.IsString()) {
-        callsigns.push_back(vanCalls.GetString());
-    } else {
-        // Still throw an error message here, but lower priority and no default assumed.
-        std::cerr << "WARNING: Van Callsign Definitions in Unrecognized Format. Van Tracking Disabled!\n";
-    }
-
-    return callsigns; // Return.
-}
-
-// Gets the filename for the log file of all recieved packets.
-// This log stores the packets in an unparsed format.
-// Assumes a standard of "unparsedPackets.txt" if none specified.
-std::string BPP::JSONLoader::getUnparsedLogFile() {
-    std::string filename = "Logs/unparsedPackets.txt"; // return value.
-
-    // Check for JSON failure and data existence. Use default if either fail.
-    if(loadFailure || !settings.HasMember("unparsedLogFilename")) {
-        std::cerr << "WARNING: No Unparsed Log Filename Specified. Using Logs/unparsedPackets.txt\n";
-        return filename;
-    }
-
-    const rapidjson::Value& unparsedName = settings["unparsedLogFilename"]; // Extract value.
-
-    if(unparsedName.IsString()) {
-        filename = unparsedName.GetString(); // If we have a good data type, get the value.
-    } // Otherwise, the default is automatically used.
-
-    return filename; // And return.
-}
-
-// Gets the filename for the parsed packet log file.
-// This log stores only packets that have been parsed
-// I.E. only packets that came from the balloon or our vans.
-// Assumes a standard of "parsedPackets.txt" if none specified.
-std::string BPP::JSONLoader::getParsedLogFile() {
-    std::string filename = "Logs/parsedPackets.txt"; // return value.
+// Parse out a string from a JSON file.
+// Argument is the name of the JSON member to search for.
+// Simply returns the string.
+// Prints error messages, as well.
+std::string BPP::JSONLoader::getString(const std::string& _jsonMember) {
+    std::string value = "";
 
     // Now do the exact same process as above, just with a different DOM element.
-    if(loadFailure || !settings.HasMember("parsedLogFilename")) {
-        std::cerr << "WARNING: No Parsed Log Filename Specified. Using Logs/parsedPackets.txt\n";
-        return filename;
+    if(loadFailure || !settings.HasMember(_jsonMember.c_str())) {
+        std::cerr << "ERROR: JSON file " << jsonFilename << " has no member " << _jsonMember << "! Returning empty string!\n";
+        return value;
     }
 
-    const rapidjson::Value& parsedName = settings["parsedLogFilename"]; 
+    const rapidjson::Value& jsonValue = settings[_jsonMember.c_str()]; 
 
-    if(parsedName.IsString()) {
-        filename = parsedName.GetString();
+    if(jsonValue.IsString()) {
+        value = jsonValue.GetString();
+    } else {
+        std::cerr << "ERROR: Value " << _jsonMember << " in file " << jsonFilename << " in Unexpected format!\n";
+        std::cerr << "ensure that " << _jsonMember << " is a string!\n";
     }
 
-    return filename; // And return.
-}
-
-// Get the install directory of the program.
-// This is used for the Python scripts.
-// Python doesn't deal with relative file paths well.
-std::string BPP::JSONLoader::getInstallDirectory() {
-    std::string directory = "/home/nick/Code/Link_TLM"; // Initialize to default (build env)
-
-    // Again, read & error check.
-    if(loadFailure || !settings.HasMember("installDirectory")) {
-        std::cerr << "WARNING: No Install Directory Specified. Using /home/nick/Code/Link_TLM.\n";
-        return directory;
-    }
-
-    const rapidjson::Value& parsedName = settings["installDirectory"]; 
-
-    if(parsedName.IsString()) {
-        directory = parsedName.GetString();
-    }
-
-    return directory; // And return.
+    return value; // And return.
 }

@@ -6,7 +6,7 @@ GCC_MAJOR_VERSION=$(shell g++ --version | grep -E "[0-9][[:punct:]][0-9][[:punct
 ifeq ($(GCC_MAJOR_VERSION),5)
 	CC=g++
 else
-	CC=g++-5
+	CC=g++
 endif
 
 all: main.o MainProcess.o PythonInterface.o Plot.o RS232.o Util.o Packet.o GroundTrack.o Log.o JSONLoader.o
