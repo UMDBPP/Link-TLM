@@ -2,11 +2,11 @@ CFLAGS=--std=c++14 -c -Wall -Wextra -O2 -I. -I./DataStructures -I/usr/include/py
 LIBS=-L/usr/lib/python2.7/config -lpython2.7 -lpthread -ldl -lutil -lm -lcurses -Xlinker -export-dynamic
 
 # Set compiler alias based on version:
-GCC_MAJOR_VERSION=$(shell g++ --version | grep -E "[0-9][[:punct:]][0-9][[:punct:]][0-9]$$" -o | grep "^[0-9]" -o)
-ifeq ($(GCC_MAJOR_VERSION),5)
+GCC_MAJOR_VERSION=$(shell g++ --version | grep -E "[0-9][[:punct:]][0-9][[:punct:]][0-9]" -o | grep "^[0-9]" -o)
+ifneq ($(GCC_MAJOR_VERSION),4)
 	CC=g++
 else
-	CC=g++
+	CC=g++-5
 endif
 
 all: main.o MainProcess.o PythonInterface.o Plot.o RS232.o Util.o Packet.o GroundTrack.o Log.o JSONLoader.o
