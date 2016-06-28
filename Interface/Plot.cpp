@@ -39,7 +39,6 @@
 BPP::Plot::Plot() {
 	plotHandle = 0;
 	dividedPlot = false;
-
 	prevX = 0.0f;
 	prevY.push_back(0.0f);
 }
