@@ -34,6 +34,8 @@
 #ifndef UTIL_H
 #define UTIL_H
 
+#include <string>
+
 namespace BPP {
 
 // Clear the terminal screen. The RIGHT way.
@@ -44,6 +46,10 @@ void LinkTlm();
 
 // Degree to radian conversion for distance maths.
 float deg2rad(float _degrees);
+
+// Check if deirectory exists.
+// If not, create it.
+void createDir(std::string _dirName);
 
 }; // BPP
 

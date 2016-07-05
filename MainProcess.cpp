@@ -80,6 +80,9 @@ BPP::MainProcess::MainProcess() : settings("Prefs/settings.json"), initFail(fals
 	trackedPackets.initPlots(); // Create plots now that Python has started.
 
 	// Open the logs.
+	// Check for/create Logs directory
+	BPP::createDir("Logs");
+
 	// Log filenames defined in same JSON file.
 	std::string logFile = "";
 	logFile = settings.getString("unparsedLogFilename");
