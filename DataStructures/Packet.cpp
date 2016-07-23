@@ -121,7 +121,7 @@ void BPP::Packet::parse() {
         char dir = uglyLon[8]; // Note lon is one char longer than lat.
 
         parsedPacket.lon = deg + (min/60.0f); // Convert DMS to decimal
-        if(dir == 'S') parsedPacket.lon = -parsedPacket.lon;
+        if(dir == 'W') parsedPacket.lon = -parsedPacket.lon;
 
     } else { // Compressed
         parsedPacket.lon = BPP::PythonInterface::getFloat("BPPdecompress", "decompressLon", uglyLon); // No conversion needed.

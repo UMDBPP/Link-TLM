@@ -72,7 +72,8 @@ void BPP::GroundTrack::calculateAscentRate() {
 	ascentRate = static_cast<float>(deltaAltitude)/static_cast<float>(deltaTime); // Calculate ascent rate in ft/s.
 
 	if(ascentRate < 0.0f) { // If we're moving down...
-		timeToImpact = static_cast<int>(ascentRate/calcPackets[0].getPacket().alt); // ...Calculate an estimated time to impact.
+		timeToImpact = 
+static_cast<int>(calcPackets[0].getPacket().alt/abs(ascentRate)); // ...Calculate an estimated time to impact.
 	} else { // Otherwise...
 		timeToImpact = -5; // ...Reset to default value.
 	}

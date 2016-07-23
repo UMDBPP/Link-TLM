@@ -166,8 +166,10 @@ int main(void) {
 	std::cout << BPP::PythonInterface::getInt("BPPregex", "oldPacketMatch", "W3EAX-9>APT311,WIDE2-2:/203716h3859.58N/07656.35WO051/000/A=000111/W3EAX", instDirectory) << std::endl; */
 /*	BPP::PythonInterface::initPython("/home/nick/Code/Link-TLM/");
 	BPP::Plot testPlot;
-	testPlot.init("Hi","x","y");
+	BPP::Plot testPlot2;
+	testPlot.init("Hi","x","y");	
 	testPlot.dividePlot(2);
+	testPlot2.init("T2","xx","yy");
 	testPlot.labelSubplot(1,"ONE","","Y");
 	testPlot.labelSubplot(2,"TWO","","YPrime");
 	std::vector<float> testVal;
