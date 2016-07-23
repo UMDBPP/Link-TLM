@@ -69,11 +69,14 @@ void BPP::GroundTrack::calculateAscentRate() {
 	int deltaAltitude = calcPackets[0].getPacket().alt - calcPackets[1].getPacket().alt; // Calc change in alt in ft.
 	int deltaTime = diffTime(calcPackets[1], calcPackets[0]); // Get time between packets in sec.
 
-	ascentRate = static_cast<float>(deltaAltitude)/static_cast<float>(deltaTime); // Calculate ascent rate in ft/s.
+	if(deltaTime != 0) { // Prevent very small dt causing floating point exception/div by zero. Ascent rate will not be calculated and assumed constant between two packets so close together.
+		ascentRate = static_cast<float>(deltaAltitude)/static_cast<float>(deltaTime); // Calculate ascent rate in ft/s.
+	}
 
 	if(ascentRate < 0.0f) { // If we're moving down...
-		timeToImpact = 
-static_cast<int>(calcPackets[0].getPacket().alt/abs(ascentRate)); // ...Calculate an estimated time to impact.
+		if(abs(ascentRate) > 0.5f) { // Prevent floating point exception with small ascent rates...
+			timeToImpact = static_cast<int>(calcPackets[0].getPacket().alt/abs(ascentRate)); // ...Calculate an estimated time to impact.
+		}
 	} else { // Otherwise...
 		timeToImpact = -5; // ...Reset to default value.
 	}
@@ -90,9 +93,10 @@ void BPP::GroundTrack::calculateGroundSpeed() {
 	float distanceTraveled = diffLatLon(calcPackets[1], calcPackets[0]); // Get ground distance between packets.
 	int deltaTime = diffTime(calcPackets[1], calcPackets[0]); // Get time between packets.
 
-	float hours = static_cast<float>(deltaTime)/3600.0f; // Convert seconds to hours for mph units.
-
-	groundSpeed = distanceTraveled/hours; // Finally, calculate speed in mph. Store internally.
+	if(deltaTime != 0) { // For floating point exception prevention
+		float hours = static_cast<float>(deltaTime)/3600.0f; // Convert seconds to hours for mph units.
+		groundSpeed = distanceTraveled/hours; // Finally, calculate speed in mph. Store internally.
+	}
 }
 
 // Calculates rate of change in lat and lon.
@@ -104,8 +108,10 @@ void BPP::GroundTrack::calculateLatLonROC() {
 	float deltaLon = calcPackets[0].getPacket().lon - calcPackets[1].getPacket().lon; // change in longitude.
 	int deltaTime = diffTime(calcPackets[1], calcPackets[0]); // Time between packets.
 
-	latlonDerivative[0] = deltaLat/static_cast<float>(deltaTime); // ROC of lat in degrees/sec.
-	latlonDerivative[1] = deltaLon/static_cast<float>(deltaTime); // ROC of lon in degrees/sec.
+	if(deltaTime != 0) {
+		latlonDerivative[0] = deltaLat/static_cast<float>(deltaTime); // ROC of lat in degrees/sec.
+		latlonDerivative[1] = deltaLon/static_cast<float>(deltaTime); // ROC of lon in degrees/sec.
+	}
 }
 
 // Get horizontal distance from launch pad.

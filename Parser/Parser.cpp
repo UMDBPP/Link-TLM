@@ -79,7 +79,6 @@ std::string BPP::Parser::getCallsign(std::string _rawPacket) {
 
 std::string BPP::Parser::getTimestamp(std::string _rawPacket) {
     std::string matchStr = regexMatch(_rawPacket, ts);
-    std::string tsStr = _rawPacket.substr(matchStr.size(),7);
     std::string outputTimestamp = "None";
 
     // Get system time to fill missing details
@@ -88,6 +87,7 @@ std::string BPP::Parser::getTimestamp(std::string _rawPacket) {
     auto tmUTC = *std::gmtime(&t);
 
     if(matchStr != std::string("None")) { // If timestamp was explicit in packet, extract it
+        std::string tsStr = _rawPacket.substr(matchStr.size(),7);
         if(tsStr.back() == 'h') { // This is the UTC hour-min-sec format
             std::string hour = tsStr.substr(0,2);
             std::string minute = tsStr.substr(2,2);
