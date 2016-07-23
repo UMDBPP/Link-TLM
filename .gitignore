@@ -4,6 +4,7 @@ Link-TLM
 TestBin
 test.txt
 Default/*
+Logs/*
 
 Link-Telemetry.sublime-workspace
 

@@ -1,4 +1,4 @@
-/* Link Telemetry v0.2.1 "Columbia"
+/* Link Telemetry v0.3 "Yankee Clipper"
    
    Copyright (c) 2015-2016 University of Maryland Space Systems Lab
    NearSpace Balloon Payload Program
@@ -88,6 +88,6 @@ void BPP::createDir(std::string _dirName) {
             return; // If it's a file, throw a warning...
         }
     } else {
-        mkdir(searchString.c_str(), 0644); // If nothing exists, make the directory.
+        mkdir(searchString.c_str(), 0755); // If nothing exists, make the directory.
     }
 }

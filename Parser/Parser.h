@@ -37,51 +37,64 @@
 #define PARSER_H
 
 #include <string>
+#include <regex>
 
 namespace BPP {
 
-    // Parser dedicated namespace
-    namespace Parser {
+class Parser {
 
-    // Load all the regexes and store them internally.
-    // Uses a file-scope struct to do so; therefore not defined here.
-    void initParsing(std::string _regexFilename);
+    private:
+        std::regex cs; // Callsign
+        std::regex ts; // Timestamp
+        std::regex compLatLon;
+        std::regex uncompLat;
+        std::regex uncompLon;
+        std::regex alt; // Altitude
+        std::regex compCseSpd; // Course/speed
+        std::regex uncompCseSpd;
+        std::regex uncompCmt; // Comment
+        std::regex compCmt;
 
-    // Parsing functions. These a direct, drop in replacements for the Python:
+        std::string regexMatch(std::string _rawPacket, std::regex _pattern);
 
-    // Extract callsign from raw data, return as a string.
-    std::string getCallsign(std::string _rawPacket);
+    public:
+        Parser(std::string _regexFilename); // Load all the regexes from file and store them internally.
+        ~Parser();
 
-    // Extract timestamp if it exists; create one for "right now" if it doesn't.
-    // Assumption: we recieved the packet today.
-    // Returns time in string format.
-    std::string getTimestamp(std::string _rawPacket);
+        // Parsing functions. These a direct, drop in replacements for the Python:
 
-    // Extract Latitude in ddmm.mm or compressed format.
-    // Return as string; conversion code in Packet structure already.
-    std::string getLat(std::string _rawPacket);
+        // Extract callsign from raw data, return as a string.
+        std::string getCallsign(std::string _rawPacket);
 
-    // Extract Longitude in dddmm.mm or compressed format.
-    // Return as string for same reason as above.
-    std::string getLon(std::string _rawPacket);
+        // Extract timestamp if it exists; create one for "right now" if it doesn't.
+        // Assumption: we recieved the packet today.
+        // Returns time in string format.
+        std::string getTimestamp(std::string _rawPacket);
 
-    // Extract altitude in feet from the packet
-    // Return as an int; conversion to meters is done when packets are printed.
-    int getAlt(std::string _rawPacket);
+        // Extract Latitude in ddmm.mm or compressed format.
+        // Return as string; conversion code in Packet structure already.
+        std::string getLat(std::string _rawPacket);
 
-    // Extract heading, if present, from the APRS data
-    // Returns degrees from North as int (if the course field exists)
-    int getCse(std::string _rawPacket);
+        // Extract Longitude in dddmm.mm or compressed format.
+        // Return as string for same reason as above.
+        std::string getLon(std::string _rawPacket);
 
-    // Extract speed, if present, from the APRS data
-    // Returns speed in mph as float if it exists
-    float getSpd(std::string _rawPacket);
+        // Extract altitude in feet from the packet
+        // Return as an int; conversion to meters is done when packets are printed.
+        int getAlt(std::string _rawPacket);
 
-    // Extract the APRS comment field.
-    // In our packets, this will include the altitude data.
-    std::string getCmt(std::string _rawPacket);
+        // Extract heading, if present, from the APRS data
+        // Returns degrees from North as int (if the course field exists)
+        int getCse(std::string _rawPacket);
 
-    } // Parser
+        // Extract speed, if present, from the APRS data
+        // Returns speed in mph as float if it exists
+        float getSpd(std::string _rawPacket);
+
+        // Extract the APRS comment field.
+        // In our packets, this will include the altitude data.
+        std::string getCmt(std::string _rawPacket);
+}; // Parser
 
 } // BPP
 

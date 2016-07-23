@@ -1,4 +1,4 @@
-/* Link Telemetry v0.2.1 "Columbia"
+/* Link Telemetry v0.3 "Yankee Clipper"
    
    Copyright (c) 2015-2016 University of Maryland Space Systems Lab
    NearSpace Balloon Payload Program
@@ -34,6 +34,7 @@
 #include <iostream>
 
 #include "Interface/PythonInterface.h"
+#include "Parser/Parser.h"
 
 BPP::Packet::Packet() {
     validPacket = true; // At least init this.
@@ -72,27 +73,28 @@ void BPP::Packet::validityCheck() {
 }
 
 void BPP::Packet::parse() {
+    BPP::Parser parser("Prefs/regex.json");
 
     // Get callsign
-    parsedPacket.callsign = BPP::PythonInterface::getString("BPPparser", "getCallsign", rawPacket);
+    parsedPacket.callsign = parser.getCallsign(rawPacket);
 
     // Get timestamp
-    parsedPacket.timestamp = BPP::PythonInterface::getString("BPPparser", "getTimestamp", rawPacket);
+    parsedPacket.timestamp = parser.getTimestamp(rawPacket);
 
     // Get Altitude
-    parsedPacket.alt = BPP::PythonInterface::getInt("BPPparser", "getAlt", rawPacket);
+    parsedPacket.alt = parser.getAlt(rawPacket);
 
     // Get Course:
-    parsedPacket.heading = BPP::PythonInterface::getInt("BPPparser", "getCse", rawPacket);
+    parsedPacket.heading = parser.getCse(rawPacket);
 
     // Get Speed:
-    parsedPacket.speed = BPP::PythonInterface::getFloat("BPPparser", "getSpd", rawPacket);
+    parsedPacket.speed = parser.getSpd(rawPacket);
 
     // Get Comment:
-    parsedPacket.comment = BPP::PythonInterface::getString("BPPparser", "getCmt", rawPacket);
+    parsedPacket.comment = parser.getCmt(rawPacket);
 
     // Get Latitude:
-    std::string uglyLat = BPP::PythonInterface::getString("BPPparser", "getLat", rawPacket);
+    std::string uglyLat = parser.getLat(rawPacket);
     if(uglyLat == "None") {
         validPacket = false; // Validity check 
     }
@@ -109,7 +111,7 @@ void BPP::Packet::parse() {
     }
 
     // Get Longitude
-    std::string uglyLon = BPP::PythonInterface::getString("BPPparser", "getLon", rawPacket);
+    std::string uglyLon = parser.getLon(rawPacket);
     if(uglyLon == "None") {
         validPacket = false; // Validity check
     }
