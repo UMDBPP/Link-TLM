@@ -1,4 +1,4 @@
-/*  Link Telemetry v0.2.1 "Columbia"
+/*  Link Telemetry v0.3 "Yankee Clipper"
     
     Copyright (c) 2015-2016 University of Maryland Space Systems Lab
     NearSpace Balloon Payload Program
@@ -50,16 +50,14 @@ class JSONLoader {
     private:
         rapidjson::Document settings; // JSON DOM for settings file.
         bool loadFailure; // Records JSON failure status.
+        std::string jsonFilename; // Store filename for error reporting.
 
     public:
         JSONLoader(const std::string& _jsonFileName); // Construct class with a filename.
         ~JSONLoader(); // DTOR - Probably trivial.
 
-        std::vector<std::string> getBalloonCalls(); // Get callsigns flying on balloon
-        std::vector<std::string> getVanCalls(); // Get callsigns used on tracking vans
-        std::string getUnparsedLogFile(); // Get filename for every packet ever recieved
-        std::string getParsedLogFile(); // Get filename for packets that have actually been parsed
-        std::string getInstallDirectory(); // Get install location from settings file
+        std::vector<std::string> getStringVector(const std::string& _jsonMember);
+        std::string getString(const std::string& _jsonMember);
 
 };
 

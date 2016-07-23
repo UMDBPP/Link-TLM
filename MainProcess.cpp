@@ -1,4 +1,4 @@
-/* Link Telemetry v0.2.1 "Columbia"
+/* Link Telemetry v0.3 "Yankee Clipper"
    
    Copyright (c) 2015-2016 University of Maryland Space Systems Lab
    NearSpace Balloon Payload Program
@@ -54,22 +54,50 @@ BPP::MainProcess::MainProcess() : settings("Prefs/settings.json"), initFail(fals
 	// Set the callsigns to look for.
 	// Retrieve these from JSON preferences file.
 	// For balloon callsigns, "register" with ground track.
-	balloonCalls = settings.getBalloonCalls();
+	// If no callsigns read fron file, default to one.
+	balloonCalls = settings.getStringVector("balloonCallsigns");
+	if(balloonCalls.size() == 0) {
+		std::cerr << "WARNING: No balloon callsigns specified. Using default W3EAX-9.\n";
+		balloonCalls.push_back("W3EAX-9");
+	}
 	for(const std::string cs : balloonCalls) {
 		trackedPackets.registerCallsign(cs);
 	}
-	vanCalls = settings.getVanCalls();
+	vanCalls = settings.getStringVector("vanCallsigns");
+	if(vanCalls.size() == 0) {
+		std::cerr << "WARNING: No van callsigns specified. Van tracking is disabled!\n";
+	}
 
 	// Retrieve install location information from the JSON file as well.
+	// If not specified, use default.
 	// Python needs this because it hates relative paths.
-	installDirectory = settings.getInstallDirectory();
+	installDirectory = settings.getString("installDirectory");
+	if(installDirectory == "") {
+		installDirectory = "/home/nick/Code/Link-TLM"; // Set to default if missing.
+		std::cerr << "WARNING: Install Directory not specified. Using default directory!\n";
+	}
 	BPP::PythonInterface::initPython(installDirectory); // Start Python and add directory to path
 	trackedPackets.initPlots(); // Create plots now that Python has started.
 
 	// Open the logs.
+	// Check for/create Logs directory
+	BPP::createDir("Logs");
+
 	// Log filenames defined in same JSON file.
-	allPackets.open(settings.getUnparsedLogFile());
-	trackedPackets.initLog(settings.getParsedLogFile()); // Parsed log in GroundTrack.
+	std::string logFile = "";
+	logFile = settings.getString("unparsedLogFilename");
+	if(logFile == "") {
+		logFile = "Logs/unparsedPackets.txt";
+		std::cerr << "Unparsed packet log file not specified! Using Logs/unparsedPackets.txt.\n";
+	}
+	allPackets.open(logFile);
+	logFile = "";
+	logFile = settings.getString("parsedLogFilename");
+	if(logFile == "") {
+		logFile = "Logs/parsedPackets.txt";
+		std::cerr << "Parsed packet log file not specified! Using Logs/parsedPackets.txt.\n";
+	}
+	trackedPackets.initLog(logFile); // Parsed log in GroundTrack.
 
 	// Set our exit code to false to start:
 	exitCode = false;

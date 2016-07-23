@@ -1,4 +1,4 @@
-/* Link Telemetry v0.2.1 "Columbia"
+/* Link Telemetry v0.3 "Yankee Clipper"
    
    Copyright (c) 2015-2016 University of Maryland Space Systems Lab
    NearSpace Balloon Payload Program
@@ -35,6 +35,8 @@
 
 #include <unistd.h>
 #include <term.h>
+#include <sys/stat.h>
+#include <sys/types.h>
 #include <cmath>
 #include <iostream>
 
@@ -68,4 +70,24 @@ void BPP::LinkTlm() {
 // Used for distance calculation stuff.
 float BPP::deg2rad(float _degrees) {
     return _degrees * (M_PI/180.0f);
+}
+
+// Check if a directory exits.
+// If not, create it.
+// Used to prevent logs from not opening if the directory doesn't exist.
+void BPP::createDir(std::string _dirName) {
+    struct stat st;
+
+    std::string searchString = "./" + _dirName;
+
+    if(stat(searchString.c_str(), &st) == 0) { // The string exists...
+        if((st.st_mode & S_IFDIR) != 0) {
+            return; // If it is a directory, silently return.
+        } else {
+            std::cerr << "Warning! " << _dirName << " exists as a file, not a Directory! File saving may not work!\n";
+            return; // If it's a file, throw a warning...
+        }
+    } else {
+        mkdir(searchString.c_str(), 0755); // If nothing exists, make the directory.
+    }
 }

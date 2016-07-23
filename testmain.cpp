@@ -19,7 +19,7 @@ extern "C" {
 
 int main(void) {
 
-/*	BPP::JSONLoader settings("Prefs/settings.json");
+	/*BPP::JSONLoader settings("Prefs/settings.json");
 	std::cout << "Balloon Calls:\n";
 	std::vector<std::string> bCalls = settings.getBalloonCalls();
 	for(size_t i=0; i<bCalls.size(); i++) {
@@ -35,7 +35,8 @@ int main(void) {
 	std::cout << "Parsed Log:\n";
 	std::cout << settings.getParsedLogFile() << std::endl;
 
-	std::string instDirectory = settings.getInstallDirectory();
+	std::string instDirectory = settings.getInstallDirectory(); */
+	std::string instDirectory = "/home/nick/Code/Link-TLM/";
 
 	BPP::clearTerm();
 	usleep(5000000);
@@ -51,10 +52,11 @@ int main(void) {
 
 	pkt2 = packet;
 	std::cout << "CS2: " << pkt2.callsign << std::endl;
+	BPP::PythonInterface::initPython(instDirectory);
 
-	std::cout << BPP::PythonInterface::getString("BPPparser", "getLon", "W3EAX-9>APT311,WIDE2-2:/203716h3859.58N/07656.35WO051/000/A=000111/W3EAX", instDirectory) << std::endl;
-	std::cout << BPP::PythonInterface::getInt("BPPparser", "getAlt", "W3EAX-9>APT311,WIDE2-2:/203716h3859.58N/07656.35WO051/000/A=000111/W3EAX", instDirectory) << std::endl;
-	std::cout << BPP::PythonInterface::getFloat("BPPparser", "getSpd", "W3EAX-9>APT311,WIDE2-2:/203716h3859.58N/07656.35WO051/000/A=000111/W3EAX", instDirectory) << std::endl;
+	std::cout << BPP::PythonInterface::getString("BPPparser", "getLon", "W3EAX-9>APT311,WIDE2-2:/203716h3859.58N/07656.35WO051/000/A=000111/W3EAX") << std::endl;
+	std::cout << BPP::PythonInterface::getInt("BPPparser", "getAlt", "W3EAX-9>APT311,WIDE2-2:/203716h3859.58N/07656.35WO051/000/A=000111/W3EAX") << std::endl;
+	std::cout << BPP::PythonInterface::getFloat("BPPparser", "getSpd", "W3EAX-9>APT311,WIDE2-2:/203716h3859.58N/07656.35WO051/000/A=000111/W3EAX") << std::endl;
 	
 	//BPP::TempParse parse("W3EAX-9>APT311,WIDE2-2:/203716h3859.58N/07656.35WO051/000/A=000111/W3EAX");
 	//BPP::TempParse parse2("KB3ZZI-9>APRS,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:!/:Ig\\:iOfO   /A=000606|!!|  /KB3ZZI,7,8,27'C,http://goo.gl/dGbpev");
@@ -62,10 +64,10 @@ int main(void) {
 	//parse.parse();
 	//parse.print();
 
-	BPP::Packet p1("W3EAX-9>APT311,WIDE2-2:/203716h3859.58N/07656.35WO051/000/A=000111/W3EAX", instDirectory);
-	BPP::Packet p2("KB3ZZI-9>APRS,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:!/:Ig\\:iOfO   /A=000606|!!|  /KB3ZZI,7,8,27'C,http://goo.gl/dGbpev", instDirectory);
+	BPP::Packet p1("W3EAX-9>APT311,WIDE2-2:/203716h3859.58N/07656.35WO051/000/A=000111/W3EAX");
+	BPP::Packet p2("KB3ZZI-9>APRS,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:!/:Ig\\:iOfO   /A=000606|!!|  /KB3ZZI,7,8,27'C,http://goo.gl/dGbpev");
 
-	p2.init("KB3ZZI-9>APRS,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:!/:Ig\\:iOfO   /A=000606|!!|  /KB3ZZI,7,8,27'C,http://goo.gl/dGbpev", instDirectory);
+	p2.init("KB3ZZI-9>APRS,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:!/:Ig\\:iOfO   /A=000606|!!|  /KB3ZZI,7,8,27'C,http://goo.gl/dGbpev");
 
 	p1.parse();
 	std::cout << "P1 Valid: " << p1.isValid() << std::endl << std::endl;
@@ -91,11 +93,11 @@ int main(void) {
 	BPP::clearTerm();
 	usleep(5000000);
 
-	BPP::Packet p3("WIDE2-1,qAR,K3PDK-1:!/:Ig\\:iOfO   /A=000", instDirectory);
+	BPP::Packet p3("WIDE2-1,qAR,K3PDK-1:!/:Ig\\:iOfO   /A=000");
 	p3.parse();
 	std::cout << "P3 Valid: " << p3.isValid() << std::endl;
 
-	BPP::clearTerm();
+/*	BPP::clearTerm();
 	usleep(5000000);
 
 	BPP::Log test;
@@ -105,15 +107,15 @@ int main(void) {
 	test.log(1);
 	std::cout << "logging\n";
 	test.log("HI! ",1," ",3.1415);
-	std::cout << "logging\n";
+	std::cout << "logging\n"; */
 
 	BPP::clearTerm();
 	usleep(5000000);
 
-	BPP::Packet timepack1("KB3ZZI-9>APRS,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:!/:Ig\\:iOfO   /A=000600|!!|  /KB3ZZI,7,8,27'C,http://goo.gl/dGbpev", instDirectory);
+	BPP::Packet timepack1("KB3ZZI-9>APRS,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:!/:Ig\\:iOfO   /A=000600|!!|  /KB3ZZI,7,8,27'C,http://goo.gl/dGbpev");
 	timepack1.parse();
 	usleep(5000000);
-	BPP::Packet timepack2("KB3ZZI-9>APRS,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:!/:Ig\\:iOfO   /A=000625|!!|  /KB3ZZI,7,8,27'C,http://goo.gl/dGbpev", instDirectory);
+	BPP::Packet timepack2("KB3ZZI-9>APRS,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:!/:Ig\\:iOfO   /A=000625|!!|  /KB3ZZI,7,8,27'C,http://goo.gl/dGbpev");
 	timepack2.parse();
 	//timepack2.calcAscentRate(timepack1);
 	timepack2.print();
@@ -162,7 +164,7 @@ int main(void) {
 	}
 
 	std::cout << BPP::PythonInterface::getInt("BPPregex", "oldPacketMatch", "W3EAX-9>APT311,WIDE2-2:/203716h3859.58N/07656.35WO051/000/A=000111/W3EAX", instDirectory) << std::endl; */
-	BPP::PythonInterface::initPython("/home/nick/Code/Link-TLM/");
+/*	BPP::PythonInterface::initPython("/home/nick/Code/Link-TLM/");
 	BPP::Plot testPlot;
 	BPP::Plot testPlot2;
 	testPlot.init("Hi","x","y");	
@@ -179,7 +181,7 @@ int main(void) {
 	testPlot.plotNewPoint(1.0f, testVal);
 
 	char a;
-	std::cin >> a;
+	std::cin >> a; */
 
 	BPP::PythonInterface::stopPython();
 

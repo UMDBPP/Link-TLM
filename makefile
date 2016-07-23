@@ -9,11 +9,11 @@ else
 	CC=g++-5
 endif
 
-all: main.o MainProcess.o PythonInterface.o Plot.o RS232.o Util.o Packet.o GroundTrack.o Log.o JSONLoader.o
-	$(CC) main.o MainProcess.o PythonInterface.o Plot.o RS232.o Util.o Packet.o GroundTrack.o Log.o JSONLoader.o -o Link-TLM $(LIBS)
+all: main.o MainProcess.o PythonInterface.o Plot.o RS232.o Util.o Packet.o GroundTrack.o Log.o JSONLoader.o Parser.o
+	$(CC) main.o MainProcess.o PythonInterface.o Plot.o RS232.o Util.o Packet.o GroundTrack.o Log.o JSONLoader.o Parser.o -o Link-TLM $(LIBS)
 
-test: testmain.o MainProcess.o PythonInterface.o Plot.o RS232.o Util.o Packet.o GroundTrack.o Log.o JSONLoader.o
-	$(CC) testmain.o MainProcess.o PythonInterface.o Plot.o RS232.o Util.o Packet.o GroundTrack.o Log.o JSONLoader.o -o TestBin $(LIBS)
+test: testmain.o MainProcess.o PythonInterface.o Plot.o RS232.o Util.o Packet.o GroundTrack.o Log.o JSONLoader.o Parser.o
+	$(CC) testmain.o MainProcess.o PythonInterface.o Plot.o RS232.o Util.o Packet.o GroundTrack.o Log.o JSONLoader.o Parser.o -o TestBin $(LIBS)
 
 main.o: main.cpp
 	$(CC) main.cpp $(CFLAGS)
@@ -47,6 +47,9 @@ Log.o: System/Log.cpp
 
 JSONLoader.o: System/JSONLoader.cpp
 	$(CC) System/JSONLoader.cpp $(CFLAGS)
+
+Parser.o: Parser/Parser.cpp
+	$(CC) Parser/Parser.cpp $(CFLAGS)
 
 clean:
 	rm -rf *.o TestBin test.txt
