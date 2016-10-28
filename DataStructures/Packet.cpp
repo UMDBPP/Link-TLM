@@ -33,7 +33,6 @@
 
 #include <iostream>
 
-#include "Interface/PythonInterface.h"
 #include "Parser/Parser.h"
 
 BPP::Packet::Packet() {
@@ -107,7 +106,7 @@ void BPP::Packet::parse() {
         if(dir == 'S') parsedPacket.lat = -parsedPacket.lat;
 
     } else { // Compressed
-        parsedPacket.lat = BPP::PythonInterface::getFloat("BPPdecompress", "decompressLat", uglyLat); // No conversions needed here.
+        parsedPacket.lat = parser.decompressLat(uglyLat); // No conversions needed here.
     }
 
     // Get Longitude
@@ -124,7 +123,7 @@ void BPP::Packet::parse() {
         if(dir == 'W') parsedPacket.lon = -parsedPacket.lon;
 
     } else { // Compressed
-        parsedPacket.lon = BPP::PythonInterface::getFloat("BPPdecompress", "decompressLon", uglyLon); // No conversion needed.
+        parsedPacket.lon = parser.decompressLon(uglyLon); // No conversion needed.
     }
 
     validityCheck();

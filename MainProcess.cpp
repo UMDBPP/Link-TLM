@@ -40,7 +40,6 @@ extern "C" {
 }
 
 #include "System/Util.h"
-#include "Interface/PythonInterface.h"
 #include "DataStructures/DecodedPacket.h"
 
 // Initialize everything.
@@ -76,8 +75,6 @@ BPP::MainProcess::MainProcess() : settings("Prefs/settings.json"), initFail(fals
 		installDirectory = "/home/nick/Code/Link-TLM"; // Set to default if missing.
 		std::cerr << "WARNING: Install Directory not specified. Using default directory!\n";
 	}
-	BPP::PythonInterface::initPython(installDirectory); // Start Python and add directory to path
-	trackedPackets.initPlots(); // Create plots now that Python has started.
 
 	// Open the logs.
 	// Check for/create Logs directory
@@ -97,16 +94,13 @@ BPP::MainProcess::MainProcess() : settings("Prefs/settings.json"), initFail(fals
 		logFile = "Logs/parsedPackets.txt";
 		std::cerr << "Parsed packet log file not specified! Using Logs/parsedPackets.txt.\n";
 	}
-	trackedPackets.initLog(logFile); // Parsed log in GroundTrack.
 
 	// Set our exit code to false to start:
 	exitCode = false;
 
 }
 
-BPP::MainProcess::~MainProcess() { 
-	BPP::PythonInterface::stopPython();
-}
+BPP::MainProcess::~MainProcess() { }
 
 // I got to clean this up! Yay!
 // This reads new packets off the serial port.
@@ -203,7 +197,6 @@ void BPP::MainProcess::mainLoop() {
 		if(newDataRecieved) { // If we recieved new data,
 			if(parseRecievedPacket()) { // Parse it,
 				printLatestPacket(); // Then log and print it.
-				trackedPackets.plotLatest();
 			}
 		}
 

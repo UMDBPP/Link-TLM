@@ -220,3 +220,25 @@ std::string BPP::Parser::getCmt(std::string _rawPacket) {
 
     return "None"; // This should never, or rarely, happen.
 }
+
+float BPP::Parser::decompressLat(std::string _compLat) {
+    float x1 = _compLat[0] - 33.0f; // Get int values of each character
+    float x2 = _compLat[1] - 33.0f; // Then subtract 33 and go to float
+    float x3 = _compLat[2] - 33.0f;
+    float x4 = _compLat[3] - 33.0f;
+
+    // Finally, decompress according to APRS spec.
+    float lat = 90.0 - (x1*pow(91,3) + x2*pow(91,2) + x3*91 + x4)/380926.0f;
+    return lat;
+}
+
+float BPP::Parser::decompressLon(std::string _compLon) {
+    float x1 = _compLon[0] - 33.0f; // Get int values of each character
+    float x2 = _compLon[1] - 33.0f; // Then subtract 33 and go to float
+    float x3 = _compLon[2] - 33.0f;
+    float x4 = _compLon[3] - 33.0f;
+
+    // Finally, decompress according to APRS spec.
+    float lon = -180.0f + (x1*pow(91,3) + x2*pow(91,2) + x3*91 + x4)/190463.0f;
+    return lon;
+}

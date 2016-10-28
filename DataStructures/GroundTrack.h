@@ -41,7 +41,6 @@
 
 #include "Packet.h"
 #include "System/Log.h"
-#include "Interface/Plot.h"
 
 namespace BPP {
 
@@ -69,23 +68,15 @@ class GroundTrack {
 		int diffTime(BPP::Packet _firstPacket, BPP::Packet _secondPacket); // Calculate time difference between two packets.
 		std::vector<BPP::Packet> getLatest(int _numPackets = 1); // Retrieve the latest n packets from the ground track.
 
-		// Create the plots we're interested in.
-		BPP::Plot altVsTime;
-		BPP::Plot ascentRateVsTime;
-		BPP::Plot latVsTime;
-		BPP::Plot lonVsTime;
-
 	public:
 		GroundTrack(); // Default CTOR
 		~GroundTrack(); // Another trivial DTOR!
 
 		bool initLog(std::string _logFileName); // Logging intialization function.
-		void initPlots(); // Start the plotting interface.
 		void registerCallsign(std::string _callsign); // Add a callsign to the tracking list.
 		bool addPacket(std::string _rawPacket); // Parse and validity check packets; reject untracked callsigns.
 		void printPacket(); // Print the latest packet and other associated data to terminal. (Convert to SI)
-		void plotLatest(); // Plot the latest data to graphs.
-
+		
 		int getNumPackets() { return capturedPackets; } // Get number of packets currently in the track.
 
 }; // GroundTrack

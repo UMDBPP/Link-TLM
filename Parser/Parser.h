@@ -94,6 +94,10 @@ class Parser {
         // Extract the APRS comment field.
         // In our packets, this will include the altitude data.
         std::string getCmt(std::string _rawPacket);
+
+        // Latitude and Longitude decompression functions
+        float decompressLat(std::string _compLat);
+        float decompressLon(std::string _compLon);
 }; // Parser
 
 } // BPP

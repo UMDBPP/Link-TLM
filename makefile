@@ -1,5 +1,5 @@
-CFLAGS=--std=c++14 -c -Wall -Wextra -O2 -I. -I./DataStructures -I/usr/include/python2.7 -I./deps
-LIBS=-L/usr/lib/python2.7/config -lpython2.7 -lpthread -ldl -lutil -lm -lcurses -Xlinker -export-dynamic
+CFLAGS=--std=c++14 -c -Wall -Wextra -O2 -I. -I./DataStructures -I./deps
+LIBS=-lpthread -ldl -lutil -lm -lcurses -Xlinker -export-dynamic
 
 # Set compiler alias based on version:
 GCC_MAJOR_VERSION=$(shell g++ --version | grep -E "[0-9][[:punct:]][0-9][[:punct:]][0-9]" -o | grep "^[0-9]" -o)
@@ -9,11 +9,11 @@ else
 	CC=g++-5
 endif
 
-all: main.o MainProcess.o PythonInterface.o Plot.o RS232.o Util.o Packet.o GroundTrack.o Log.o JSONLoader.o Parser.o
-	$(CC) main.o MainProcess.o PythonInterface.o Plot.o RS232.o Util.o Packet.o GroundTrack.o Log.o JSONLoader.o Parser.o -o Link-TLM $(LIBS)
+all: main.o MainProcess.o RS232.o Util.o Packet.o GroundTrack.o Log.o JSONLoader.o Parser.o
+	$(CC) main.o MainProcess.o RS232.o Util.o Packet.o GroundTrack.o Log.o JSONLoader.o Parser.o -o Link-TLM $(LIBS)
 
-test: testmain.o MainProcess.o PythonInterface.o Plot.o RS232.o Util.o Packet.o GroundTrack.o Log.o JSONLoader.o Parser.o
-	$(CC) testmain.o MainProcess.o PythonInterface.o Plot.o RS232.o Util.o Packet.o GroundTrack.o Log.o JSONLoader.o Parser.o -o TestBin $(LIBS)
+test: testmain.o MainProcess.o RS232.o Util.o Packet.o GroundTrack.o Log.o JSONLoader.o Parser.o
+	$(CC) testmain.o MainProcess.o RS232.o Util.o Packet.o GroundTrack.o Log.o JSONLoader.o Parser.o -o TestBin $(LIBS)
 
 main.o: main.cpp
 	$(CC) main.cpp $(CFLAGS)
@@ -23,12 +23,6 @@ testmain.o: testmain.cpp
 
 MainProcess.o: MainProcess.cpp
 	$(CC) MainProcess.cpp $(CFLAGS)
-
-PythonInterface.o: Interface/PythonInterface.cpp
-	$(CC) Interface/PythonInterface.cpp $(CFLAGS)
-
-Plot.o: Interface/Plot.cpp
-	$(CC) Interface/Plot.cpp $(CFLAGS)
 
 RS232.o: Interface/RS232.cpp
 	$(CC) Interface/RS232.cpp $(CFLAGS)
