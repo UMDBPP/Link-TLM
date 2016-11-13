@@ -33,7 +33,6 @@
 #define MAINPROC_H
 
 #include <vector>
-#include <memory>
 #include <string>
 #include <atomic>
 
@@ -49,14 +48,15 @@ class MainProcess {
 
 	private:
 		BPP::GroundTrack trackedPackets; // Keeps tabs on all recieved packets and calculates derived quantities.
+		std::vector<BPP::GroundTrack*> droppedPayloads; // Different ground track objects for each dropped payload on a flight.
 		BPP::JSONLoader settings; // Loads JSON settings file - filename in initialzer list.
 		BPP::Log allPackets; // Log file for all recieved, unparsed packets.
 		BPP::RS232Serial serialPort; // Object for managing the serial port.
 
-		std::string installDirectory; // Install directory specified in settings.
-
+		// Possibly move these into contructor as local variables. Not used elsewhere. After NS-60.
 		std::vector<std::string> balloonCalls; // Balloon callsigns we're flying (as defined in settings.)
 		std::vector<std::string> vanCalls; // Callsigns of vans being tracked, if any. (Also defined in settings.)
+		std::vector<std::string> droppedPayloadCalls; // Callsigns of dropped payloads tracked seperately from balloon. (Also in settings.)
 
 		bool initFail; // Initialization failure checking.
 		bool newDataRecieved; // Check for if new data has come in.
