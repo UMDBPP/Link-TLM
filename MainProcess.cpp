@@ -64,18 +64,6 @@ BPP::MainProcess::MainProcess() : settings("Prefs/settings.json"), initFail(fals
 		trackedPackets.registerCallsign(cs);
 	}
 
-	droppedPayloadCalls = settings.getStringVector("droppedPayloadCallsigns");
-	if(droppedPayloadCalls.size() == 0) {
-		std::cerr << "NOTICE: No dropped payloads specified in settings.json, assuming there are none.\n";
-	}
-
-	for(const std::string cs : droppedPayloadCalls) {
-		// NOTE: replace this mess after NS-60.
-		BPP::GroundTrack* track; // Get pointer to new GroundTrack
-		track->registerCallsign(cs); // Register single dropped payload callsign
-		droppedPayloads.push_back(track); // Copy pointer to end of vector.
-	}
-
 	vanCalls = settings.getStringVector("vanCallsigns");
 	if(vanCalls.size() == 0) {
 		std::cerr << "WARNING: No van callsigns specified. Van tracking is disabled!\n";
@@ -101,10 +89,6 @@ BPP::MainProcess::MainProcess() : settings("Prefs/settings.json"), initFail(fals
 	}
 
 	trackedPackets.initLog(logFile); // Parsed log in GroundTrack.
-	// Probably replace after NS-60
-	for(size_t i = 0; i < droppedPayloads.size(); i++) {
-		droppedPayloads[i]->initLog(logFile + "_" + std::to_string(i + 1)); // Open logs for dropped payloads, append number to filename.
-	}
 
 	// Set our exit code to false to start:
 	exitCode = false;
@@ -155,15 +139,7 @@ void BPP::MainProcess::readSerialData() {
 // Keep this for program flow clarity, though.
 // Rewrite dropped payload functionality after NS-60.
 bool BPP::MainProcess::parseRecievedPacket() {
-	if(trackedPackets.addPacket(lastRawPacket) == true) {
-		return true;
-	} else {
-		for(size_t i = 0; i < droppedPayloads.size(); i++) {
-			trackedPackets.addPacket(lastRawPacket); // Note: dropped payload packets aren't displayed for now.
-		}
-	}
-
-	return false;
+	return trackedPackets.addPacket(lastRawPacket);
 }
 
 // Print out stuff to terminal in clean format.
