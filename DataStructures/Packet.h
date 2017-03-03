@@ -30,8 +30,8 @@
     Uses DecodedPacket as its data structure.
 */
 
-#ifndef PACK_H
-#define PACK_H
+#ifndef PACKET_H
+#define PACKET_H
 
 #include <string>
 
@@ -68,4 +68,4 @@ class Packet {
 } // BPP
 
 #endif
-// PACK_H
+// PACKET_H

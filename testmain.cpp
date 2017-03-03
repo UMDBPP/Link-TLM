@@ -7,39 +7,29 @@ extern "C" {
 }
 
 #include "DataStructures/DecodedPacket.h"
-#include "Interface/PythonInterface.h"
-#include "Interface/Plot.h"
 #include "Interface/RS232.h"
 #include "System/Util.h"
 #include "DataStructures/Packet.h"
 #include "System/Log.h"
 #include "System/JSONLoader.h"
 
-//int pollCom();
-
 int main(void) {
 
-	/*BPP::JSONLoader settings("Prefs/settings.json");
+	BPP::JSONLoader settings("Prefs/settings.json");
 	std::cout << "Balloon Calls:\n";
-	std::vector<std::string> bCalls = settings.getBalloonCalls();
+	std::vector<std::string> bCalls = settings.getStringVector("balloonCallsigns");
 	for(size_t i=0; i<bCalls.size(); i++) {
 		std::cout << bCalls[i] << std::endl;
 	}
 	std::cout << "Van Calls:\n";
-	std::vector<std::string> vCalls = settings.getVanCalls();
+	std::vector<std::string> vCalls = settings.getStringVector("vanCallsigns");
 	for(size_t i=0; i<vCalls.size(); i++) {
 		std::cout << vCalls[i] << std::endl;
 	}
 	std::cout << "Unparsed Log:\n";
-	std::cout << settings.getUnparsedLogFile() << std::endl;
+	std::cout << settings.getString("unparsedLogFilename") << std::endl;
 	std::cout << "Parsed Log:\n";
-	std::cout << settings.getParsedLogFile() << std::endl;
-
-	std::string instDirectory = settings.getInstallDirectory(); */
-	std::string instDirectory = "/home/nick/Code/Link-TLM/";
-
-	BPP::clearTerm();
-	usleep(5000000);
+	std::cout << settings.getString("parsedLogFilename") << std::endl;
 
 	BPP::DecodedPacket packet("W3EAX-9", std::string("2015-06-13 07:17:44 EDT"), 39.657036, -77.934181, 606, 500, -1, std::string("W3EAX-9 www.umd.edu"));
 	BPP::DecodedPacket pkt2;
@@ -187,12 +177,3 @@ int main(void) {
 
 	return 0;
 }
-
-/*
-int pollCom() {
-	int n;
-	unsigned char buf[4096];
-	n = RS232_PollComport(24, buf, 4095);
-	std::cout << "FUNC READ " << n << std::endl;
-	return n;
-} */

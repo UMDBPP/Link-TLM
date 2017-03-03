@@ -9,12 +9,11 @@ via the [APRS](http://www.aprs.org/) network. The software interfaces with a Ken
 via a RS-232 serial connection to recieve APRS packets. These packets are then decoded to yield
 location information throughout the flight.
 
-This is a very early version of the software. In its current form, it recieves packets from the radio,
-logs the raw data, and selectively parses packets from the balloon. The parsed data is displayed to the
-terminal and is also logged. Further, the ascent rate of the balloon is calculated from previous packets.
-This represents the initial capability of the system. Its objectives were to verify that the radio would
-communicate properly with the computer and to verify the accuracy of the APRS packet decoder; both were
-completed succesfully.
+The software is currently nearing feature-completion. It currently recieves packets from the radio, parses them,
+logs them, and calculates several dervied values including vertical and horizontal speed and downrange distance.
+Output is provided via the terminal, and will also be exported to a live-updating JSON file for other processes to
+access in the future. Link-TLM has been used in its various versions to track about 15 of the University of Maryland
+Nearspace Program's high altitude balloon flights and is now a standard part of the tracking setup.
 
 Dependencies
 ------------
