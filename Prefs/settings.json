@@ -1,6 +1,6 @@
 {
 	"balloonCallsigns" : ["W3EAX-8", "W3EAX-12"],
 	"vanCallsigns" : 0,
-	"unparsedLogFilename" : "Logs/NS60_allPackets.txt",
-	"parsedLogFilename" : "Logs/NS60_parsedPackets.txt"
+	"unparsedLogFilename" : "Logs/NS61_allPackets.txt",
+	"parsedLogFilename" : "Logs/NS61_parsedPackets.txt"
 }
