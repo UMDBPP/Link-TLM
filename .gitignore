@@ -5,6 +5,7 @@ TestBin
 test.txt
 Default/*
 Logs/*
+.vscode/
 
 Link-Telemetry.sublime-workspace
 
