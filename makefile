@@ -1,4 +1,4 @@
-CFLAGS=--std=c++14 -c -Wall -Wextra -O2 -I. -I./DataStructures -I./deps
+CFLAGS=--std=c++14 -c -Wall -Wextra -O2 -I. -I./deps
 LIBS=-lpthread -lm -lcurses
 
 # Set compiler alias based on version:
@@ -12,14 +12,12 @@ endif
 all: main.o MainProcess.o RS232.o Util.o Packet.o GroundTrack.o Log.o JSONLoader.o Parser.o
 	$(CC) main.o MainProcess.o RS232.o Util.o Packet.o GroundTrack.o Log.o JSONLoader.o Parser.o -o Link-TLM $(LIBS)
 
-test: test.o MainProcess.o RS232.o Util.o Packet.o GroundTrack.o Log.o JSONLoader.o Parser.o
-	$(CC) test.o MainProcess.o RS232.o Util.o Packet.o GroundTrack.o Log.o JSONLoader.o Parser.o -o TestLink $(LIBS)
+test: MainProcess.o RS232.o Util.o Packet.o GroundTrack.o Log.o JSONLoader.o Parser.o
+	(cd Tests; make)
+	$(CC) Tests/*.o MainProcess.o RS232.o Util.o Packet.o GroundTrack.o Log.o JSONLoader.o Parser.o -o TestLink $(LIBS)
 
 main.o: Main/main.cpp
 	$(CC) Main/main.cpp $(CFLAGS)
-
-test.o: Tests/test.cpp
-	$(CC) Tests/test.cpp $(CFLAGS)
 
 MainProcess.o: Main/MainProcess.cpp
 	$(CC) Main/MainProcess.cpp $(CFLAGS)

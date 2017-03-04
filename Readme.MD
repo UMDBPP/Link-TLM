@@ -9,6 +9,10 @@ via the [APRS](http://www.aprs.org/) network. The software interfaces with a Ken
 via a RS-232 serial connection to recieve APRS packets. These packets are then decoded to yield
 location information throughout the flight.
 
+Link-TLM is designed for and developed on Linux machines. It should compile on any properly configured Linux
+distribution. However, it will *not* compile or run on Windows. It *may* compile and run on OSX, but this has
+never been attempted or tested, and so is not considered supported (and may not work at all).
+
 The software is currently nearing feature-completion. It currently recieves packets from the radio, parses them,
 logs them, and calculates several dervied values including vertical and horizontal speed and downrange distance.
 Output is provided via the terminal, and will also be exported to a live-updating JSON file for other processes to

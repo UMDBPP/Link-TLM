@@ -4,7 +4,7 @@
     NearSpace Balloon Payload Program
     
     Written by Nicholas Rossomando
-    2015-10-30
+    2017-03-03
 
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
@@ -24,44 +24,25 @@
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
     SOFTWARE.
 
-    JSONLoader.h:
+    TestTemplate.h:
 
-    Load JSON settings file. Uses RapidJson json parsing library (see deps/rapidjson)
-    This is kind of a single use class, but it's better than a singleton.
-
-    Settings in file:
-    - Balloon Callsigns
-    - Van Callsigns
-    - Log File Names
+    Templates for generic testing of code elements.
+    Essentially a lightweight unit test setup.
 */
 
-#ifndef JSONLOAD_H
-#define JSONLOAD_H
+#ifndef TEST_H
+#define TEST_H
 
-#include <string>
-#include <vector>
+// Template for a simple value check test for any type
+// _value: value to be checked, _correctVal: value expected, _testName: name of the test running (useful for output)
+// Return 0 for success and 1 for failure
+template<typename T> int test_value(T _value, T _correctVal, std::string _testName = "GENERIC TEST") {
+    if(_value == _correctVal) {
+        return 0;
+    }
 
-#include <rapidjson/document.h>
+    std::cerr << "\e[1m\e[31mFAILED TEST: \e[0m" << _testName << std::endl;
+    return 1;
+}
 
-namespace BPP {
-
-class JSONLoader {
-
-    private:
-        rapidjson::Document settings; // JSON DOM for settings file.
-        bool loadFailure; // Records JSON failure status.
-        std::string jsonFilename; // Store filename for error reporting.
-
-    public:
-        JSONLoader(const std::string& _jsonFileName); // Construct class with a filename.
-        ~JSONLoader(); // DTOR - Probably trivial.
-
-        std::vector<std::string> getStringVector(const std::string& _jsonMember);
-        std::string getString(const std::string& _jsonMember);
-
-};
-
-} // BPP
-
-#endif
-// JSONLOAD_H
+#endif // TEST_H

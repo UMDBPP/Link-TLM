@@ -1,6 +1,6 @@
 /* Link Telemetry v0.3 "Yankee Clipper"
    
-   Copyright (c) 2015-2016 University of Maryland Space Systems Lab
+   Copyright (c) 2015-2017 University of Maryland Space Systems Lab
    NearSpace Balloon Payload Program
    
    Written by Nicholas Rossomando
