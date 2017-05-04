@@ -38,6 +38,7 @@
 
 int main(void) {
     test_DecodedPacket();
+    test_Packet();
 
     return 0;
 }

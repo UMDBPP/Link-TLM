@@ -83,7 +83,22 @@ int test_DecodedPacket() {
 }
 
 int test_Packet() {
+    int result = 0;
 
+    std::cout << "\e[1mTESTING:\e[0m Packet..." << std::endl;
+
+    BPP::Packet pkt;
+    pkt.init("KB3ZZI-9>APRS,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:!/:Ig\\:iOfO   /A=000606|!!|  /KB3ZZI,7,8,27'C,http://www.umd.edu");
+    pkt.parse();
+
+    result += test_value(pkt.getCall(), std::string("KB3ZZI-9"), "default_ctor_call");
+    result += test_value(pkt.isValid(), true, "default_ctor_validity");
+    
+
+    BPP::Packet pkt2("KB3ZZI-9>APRS,N3KTX-4*,WIDE1*,WIDE2-1,qAR,K3PDK-1:!/:Ig\\:iOfO   /A=000606|!!|  /KB3ZZI,7,8,27'C,http://www.umd.edu");
+    pkt2.parse();
+
+    return result;
 }
 
 int test_GroundTrack() {
