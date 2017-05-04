@@ -34,8 +34,8 @@ Packet.o: DataStructures/Packet.cpp
 GroundTrack.o: DataStructures/GroundTrack.cpp
 	$(CC) DataStructures/GroundTrack.cpp $(CFLAGS)
 
-Log.o: System/Log.cpp
-	$(CC) System/Log.cpp $(CFLAGS)
+Log.o: Output/Log.cpp
+	$(CC) Output/Log.cpp $(CFLAGS)
 
 JSONLoader.o: System/JSONLoader.cpp
 	$(CC) System/JSONLoader.cpp $(CFLAGS)

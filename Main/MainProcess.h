@@ -39,7 +39,7 @@
 #include "DataStructures/Packet.h"
 #include "DataStructures/GroundTrack.h"
 #include "System/JSONLoader.h"
-#include "System/Log.h"
+#include "Output/Log.h"
 #include "Interface/RS232.h"
 
 namespace BPP {

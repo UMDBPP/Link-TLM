@@ -74,6 +74,6 @@ void BPP::Log::log() {
     ts.erase(ts.length()-1); // Strip newline.
 
     if(logOpen) {
-        logfile << "  < LOGGED AT " << ts << " >" << std::endl; // Drop the timestamp and end line.
+        logfile << "LOGGED AT " << ts << std::endl; // Drop the timestamp and end line.
     }
 }

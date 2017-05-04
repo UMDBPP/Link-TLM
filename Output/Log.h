@@ -60,7 +60,7 @@ class Log {
         // Only one argument given/left to log.
         template<typename T> void log(const T& t) { // This construct allows any type.
             if(logOpen) { // Check to make sure file is open.
-                logfile << t; // Write out argument.
+                logfile << t << ","; // Write out argument.
                 log(); // Recursive call to empty log function, for timestamp.
             }
         }
@@ -69,7 +69,7 @@ class Log {
         // Gets called until only one argument left, then moves to above overload.
         template<typename F,typename ...T> void log(const F& first, const T&... rest) { // Construct allows any type/number of args.
             if(logOpen) { // Check to make sure file is open.
-                logfile << first; // Write out first argument.
+                logfile << first << ","; // Write out first argument.
                 log(rest...); // Recursive call on rest of argument.
             }
         }

@@ -351,13 +351,13 @@ void BPP::GroundTrack::printPacket() {
 		BPP::DecodedPacket packetData = latestPacket.getPacket(); // Extract the data from the packet.
 
 		// And log everthing!
-		parsedPackets.log(packetData.callsign, ",", \
-			packetData.timestamp, ",", \
-			packetData.lat, ",", \
-			packetData.lon, ",", \
-			packetData.alt, ",", \
-			downrangeDistance, ",", \
-			ascentRate, ",", \
+		parsedPackets.log(packetData.callsign, \
+			packetData.timestamp, \
+			packetData.lat, \
+			packetData.lon, \
+			packetData.alt, \
+			downrangeDistance, \
+			ascentRate, \
 			groundSpeed);
 	}
 }

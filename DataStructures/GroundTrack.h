@@ -40,7 +40,7 @@
 #include <array>
 
 #include "Packet.h"
-#include "System/Log.h"
+#include "Output/Log.h"
 
 namespace BPP {
 
