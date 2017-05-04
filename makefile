@@ -9,47 +9,38 @@ else
 	CC=g++-5
 endif
 
-all: main.o MainProcess.o RS232.o Util.o Packet.o GroundTrack.o Log.o JSONLoader.o Parser.o
-	$(CC) main.o MainProcess.o RS232.o Util.o Packet.o GroundTrack.o Log.o JSONLoader.o Parser.o -o Link-TLM $(LIBS)
+all: main datastructures interface output parser system
+	$(CC) Main/*.o DataStructures/*.o Interface/*.o Output/*.o Parser/*.o System/*.o -o Link-TLM $(LIBS)
 
-test: MainProcess.o RS232.o Util.o Packet.o GroundTrack.o Log.o JSONLoader.o Parser.o
-	(cd Tests; make)
-	$(CC) Tests/*.o MainProcess.o RS232.o Util.o Packet.o GroundTrack.o Log.o JSONLoader.o Parser.o -o TestLink $(LIBS)
+test: datastructures interface output parser system
+	cd Tests && $(MAKE)
+	$(CC) Tests/*.o DataStructures/*.o Interface/*.o Output/*.o Parser/*.o System/*.o -o TestLink $(LIBS)
 
-main.o: Main/main.cpp
-	$(CC) Main/main.cpp $(CFLAGS)
+main:
+	cd Main && $(MAKE)
 
-MainProcess.o: Main/MainProcess.cpp
-	$(CC) Main/MainProcess.cpp $(CFLAGS)
+datastructures:
+	cd DataStructures && $(MAKE)
 
-RS232.o: Interface/RS232.cpp
-	$(CC) Interface/RS232.cpp $(CFLAGS)
+interface:
+	cd Interface && $(MAKE)
 
-Util.o: System/Util.cpp
-	$(CC) System/Util.cpp $(CFLAGS)
+output:
+	cd Output && $(MAKE)
 
-Packet.o: DataStructures/Packet.cpp
-	$(CC) DataStructures/Packet.cpp $(CFLAGS)
+parser:
+	cd Parser && $(MAKE)
 
-GroundTrack.o: DataStructures/GroundTrack.cpp
-	$(CC) DataStructures/GroundTrack.cpp $(CFLAGS)
-
-Log.o: Output/Log.cpp
-	$(CC) Output/Log.cpp $(CFLAGS)
-
-JSONLoader.o: System/JSONLoader.cpp
-	$(CC) System/JSONLoader.cpp $(CFLAGS)
-
-Parser.o: Parser/Parser.cpp
-	$(CC) Parser/Parser.cpp $(CFLAGS)
+system:
+	cd System && $(MAKE)
 
 clean:
-	rm -rf *.o TestBin test.txt
+	rm -rf *.o */*.o TestLink test.txt
 
 logclean:
 	rm -rf test.txt Logs/*
 
 purge:
-	rm -rf *.o TestLink Link-TLM test.txt
+	rm -rf *.o */*.o TestLink Link-TLM test.txt
 
 .PHONY: clean logclean purge
