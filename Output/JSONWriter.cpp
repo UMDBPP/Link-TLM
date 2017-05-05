@@ -37,8 +37,34 @@
 // Due to class use case, defualt constructor is not required.
 // Takes in filename for JSON file, opens and error checks.
 BPP::JSONWriter::JSONWriter(std::string _filename) : writer(buf) {
-    logFile.open(_filename, std::ofstream::out | std::ofstream::app); // Open file
+    std::ifstream prevFile(_filename); // Open file for reading
+    std::string prevFileContents;
+    if(prevFile.is_open()) {
+        while(!prevFile.eof()) {
+            std::string tmpstr;
+            std::getline(prevFile,tmpstr); // Read
+            prevFileContents += tmpstr + "\n";
+        }
+    }
+    prevFile.close(); // Close
+
+    if(prevFileContents == "") { // If no previous file contents,
+        prevFileContents = "["; // Add opening of JSON array
+    } else { // If previous contents,
+        std::cerr << prevFileContents << std::endl;
+        prevFileContents.pop_back(); // Replace array close with comma.
+        prevFileContents.pop_back();
+        prevFileContents.pop_back();
+        prevFileContents += ",\n";
+    }
+    
+    logFile.open(_filename); // Open file for writing
     logOpen = logFile.is_open(); // Set file open status
+
+    // Rewrite old content
+    if(logOpen) {
+        logFile << prevFileContents;
+    }
 
     writer.StartObject(); // Open up the JSON object
 }
@@ -50,7 +76,7 @@ BPP::JSONWriter::~JSONWriter() {
     writer.EndObject(); // Close the JSON object
 
     if(logOpen) {
-        logFile << buf.GetString() << std::endl; // Write out JSON-ified string to file
+        logFile << buf.GetString() << "]" << std::endl; // Write out JSON-ified string to file and close JSON array
         logFile.close(); // Clean up, close file.
     } else {
         std::cerr << "WARNING: JSON output not opened; writing to file failed!\n";
