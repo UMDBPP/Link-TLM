@@ -1,4 +1,4 @@
-CFLAGS=--std=c++14 -c -Wall -Wextra -O2 -I. -I./deps
+CFLAGS=--std=c++14 -c -Wall -Wextra -O2 -I. -I./deps -DRAPIDJSON_HAS_STDSTRING=1
 LIBS=-lpthread -lm -lcurses
 
 # Set compiler alias based on version:
@@ -35,12 +35,12 @@ system:
 	cd System && $(MAKE)
 
 clean:
-	rm -rf *.o */*.o TestLink test.txt
+	rm -rf *.o */*.o TestLink test.json
 
 logclean:
 	rm -rf test.txt Logs/*
 
 purge:
-	rm -rf *.o */*.o TestLink Link-TLM test.txt
+	rm -rf *.o */*.o TestLink Link-TLM test.json
 
 .PHONY: clean logclean purge

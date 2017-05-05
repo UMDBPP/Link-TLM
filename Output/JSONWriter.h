@@ -33,6 +33,10 @@
 #define JSONWRITE_H
 
 #include <string>
+#include <fstream>
+
+#include <rapidjson/prettywriter.h>
+#include <rapidjson/stringbuffer.h>
 
 namespace BPP {
 
@@ -46,6 +50,13 @@ class JSONWriter {
         void addValue(std::string _key, std::string _value);
         void addValue(std::string _key, int _value);
         void addValue(std::string _key, float _value);
+
+	private:
+		std::ofstream logFile;
+        bool logOpen;
+
+        rapidjson::StringBuffer buf;
+        rapidjson::PrettyWriter<rapidjson::StringBuffer> writer;
 
 }; // JSONWriter
 

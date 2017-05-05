@@ -32,13 +32,29 @@
 */
 
 #include <iostream>
+#include <string>
 
 #include "TestTemplate.h"
 #include "DataStructureTests.h"
+
+#include "Output/JSONWriter.h"
+
+void write_test_json(int a, float b);
 
 int main(void) {
     test_DecodedPacket();
     test_Packet();
 
+    write_test_json(1,2.65f);
+    write_test_json(2,7.68f);
+    write_test_json(5,13.4432f);
+
     return 0;
+}
+
+void write_test_json(int a, float b) {
+    BPP::JSONWriter out("test.json");
+    out.addValue("stringVal", "testString");
+    out.addValue("someInt", a);
+    out.addValue("someFloat", b);
 }
