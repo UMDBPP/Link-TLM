@@ -1,4 +1,4 @@
-/* Link Telemetry v0.3 "Yankee Clipper"
+/* Link Telemetry v1.0 "Odyssey"
    
    Copyright (c) 2015-2017 University of Maryland Space Systems Lab
    NearSpace Balloon Payload Program
@@ -41,6 +41,7 @@
 
 #include "DecodedPacket.h"
 #include "System/Util.h"
+#include "Output/JSONWriter.h"
 
 // CTOR
 // Initializes values via initializer list.
@@ -48,6 +49,7 @@
 // Set time to impact in particular to known, obviously false default value.
 BPP::GroundTrack::GroundTrack() : capturedPackets(0), \
 	logEnabled(false), \
+	jsonEnabled(false), \
 	ascentRate(0.0f), \
 	groundSpeed(0.0f), \
 	downrangeDistance(0.0f), \
@@ -251,6 +253,13 @@ bool BPP::GroundTrack::initLog(std::string _logFileName) {
 	return logEnabled; // Return log status (In case user wants this to be a failure case...)
 }
 
+// Initialize JSON output.
+// Simply sets filename and enable bool.
+void BPP::GroundTrack::jsonEnable(std::string _jsonFileName) {
+	jsonEnabled = true;
+	jsonFilename = _jsonFileName;
+}
+
 // Add given callsign to map.
 // Preempt packet reading so we can use "registered" callsigns, and ignore
 // all other ones.
@@ -347,8 +356,8 @@ void BPP::GroundTrack::printPacket() {
 	std::cout << std::endl; // Throw in an extra newline to help separate data.
 
 	// Now, log what we need to, if logging is on:
+	BPP::DecodedPacket packetData = latestPacket.getPacket(); // Extract the data from the packet.
 	if(logEnabled) {
-		BPP::DecodedPacket packetData = latestPacket.getPacket(); // Extract the data from the packet.
 
 		// And log everthing!
 		parsedPackets.log(packetData.callsign, \
@@ -359,5 +368,25 @@ void BPP::GroundTrack::printPacket() {
 			downrangeDistance, \
 			ascentRate, \
 			groundSpeed);
+	}
+
+	// Additionally, update JSON file with new packets, as well.
+	if(jsonEnabled) {
+		JSONWriter jsonOut(jsonFilename);
+		jsonOut.addValue("packetID", capturedPackets);
+		jsonOut.addValue("callsign", packetData.callsign);
+		jsonOut.addValue("timestamp", packetData.timestamp);
+		jsonOut.addValue("latitude", packetData.lat);
+		jsonOut.addValue("longitude", packetData.lon);
+		jsonOut.addValue("altitude", packetData.alt);
+		jsonOut.addValue("ascent_rate", ascentRate);
+		jsonOut.addValue("ground_speed", groundSpeed);
+		jsonOut.addValue("downrange_distance", downrangeDistance);
+		jsonOut.addValue("lat_rate_change", latlonDerivative[0]);
+		jsonOut.addValue("lon_rate_change", latlonDerivative[1]);
+		if(timeToImpact != -5) {
+			jsonOut.addValue("time_to_sea_level", timeToImpact);
+		}
+		jsonOut.addValue("comment", packetData.comment);
 	}
 }

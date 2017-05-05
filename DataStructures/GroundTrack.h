@@ -1,4 +1,4 @@
-/* Link Telemetry v0.3 "Yankee Clipper"
+/* Link Telemetry v1.0 "Odyssey"
    
    Copyright (c) 2015-2017 University of Maryland Space Systems Lab
    NearSpace Balloon Payload Program
@@ -52,6 +52,8 @@ class GroundTrack {
 
 		int capturedPackets; // Number of packets we've collected and kept so far.
 		bool logEnabled; // Whether we're logging captured data or not.
+		bool jsonEnabled; // Same as above but for JSON log.
+		std::string jsonFilename; // Filename for the JSON log.
 		float ascentRate; // ft/s
 		float groundSpeed; // mph
 		float downrangeDistance; // mi
@@ -73,6 +75,7 @@ class GroundTrack {
 		~GroundTrack(); // Another trivial DTOR!
 
 		bool initLog(std::string _logFileName); // Logging intialization function.
+		void jsonEnable(std::string _jsonFileName); // JSON log initialization.
 		void registerCallsign(std::string _callsign); // Add a callsign to the tracking list.
 		bool addPacket(std::string _rawPacket); // Parse and validity check packets; reject untracked callsigns.
 		void printPacket(); // Print the latest packet and other associated data to terminal. (Convert to SI)

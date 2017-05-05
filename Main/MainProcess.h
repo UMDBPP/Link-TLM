@@ -1,4 +1,4 @@
-/* Link Telemetry v0.3 "Yankee Clipper"
+/* Link Telemetry v1.0 "Odyssey"
    
    Copyright (c) 2015-2017 University of Maryland Space Systems Lab
    NearSpace Balloon Payload Program

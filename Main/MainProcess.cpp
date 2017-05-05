@@ -1,4 +1,4 @@
-/* Link Telemetry v0.3 "Yankee Clipper"
+/* Link Telemetry v1.0 "Odyssey"
    
    Copyright (c) 2015-2017 University of Maryland Space Systems Lab
    NearSpace Balloon Payload Program
@@ -81,14 +81,22 @@ BPP::MainProcess::MainProcess() : settings("Prefs/settings.json"), initFail(fals
 		std::cerr << "Unparsed packet log file not specified! Using Logs/unparsedPackets.txt.\n";
 	}
 	allPackets.open(logFile);
+	
 	logFile = "";
 	logFile = settings.getString("parsedLogFilename");
 	if(logFile == "") {
 		logFile = "Logs/parsedPackets.txt";
 		std::cerr << "Parsed packet log file not specified! Using Logs/parsedPackets.txt.\n";
 	}
-
 	trackedPackets.initLog(logFile); // Parsed log in GroundTrack.
+
+	logFile = "";
+	logFile = settings.getString("jsonLogFilename");
+	if(logFile == "") {
+		logFile = "Logs/jsonOutput.json";
+		std::cerr << "JSON file name not specified! Using Logs/jsonOutput.json.\n";
+	}
+	trackedPackets.jsonEnable(logFile);
 
 	// Set our exit code to false to start:
 	exitCode = false;
