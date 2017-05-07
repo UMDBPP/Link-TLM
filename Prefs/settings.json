@@ -3,5 +3,6 @@
 	"vanCallsigns" : 0,
 	"unparsedLogFilename" : "Logs/NS63_allPackets.txt",
 	"parsedLogFilename" : "Logs/NS63_parsedPackets.txt",
-	"jsonLogFilename" : "Logs/TestJson.json"
+	"jsonLogFilename" : "Logs/TestJson.json",
+	"kmlLogFilename" : "Logs/TestKML.kml"
 }

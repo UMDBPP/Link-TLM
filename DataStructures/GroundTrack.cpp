@@ -42,6 +42,7 @@
 #include "DecodedPacket.h"
 #include "System/Util.h"
 #include "Output/JSONWriter.h"
+#include "Output/KMLWriter.h"
 
 // CTOR
 // Initializes values via initializer list.
@@ -50,11 +51,12 @@
 BPP::GroundTrack::GroundTrack() : capturedPackets(0), \
 	logEnabled(false), \
 	jsonEnabled(false), \
+	kmlEnabled(false), \
 	ascentRate(0.0f), \
 	groundSpeed(0.0f), \
 	downrangeDistance(0.0f), \
 	timeToImpact(-5), \
-	latlonDerivative { 0.0f, 0.0f }, \
+	latlonDerivative { 0.0f, 0.0f }, \ 
 	latestCallsigns { "", "", "" } { }
 
 // DTOR, trivial:
@@ -260,6 +262,13 @@ void BPP::GroundTrack::jsonEnable(std::string _jsonFileName) {
 	jsonFilename = _jsonFileName;
 }
 
+// Initialize KML output.
+// Simply sets filename and enable bool.
+void BPP::GroundTrack::kmlEnable(std::string _kmlFileName) {
+	kmlEnabled = true;
+	kmlFilename = _kmlFileName;
+}
+
 // Add given callsign to map.
 // Preempt packet reading so we can use "registered" callsigns, and ignore
 // all other ones.
@@ -373,7 +382,7 @@ void BPP::GroundTrack::printPacket() {
 
 	// Additionally, update JSON file with new packets, as well.
 	if(jsonEnabled) {
-		JSONWriter jsonOut(jsonFilename);
+		BPP::JSONWriter jsonOut(jsonFilename);
 		jsonOut.addValue("packetID", capturedPackets);
 		jsonOut.addValue("callsign", packetData.callsign);
 		jsonOut.addValue("timestamp", packetData.timestamp);
@@ -389,5 +398,11 @@ void BPP::GroundTrack::printPacket() {
 			jsonOut.addValue("time_to_sea_level", timeToImpact);
 		}
 		jsonOut.addValue("comment", packetData.comment);
+	}
+
+	// Finally, update KML file with newest packet.
+	if(kmlEnabled) {
+		BPP::KMLWriter kmlOut(kmlFilename);
+		kmlOut.addPoint(packetData.lat, packetData.lon, packetData.alt);
 	}
 }

@@ -53,7 +53,9 @@ class GroundTrack {
 		int capturedPackets; // Number of packets we've collected and kept so far.
 		bool logEnabled; // Whether we're logging captured data or not.
 		bool jsonEnabled; // Same as above but for JSON log.
+		bool kmlEnabled; // And same as above but for KML log.
 		std::string jsonFilename; // Filename for the JSON log.
+		std::string kmlFilename; // Filename for KML log.
 		float ascentRate; // ft/s
 		float groundSpeed; // mph
 		float downrangeDistance; // mi
@@ -76,6 +78,7 @@ class GroundTrack {
 
 		bool initLog(std::string _logFileName); // Logging intialization function.
 		void jsonEnable(std::string _jsonFileName); // JSON log initialization.
+		void kmlEnable(std::string _kmlFileName); // KML log initialization.
 		void registerCallsign(std::string _callsign); // Add a callsign to the tracking list.
 		bool addPacket(std::string _rawPacket); // Parse and validity check packets; reject untracked callsigns.
 		void printPacket(); // Print the latest packet and other associated data to terminal. (Convert to SI)

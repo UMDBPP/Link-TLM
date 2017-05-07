@@ -98,6 +98,14 @@ BPP::MainProcess::MainProcess() : settings("Prefs/settings.json"), initFail(fals
 	}
 	trackedPackets.jsonEnable(logFile);
 
+	logFile = "";
+	logFile = settings.getString("kmlLogFilename");
+	if(logFile == "") {
+		logFile = "Logs/kmlOutput.kml";
+		std::cerr << "KML file name not specified! Using Logs/kmlOutput.kml.\n";
+	}
+	trackedPackets.kmlEnable(logFile);
+
 	// Set our exit code to false to start:
 	exitCode = false;
 
