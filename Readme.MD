@@ -1,5 +1,5 @@
-Link Telemetry - Version v0.3.0 "Yankee Clipper"
-================================================
+Link Telemetry - Version v1.0 "Odyssey"
+=======================================
 
 University of Maryland Space Systems Lab
 Code written by Nicholas Rossomando
@@ -42,7 +42,10 @@ Building
 --------
 
 Building the code is simple thanks to GNU make. Simply open a commmand line, navigate to the `Link-TLM`
-directory, and run the command `make`. 
+directory, and run the command `make`. If multiple cores are available, the build can be sped up by running
+`make -j $NUM_THREADS`, i.e. `make -j 4` to use 4 threads.
+
+In order to build the Link-TLM testing code, instead run `make test`.
 
 To clean up extra files created during compilation, run `make clean`.
 Logs can be purged by `make logclean`, and the executables themselves can be removed by `make purge`.
@@ -64,7 +67,10 @@ recieved APRS packets.
     -   Set to empty string (`""`) if unused. Defaults to `Logs/unparsedPackets.txt`.
 -   `parsedLogFilename`: Filename/path for log file of packets parsed by radio. Outputs as CSV, currently with extra timestamp.
     -   Set to empty string (`""`) if unused. Defaults to `Logs/parsedPackets.txt`.
--   `liveOutputFilename`: Reserved. Not yet implemented.
+-   `jsonLogFilename`: Filename/path for live JSON file output.
+    -   Set to empty string (`""`) if unused. Defaults to `Logs/jsonOutput.json`.
+-   `kmlLogFilename`: Filename/path for live KML file output.
+    -   Set to empty string (`""`) if unused. Defaults to `Logs/kmlOutput.kml`.
 
 ### regex.json ###
 **NOTE: All special characters *must* be escaped in this file. Currently, that involves doubling all backslashes
@@ -119,8 +125,7 @@ Remaining tasks:
 
 -   Implement non-buggy and non-hacky dropped payload tracking
 -   Implement chase van tracking
--   Implement JSON data export to COSMOS/tracking internal webserver
 -   Revisit and improve radio serial interface
 
-Upon completion of these tasks, Link-TLM will officially be considered feature-complete, and the version number will
-be bumped to 1.0.
+Link-TLM has been bumped to version 1.0; these few remaining features are not considered critical to the software's
+usage, and thus Link-TLM is considered, finally, released! However, development will continue to include these features.
