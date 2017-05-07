@@ -4,7 +4,7 @@
     NearSpace Balloon Payload Program
     
     Written by Nicholas Rossomando
-    2017-03-03
+    2017-05-05
 
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
@@ -24,27 +24,37 @@
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
     SOFTWARE.
 
-    test.cpp:
+    KMLWriter.h:
 
-    Main process for testing framework.
-    Tests all components of Link-TLM independently.
-    Essentially lightweight unit testing.
+    Class to format & write KML files for Google Earth.
+    Works in same "one-shot" manner as JSONWriter.
+    Will allow mapping externally during flight.
 */
 
-#include <iostream>
+#ifndef KML_H
+#define KML_H
+
 #include <string>
+#include <vector>
+#include <fstream>
 
-#include "TestTemplate.h"
-#include "DataStructureTests.h"
+namespace BPP {
 
-#include "Output/KMLWriter.h"
+class KMLWriter {
 
-int main(void) {
-    test_DecodedPacket();
-    test_Packet();
+    public:
+        KMLWriter(std::string _filename);
+        ~KMLWriter();
 
-    BPP::KMLWriter writer("test.kml");
-    writer.addPoint(39.6590f, -77.9300, 700);
+        void addPoint(float _lat, float _lon, int _alt);
 
-    return 0;
-}
+    private:
+        std::vector<std::string> points;
+        std::ofstream logFile;
+        bool logOpen;
+
+}; // KMLWriter
+
+} // BPP
+
+#endif // KML_H

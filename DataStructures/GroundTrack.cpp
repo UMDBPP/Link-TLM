@@ -320,6 +320,7 @@ bool BPP::GroundTrack::addPacket(std::string _rawPacket) {
 
 	// Now, if we've gotten down here, all is good, and we can safely add the packet to the track.
 	groundTracks[tempPacket.getCall()].push_back(tempPacket); // Add the new packet to the end of its callsign vector.
+	capturedPackets++; // Increment number of packets counter
 
 	// Also, shift the array of latest callsigns!
 	latestCallsigns[2] = latestCallsigns[1];

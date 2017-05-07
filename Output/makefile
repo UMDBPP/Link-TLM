@@ -8,10 +8,13 @@ else
 	CC=g++-5
 endif
 
-all: Log.o JSONWriter.o
+all: Log.o JSONWriter.o KMLWriter.o
 
 Log.o: Log.cpp
 	$(CC) Log.cpp $(CFLAGS)
 
 JSONWriter.o: JSONWriter.cpp
 	$(CC) JSONWriter.cpp $(CFLAGS)
+
+KMLWriter.o: KMLWriter.cpp
+	$(CC) KMLWriter.cpp $(CFLAGS)

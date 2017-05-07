@@ -41,6 +41,6 @@ logclean:
 	rm -rf test.txt Logs/*
 
 purge:
-	rm -rf *.o */*.o TestLink Link-TLM test.json
+	rm -rf *.o */*.o TestLink Link-TLM test.*
 
 .PHONY: clean logclean purge

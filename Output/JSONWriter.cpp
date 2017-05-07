@@ -24,7 +24,7 @@
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
     SOFTWARE.
 
-    JSONWriter.h:
+    JSONWriter.cpp:
 
     Wrapper for RapidJSON PrettyWriter class which also handles file I/O.
 */
@@ -51,7 +51,6 @@ BPP::JSONWriter::JSONWriter(std::string _filename) : writer(buf) {
     if(prevFileContents == "") { // If no previous file contents,
         prevFileContents = "["; // Add opening of JSON array
     } else { // If previous contents,
-        std::cerr << prevFileContents << std::endl;
         prevFileContents.pop_back(); // Replace array close with comma.
         prevFileContents.pop_back();
         prevFileContents.pop_back();
