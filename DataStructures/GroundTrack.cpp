@@ -56,7 +56,7 @@ BPP::GroundTrack::GroundTrack() : capturedPackets(0), \
 	groundSpeed(0.0f), \
 	downrangeDistance(0.0f), \
 	timeToImpact(-5), \
-	latlonDerivative { 0.0f, 0.0f }, \ 
+	latlonDerivative { 0.0f, 0.0f }, \
 	latestCallsigns { "", "", "" } { }
 
 // DTOR, trivial:
@@ -388,12 +388,12 @@ void BPP::GroundTrack::printPacket() {
 		jsonOut.addValue("timestamp", packetData.timestamp);
 		jsonOut.addValue("latitude", packetData.lat);
 		jsonOut.addValue("longitude", packetData.lon);
-		jsonOut.addValue("altitude", packetData.alt);
-		jsonOut.addValue("ascent_rate", ascentRate);
-		jsonOut.addValue("ground_speed", groundSpeed);
-		jsonOut.addValue("downrange_distance", downrangeDistance);
-		jsonOut.addValue("lat_rate_change", latlonDerivative[0]);
-		jsonOut.addValue("lon_rate_change", latlonDerivative[1]);
+		jsonOut.addValue("altitude_ft", packetData.alt);
+		jsonOut.addValue("ascent_rate_m_s", ascentRate*0.3048f);
+		jsonOut.addValue("ground_speed_m_s", groundSpeed*0.44704f);
+		jsonOut.addValue("downrange_distance_mi", downrangeDistance);
+		jsonOut.addValue("lat_rate_change_deg_s", latlonDerivative[0]);
+		jsonOut.addValue("lon_rate_change_deg_s", latlonDerivative[1]);
 		if(timeToImpact != -5) {
 			jsonOut.addValue("time_to_sea_level", timeToImpact);
 		}
@@ -403,6 +403,6 @@ void BPP::GroundTrack::printPacket() {
 	// Finally, update KML file with newest packet.
 	if(kmlEnabled) {
 		BPP::KMLWriter kmlOut(kmlFilename);
-		kmlOut.addPoint(packetData.lat, packetData.lon, packetData.alt);
+		kmlOut.addPoint(packetData.lat, packetData.lon, static_cast<int>(packetData.alt/3.2808f));
 	}
 }

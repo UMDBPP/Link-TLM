@@ -1,8 +1,8 @@
 {
-	"balloonCallsigns" : ["W3EAX-8", "W3EAX-12","W3EAX-13"],
+	"balloonCallsigns" : ["W3EAX-8", "W3EAX-12"],
 	"vanCallsigns" : 0,
-	"unparsedLogFilename" : "Logs/NS63_allPackets.txt",
-	"parsedLogFilename" : "Logs/NS63_parsedPackets.txt",
-	"jsonLogFilename" : "Logs/TestJson.json",
-	"kmlLogFilename" : "Logs/TestKML.kml"
+	"unparsedLogFilename" : "Logs/NS64_allPackets.txt",
+	"parsedLogFilename" : "Logs/NS64_parsedPackets.txt",
+	"jsonLogFilename" : "/srv/http/NS-64_Packets.json",
+	"kmlLogFilename" : "/srv/http/NS-64_GroundTrack.kml"
 }
