@@ -62,7 +62,7 @@ BPP::KMLWriter::KMLWriter(std::string _filename) {
 
     // KML header strings
     std::string xmlHead = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<kml xmlns=\"http://www.opengis.net/kml/2.2\">\n<Document>\n";
-    std::string kmlDesc = "<name>Balloon Track</name>\n<Style id=\"gndtrack\">\n<LineStyle>\n<color>da21daff</color>\n<width>4</width>\n</LineStyle>\n<PolyStyle>\n<color>da21da00</color>\n</PolyStyle>\n</Style>\n";
+    std::string kmlDesc = "<name>Balloon Track</name>\n<Style id=\"gndtrack\">\n<LineStyle>\n<color>641400e6</color>\n<width>4</width>\n</LineStyle>\n<PolyStyle>\n<color>5a1400e6</color>\n</PolyStyle>\n</Style>\n";
     std::string openPlacemark = "<Placemark>\n<name>Balloon Ground Track</name>\n<styleUrl>#gndtrack</styleUrl>\n";
     std::string openLinestring = "<LineString>\n<extrude>1</extrude>\n<tessellate>1</tessellate>\n<altitudeMode>absolute</altitudeMode>\n<coordinates>\n";
 
