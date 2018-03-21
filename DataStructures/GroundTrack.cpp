@@ -397,7 +397,7 @@ void BPP::GroundTrack::printPacket() {
 		if(timeToImpact != -5) {
 			jsonOut.addValue("time_to_sea_level", timeToImpact);
 		}
-		jsonOut.addValue("comment", packetData.comment);
+		jsonOut.addValue("comment", packetData.comment); 
 	}
 
 	// Finally, update KML file with newest packet.

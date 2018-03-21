@@ -1,0 +1,53 @@
+#!/usr/bin/env python3
+#
+# Copyright (c) 2015-2018 University of Maryland Space Systems Lab
+# NearSpace Balloon Payload Program
+#
+# Licensed under the MIT license. See LICENSE file for details.
+#
+# Here's a little app to do settings configuration for Link-TLM.
+# I highly recommend using this instead of manually editing the JSON file.
+# This should prevent any malformed JSON issues, and ensure everything is copacetic.
+#
+# Usage: It's a GUI app. Just do ./Link-TLM-Configurator.
+#
+# 2018-03-20    Nick Rossomando
+#
+
+import json
+
+class Settings:
+    def __init__(self):
+        # Init settings to on board, use on board, keep on board defaults.
+        self.balloonCallsigns = ["W3EAX-9"]
+        self.vanCallsigns = 0
+        self.unparsedLogFilename = "Logs/unparsedPackets.txt"
+        self.parsedLogFilename = "Logs/parsedPackets.txt"
+        self.jsonLogFilename = "Logs/jsonOutput.json"
+        self.kmlLogFilename = "Logs/kmlOutput.kml"
+
+    def write_settings(self):
+        setDict = {}
+        setDict["balloonCallsigns"] = self.balloonCallsigns
+        setDict["vanCallsigns"] = self.vanCallsigns
+        setDict["unparsedLogFilename"] = self.unparsedLogFilename
+        setDict["parsedLogFilename"] = self.parsedLogFilename
+        setDict["jsonLogFilename"] = self.jsonLogFilename
+        setDict["kmlLogFilename"] = self.kmlLogFilename
+
+        with open("Prefs/settings.json","w") as f:
+            f.write(json.dumps(setDict, indent=4))
+            f.write('\n\n')
+
+    def load_settings(self):
+        with open("Prefs/settings.json","r") as f:
+            setDict = json.load(f)
+        
+
+def main():
+    print("Do stuff here.")
+    test = Settings()
+    test.load_settings()
+
+if __name__ == "__main__":
+    main()
