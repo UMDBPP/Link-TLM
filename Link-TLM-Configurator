@@ -15,18 +15,30 @@
 #
 
 import json
+import re
+import os
+import wx
 
 class Settings:
     def __init__(self):
-        # Init settings to on board, use on board, keep on board defaults.
-        self.balloonCallsigns = ["W3EAX-9"]
-        self.vanCallsigns = 0
-        self.unparsedLogFilename = "Logs/unparsedPackets.txt"
-        self.parsedLogFilename = "Logs/parsedPackets.txt"
-        self.jsonLogFilename = "Logs/jsonOutput.json"
-        self.kmlLogFilename = "Logs/kmlOutput.kml"
+        # Init settings to on board/use on board/keep on board defaults.
+        self.reset_defaults()
 
-    def write_settings(self):
+    def create_gui_element(self, panel):
+        utils = GUIUtils()
+
+        self.saveButton = utils.make_button(panel, "Save Settings", self.write_settings)
+        self.loadButton = utils.make_button(panel, "Load Settings", self.load_settings)
+        self.resetButton = utils.make_button(panel, "Reset Defaults", self.reset_defaults)
+
+        return utils.horiz_box(self.loadButton, self.resetButton, self.saveButton)
+    
+    # Write out the current settings to file
+    def write_settings(self, event):
+        # Build latest settings from metadata:
+        self.build_settings()
+
+        # Dump settings into dictionary from json module
         setDict = {}
         setDict["balloonCallsigns"] = self.balloonCallsigns
         setDict["vanCallsigns"] = self.vanCallsigns
@@ -35,19 +47,294 @@ class Settings:
         setDict["jsonLogFilename"] = self.jsonLogFilename
         setDict["kmlLogFilename"] = self.kmlLogFilename
 
+        # Write out file using json serializer
         with open("Prefs/settings.json","w") as f:
             f.write(json.dumps(setDict, indent=4))
             f.write('\n\n')
-
-    def load_settings(self):
+    
+    # Load up settings from current settings file
+    def load_settings(self, event):
+        # Load into dictionary from file with json serializer
         with open("Prefs/settings.json","r") as f:
             setDict = json.load(f)
         
+        # Extract from dictionary into class variables
+        self.balloonCallsigns = setDict["balloonCallsigns"]
+        self.vanCallsigns = setDict["vanCallsigns"]
+        self.unparsedLogFilename = setDict["unparsedLogFilename"]
+        self.parsedLogFilename = setDict["parsedLogFilename"]
+        self.jsonLogFilename = setDict["jsonLogFilename"]
+        self.kmlLogFilename = setDict["kmlLogFilename"]
 
-def main():
-    print("Do stuff here.")
-    test = Settings()
-    test.load_settings()
+        self.extract_metadata()
+        event.Skip()
+    
+    # If, for some reason, you want the defaults, call this.
+    def reset_defaults(self, event=None):
+        self.balloonCallsigns = ["W3EAX-9"]
+        self.vanCallsigns = 0
+        self.unparsedLogFilename = "Logs/unparsedPackets.txt"
+        self.parsedLogFilename = "Logs/parsedPackets.txt"
+        self.jsonLogFilename = "Logs/jsonOutput.json"
+        self.kmlLogFilename = "Logs/kmlOutput.kml"
+
+        self.extract_metadata()
+        self.metaSettings["launch"] = "NS0" # This'll break on the defaults; manually set.
+
+        if event is not None:
+            event.Skip()
+
+    # Extract metadata from settings (i.e. Launch Number and whatnot)
+    def extract_metadata(self):
+        self.metaSettings = {}
+
+        # Callsigns are same...
+        # Not doing vans or dropped stuff yet.
+        self.metaSettings["cs"] = self.balloonCallsigns
+
+        # Launch number from filenames:
+        self.metaSettings["launch"] = self.parsedLogFilename.split("/")[-1][0:4]
+
+        # Get directory paths:
+        fn = self.unparsedLogFilename.split("/")[-1]
+        self.metaSettings["unparsedPath"] = self.unparsedLogFilename.replace(fn, "")
+        fn = self.parsedLogFilename.split("/")[-1]
+        self.metaSettings["parsedPath"] = self.parsedLogFilename.replace(fn, "")
+        fn = self.jsonLogFilename.split("/")[-1]
+        self.metaSettings["jsonPath"] = self.jsonLogFilename.replace(fn, "")
+        fn = self.kmlLogFilename.split("/")[-1]
+        self.metaSettings["kmlPath"] = self.kmlLogFilename.replace(fn, "")
+    
+    # Turn current metadata into writeable settings.
+    def build_settings(self):
+        self.balloonCallsigns = self.metaSettings["cs"]
+
+        self.unparsedLogFilename = self.metaSettings["unparsedPath"] + self.metaSettings["launch"] + "_allPackets.txt"
+        self.parsedLogFilename = self.metaSettings["parsedPath"] + self.metaSettings["launch"] + "_parsedPackets.txt"
+        self.jsonLogFilename = self.metaSettings["jsonPath"] + self.metaSettings["launch"] + "_packets.json"
+        self.kmlLogFilename = self.metaSettings["kmlPath"] + self.metaSettings["launch"] + "_groundTrack.kml"
+
+# Handle interaction with text fields & whatnot.
+class UserIO():
+    def __init__(self):
+        self.GUI_RED = wx.Colour(255,0,0,150)
+        self.valid = {}
+        self.valid["Launch"] = True
+        self.valid["CS"] = True
+        self.valid["Raw"] = True
+        self.valid["Parsed"] = True
+        self.valid["JSON"] = True
+        self.valid["KML"] = True
+
+    def create_gui_element(self, panel):
+        utils = GUIUtils()
+
+        self.launchField = utils.make_text_field(panel, "Launch Number:", 60, self.validate_launch_num)
+        self.csField = utils.make_text_field(panel, "Callsigns:", 250, self.validate_callsigns)
+        self.unparsedPathField = utils.make_text_field(panel, "Raw Packet Log Folder:", 200, self.validate_unparsed_path)
+        self.parsedPathField = utils.make_text_field(panel, "Parsed Packet Log Folder:", 200, self.validate_parsed_path)
+        self.jsonPathField = utils.make_text_field(panel, "JSON Log Folder:", 200, self.validate_json_path)
+        self.kmlPathField = utils.make_text_field(panel, "KML Folder:", 250, self.validate_kml_path)
+
+        return utils.vert_box(self.launchField, self.csField, self.unparsedPathField, self.parsedPathField, self.jsonPathField, self.kmlPathField)
+
+    def validate_launch_num(self, event):
+        text = event.GetString()
+
+        if (text[0:2] != "NS") or (not text[2:].isdigit()):
+            self.valid["Launch"] = False
+            self.launchField.GetChildren()[2].GetWindow().SetBackgroundColour(self.GUI_RED)
+        else:
+            self.valid["Launch"] = True
+            self.launchField.GetChildren()[2].GetWindow().SetBackgroundColour(wx.WHITE)
+
+    def validate_callsigns(self, event):
+        calls = event.GetString().split(",")
+        
+        for callsign in calls:
+            # Match callsigns on the same pattern used by Link-TLM.
+            if not re.match("[A-Z]{1,2}\\d[A-Z]{2,3}(-\\d{1,2})?", callsign):
+                self.valid["CS"] = False
+                self.csField.GetChildren()[2].GetWindow().SetBackgroundColour(self.GUI_RED)
+                break
+            else:
+                self.valid["CS"] = True
+                self.csField.GetChildren()[2].GetWindow().SetBackgroundColour(wx.WHITE)
+
+    def validate_unparsed_path(self, event):
+        path = event.GetString()
+
+        if (len(path) == 0) or (path[-1] != "/") or (not os.path.isdir(path)) or (not os.access(path, os.W_OK)):
+            self.valid["Raw"] = False
+            self.unparsedPathField.GetChildren()[2].GetWindow().SetBackgroundColour(self.GUI_RED)
+        else:
+            self.valid["Raw"] = True
+            self.unparsedPathField.GetChildren()[2].GetWindow().SetBackgroundColour(wx.WHITE)
+
+    def validate_parsed_path(self, event):
+        path = event.GetString()
+
+        if (len(path) == 0) or (path[-1] != "/") or (not os.path.isdir(path)) or (not os.access(path, os.W_OK)):
+            self.valid["Parsed"] = False
+            self.parsedPathField.GetChildren()[2].GetWindow().SetBackgroundColour(self.GUI_RED)
+        else:
+            self.valid["Parsed"] = True
+            self.parsedPathField.GetChildren()[2].GetWindow().SetBackgroundColour(wx.WHITE)
+
+    def validate_json_path(self, event):
+        path = event.GetString()
+
+        if (len(path) == 0) or (path[-1] != "/") or (not os.path.isdir(path)) or (not os.access(path, os.W_OK)):
+            self.valid["JSON"] = False
+            self.jsonPathField.GetChildren()[2].GetWindow().SetBackgroundColour(self.GUI_RED)
+        else:
+            self.valid["JSON"] = True
+            self.jsonPathField.GetChildren()[2].GetWindow().SetBackgroundColour(wx.WHITE)
+    
+    def validate_kml_path(self, event):
+        path = event.GetString()
+
+        if (len(path) == 0) or (path[-1] != "/") or (not os.path.isdir(path)) or (not os.access(path, os.W_OK)):
+            self.valid["KML"] = False
+            self.kmlPathField.GetChildren()[2].GetWindow().SetBackgroundColour(self.GUI_RED)
+        else:
+            self.valid["KML"] = True
+            self.kmlPathField.GetChildren()[2].GetWindow().SetBackgroundColour(wx.WHITE)
+
+# Handle interaction between classes and set up the app.
+class MainApp():
+    def __init__(self):
+        # Prep wxPython:
+        self.app = wx.App()
+        self.frame = wx.Frame(None, title="Link-TLM Configurator", size=wx.Size(350,300), style=wx.MINIMIZE_BOX | wx.MAXIMIZE_BOX | wx.SYSTEM_MENU | wx.CAPTION | wx.CLOSE_BOX | wx.CLIP_CHILDREN)
+        self.panel = wx.Panel(self.frame)
+
+        # Prep internal classes:
+        self.sett = Settings()
+        self.UI = UserIO()
+
+        # Build GUI:
+        layout = wx.BoxSizer(wx.VERTICAL)
+        layout.Add(self.sett.create_gui_element(self.panel), 0, wx.ALIGN_LEFT)
+        layout.Add(self.UI.create_gui_element(self.panel), 0, wx.ALIGN_LEFT)
+
+        self.panel.SetSizer(layout)
+        self.panel.Layout()
+
+        # Set some callbacks:
+        self.sett.loadButton.Bind(wx.EVT_BUTTON, self.update_fields_on_load, self.sett.loadButton)
+        self.sett.resetButton.Bind(wx.EVT_BUTTON, self.update_fields_on_load, self.sett.resetButton)
+        self.panel.Bind(wx.EVT_TEXT, self.update_settings_if_valid, self.UI.csField.GetChildren()[2].GetWindow())
+        self.panel.Bind(wx.EVT_TEXT, self.update_settings_if_valid, self.UI.launchField.GetChildren()[2].GetWindow())
+        self.panel.Bind(wx.EVT_TEXT, self.update_settings_if_valid, self.UI.unparsedPathField.GetChildren()[2].GetWindow())
+        self.panel.Bind(wx.EVT_TEXT, self.update_settings_if_valid, self.UI.parsedPathField.GetChildren()[2].GetWindow())
+        self.panel.Bind(wx.EVT_TEXT, self.update_settings_if_valid, self.UI.jsonPathField.GetChildren()[2].GetWindow())
+        self.panel.Bind(wx.EVT_TEXT, self.update_settings_if_valid, self.UI.kmlPathField.GetChildren()[2].GetWindow())
+
+        # Go!
+        self.update_fields_on_load()
+        self.frame.Show()
+        self.app.MainLoop()
+
+    def update_fields_on_load(self, event=None):
+
+        # Hack to get event order right. Turns out GUIs and modularuity don't go together!
+        if event is not None:
+            wx.CallAfter(self.update_fields_on_load, event=None)
+            event.Skip()
+            return
+
+        self.UI.launchField.GetChildren()[2].GetWindow().SetValue(self.sett.metaSettings["launch"])
+        self.UI.unparsedPathField.GetChildren()[2].GetWindow().SetValue(self.sett.metaSettings["unparsedPath"])
+        self.UI.parsedPathField.GetChildren()[2].GetWindow().SetValue(self.sett.metaSettings["parsedPath"])
+        self.UI.jsonPathField.GetChildren()[2].GetWindow().SetValue(self.sett.metaSettings["jsonPath"])
+        self.UI.kmlPathField.GetChildren()[2].GetWindow().SetValue(self.sett.metaSettings["kmlPath"])
+
+        callstring = ""
+        for cs in self.sett.metaSettings["cs"]:
+            callstring += cs
+            callstring += ","
+        callstring = callstring[0:-1] # Hack off the trailing comma...
+        self.UI.csField.GetChildren()[2].GetWindow().SetValue(callstring)
+
+    def update_settings_if_valid(self, event=None):
+        
+        # Hack to get order right (as above):
+        if event is not None:
+            wx.CallAfter(self.update_settings_if_valid, event=None)
+            event.Skip()
+            return
+
+        for key in self.UI.valid:
+            # Stop if any field is invalid
+            if self.UI.valid[key] == False:
+                return
+        
+        # If all good, update metaSettings:
+        self.sett.metaSettings["launch"] = self.UI.launchField.GetChildren()[2].GetWindow().GetValue()
+        self.sett.metaSettings["unparsedPath"] = self.UI.unparsedPathField.GetChildren()[2].GetWindow().GetValue()
+        self.sett.metaSettings["parsedPath"] = self.UI.parsedPathField.GetChildren()[2].GetWindow().GetValue()
+        self.sett.metaSettings["jsonPath"] = self.UI.jsonPathField.GetChildren()[2].GetWindow().GetValue()
+        self.sett.metaSettings["kmlPath"] = self.UI.kmlPathField.GetChildren()[2].GetWindow().GetValue()
+        self.sett.metaSettings["cs"] = self.UI.csField.GetChildren()[2].GetWindow().GetValue().split(",")
+
+# Some handy stuff for working with the GUI.
+# Really just to help clean up the code; may have some reusability
+class GUIUtils():
+    # Create and return horizontal BoxSizer.
+    # Arguments are wx.Window-s from left to right (visually on GUI).
+    def horiz_box(self, *arguments):
+        box = wx.BoxSizer(wx.HORIZONTAL)
+
+        # Add each widget, and a spacer after
+        for widget in arguments:
+            box.Add(widget, 0, wx.ALIGN_CENTER_HORIZONTAL|wx.ALL, 5)
+            box.AddStretchSpacer(1)
+        
+        # Delete the last spacer to align to right side of window.
+        box.Remove(box.GetItemCount() - 1)
+        return box
+
+    # Create and return vertical BoxSizer.
+    # Arguments are wx.Window-s from top to bottom (visually)
+    def vert_box(self, *arguments):
+        box = wx.BoxSizer(wx.VERTICAL)
+
+        # Add each widget. No spacer.
+        for widget in arguments:
+            box.Add(widget, 0, wx.ALIGN_LEFT|wx.ALL, 5)
+
+        return box
+
+    # Create a button with a given label in a given panel.
+    # Binds it to the given callback function.
+    def make_button(self, panel, label, callback):
+        button = wx.Button(panel, label=label)
+        panel.Bind(wx.EVT_BUTTON, callback, button)
+
+        return button
+
+    # Creates an input field with an associated label and width.
+    # Also sticks a callback on the field.
+    def make_text_field(self, panel, label, width, callback):
+        fieldFont = wx.Font(wx.FontInfo(10).AntiAliased().Family(wx.FONTFAMILY_SWISS))
+        labelFont = wx.Font(wx.FontInfo(10).AntiAliased().Family(wx.FONTFAMILY_SWISS).Bold())
+        box = wx.BoxSizer(wx.HORIZONTAL)
+
+        # Make the label text:
+        textLabel = wx.StaticText(panel, label=label)
+        textLabel.SetFont(labelFont)
+
+        # Now the field:
+        textField = wx.TextCtrl(panel, size=wx.Size(width, -1))
+        textField.SetFont(fieldFont)
+        panel.Bind(wx.EVT_TEXT, callback, textField)
+
+        # Toss 'em in the box:
+        box.Add(textLabel, 0, wx.ALIGN_CENTER_HORIZONTAL|wx.ALL, 5)
+        box.AddSpacer(5)
+        box.Add(textField, 0, wx.ALIGN_CENTER_HORIZONTAL|wx.ALL, 0)
+        return box
 
 if __name__ == "__main__":
-    main()
+    MainApp()
