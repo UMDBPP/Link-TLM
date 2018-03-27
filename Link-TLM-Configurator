@@ -130,11 +130,11 @@ class UserIO():
         utils = GUIUtils()
 
         self.launchField = utils.make_text_field(panel, "Launch Number:", 60, self.validate_launch_num)
-        self.csField = utils.make_text_field(panel, "Callsigns:", 250, self.validate_callsigns)
-        self.unparsedPathField = utils.make_text_field(panel, "Raw Packet Log Folder:", 200, self.validate_unparsed_path)
-        self.parsedPathField = utils.make_text_field(panel, "Parsed Packet Log Folder:", 200, self.validate_parsed_path)
-        self.jsonPathField = utils.make_text_field(panel, "JSON Log Folder:", 200, self.validate_json_path)
-        self.kmlPathField = utils.make_text_field(panel, "KML Folder:", 250, self.validate_kml_path)
+        self.csField = utils.make_text_field(panel, "Callsigns:", 6000, self.validate_callsigns)
+        self.unparsedPathField = utils.make_text_field(panel, "Raw Packet Log Folder:", 6000, self.validate_unparsed_path)
+        self.parsedPathField = utils.make_text_field(panel, "Parsed Packet Log Folder:", 6000, self.validate_parsed_path)
+        self.jsonPathField = utils.make_text_field(panel, "JSON Log Folder:", 6000, self.validate_json_path)
+        self.kmlPathField = utils.make_text_field(panel, "KML Folder:", 6000, self.validate_kml_path)
 
         return utils.vert_box(self.launchField, self.csField, self.unparsedPathField, self.parsedPathField, self.jsonPathField, self.kmlPathField)
 
@@ -206,7 +206,7 @@ class MainApp():
     def __init__(self):
         # Prep wxPython:
         self.app = wx.App()
-        self.frame = wx.Frame(None, title="Link-TLM Configurator", size=wx.Size(350,300), style=wx.MINIMIZE_BOX | wx.MAXIMIZE_BOX | wx.SYSTEM_MENU | wx.CAPTION | wx.CLOSE_BOX | wx.CLIP_CHILDREN)
+        self.frame = wx.Frame(None, title="Link-TLM Configurator", size=wx.Size(400,350))
         self.panel = wx.Panel(self.frame)
 
         # Prep internal classes:
@@ -215,8 +215,8 @@ class MainApp():
 
         # Build GUI:
         layout = wx.BoxSizer(wx.VERTICAL)
-        layout.Add(self.sett.create_gui_element(self.panel), 0, wx.ALIGN_LEFT)
-        layout.Add(self.UI.create_gui_element(self.panel), 0, wx.ALIGN_LEFT)
+        layout.Add(self.sett.create_gui_element(self.panel), 0, wx.ALIGN_LEFT|wx.EXPAND)
+        layout.Add(self.UI.create_gui_element(self.panel), 0, wx.ALIGN_LEFT|wx.EXPAND)
 
         self.panel.SetSizer(layout)
         self.panel.Layout()
