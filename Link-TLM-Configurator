@@ -108,6 +108,7 @@ class Settings:
     # Turn current metadata into writeable settings.
     def build_settings(self):
         self.balloonCallsigns = self.metaSettings["cs"]
+        self.vanCallsigns = 0 # Ensure this stays off.
 
         self.unparsedLogFilename = self.metaSettings["unparsedPath"] + self.metaSettings["launch"] + "_allPackets.txt"
         self.parsedLogFilename = self.metaSettings["parsedPath"] + self.metaSettings["launch"] + "_parsedPackets.txt"
