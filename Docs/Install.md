@@ -39,7 +39,7 @@ Before installing dependencies, it may be wise to `sudo apt-get update && sudo a
 - `ncurses` can be found in the `ncurses-dev` package: `sudo apt-get install ncurses-dev`
 - `git` is as easy as `sudo apt-get install git`
 
-**WARNING**: If you are runnning a Linux distribution which has not updated in a long time (like CentOS), 
+**WARNING**: If you are running a Linux distribution which has not updated in a long time (like CentOS), 
 you will likely find that you are _way_ behind on compiler support. You may need to check your compiler 
 version and install a newer version manually. The build process tries to figure out using g++ 5 if you 
 have multiple versions, but it's kinda hacky and never really worked right.

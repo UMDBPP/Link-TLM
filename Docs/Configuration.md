@@ -89,4 +89,4 @@ turn red to let you know something's wrong. `Link-TLM-Configurator` will not sav
 
 That's really it! Once all the boxes are filled out and not red, **make sure you hit save**, and then `Link-TLM` is ready to go!
 
-_Where to next? You probably want [Running Link-TLM](./Running.md)_
+_Where to next? You probably want [Running Link-TLM](./Usage.md)_
